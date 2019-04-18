@@ -2,3 +2,7 @@ html {
 	background-image: url("wallpaper.jpg");
 	background-size: cover;
 }
+h1 {
+	color: #fef9e7;
+	text-align: center;
+}
