@@ -1,3 +1,15 @@
+h2{
+	text-align: center;
+}
+p{
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.bg-1 {
+	background-color: d3d3d3;
+}
 .center {
 	display: block;
 	margin:auto;
@@ -7,6 +19,7 @@
   padding-top: 70px;
   padding-bottom: 70px;
 }
+
 
 /*h1 {
 	color: #fef9e7;
