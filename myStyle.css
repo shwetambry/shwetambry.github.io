@@ -1,8 +1,42 @@
-html {
-	background-image: url("wallpaper.jpg");
-	background-size: cover;
+.center {
+	display: block;
+	margin:auto;
+	width: 50%; 
 }
-h1 {
+#me_section {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+/*h1 {
 	color: #fef9e7;
 	text-align: center;
 }
+#menuitems {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	z-index: 30;
+	float: right;
+
+}
+#menuitems li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	
+}
+#menuitems li a {
+	display: block;
+	margin: 0 1px 0 0;
+	padding: 4px 10px;
+	width: 100%;
+	color: #fef9e7;
+	font: bold 20px serif;
+	text-align: center;
+	text-decoration: none;
+}
+#menuitems li a:hover{
+	background: #49A3FF;
+}*/
