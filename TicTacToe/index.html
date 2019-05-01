@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Tic Tac Toe </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="board.js"></script>
+</head>
+<body>
+	<div class="container text-center" >
+		<h1> Tic Tac Toe </h1>
+		<div class="container">
+			<h3> Which symbol would you like to choose? </h3>
+			<form>
+    			<label class="radio-inline">
+      				<input type="radio" name="optradio" value="X" checked>X
+    			</label>
+    			<label class="radio-inline">
+      				<input type="radio" name="optradio" value="O">O
+    			</label>
+    		</form>
+    		<div style="padding-top: 13px;">
+    		<input type = "reset" id="reset" value="Reset or Play again" style="color: white;background-color:black; padding-top: 5px"> </input>
+			</div>
+  
+		</div>
+		<table style="position: absolute;top: 40%; left: 50%;transform: translateX(-50%);">
+		<tr class="row" >
+			<td><button type="button" class="btn btn-primary btn-lg" 
+				id = "00"> ? </button>  </td>
+			<td><button type="button" class="btn btn-primary btn-lg" 
+				id = "01"> ? </button>  </td>
+			<td><button type="button" class="btn btn-primary btn-lg" 
+				id="02"> ? </button>  </td>
+			
+		<tr class="row">
+			<td><button type="button" class="btn btn-primary btn-lg" id = "10"
+				> ? </button>  </td>
+			<td><button type="button" class="btn btn-primary btn-lg" id = "11"
+				> ? </button>  </td>
+			<td><button type="button" class="btn btn-primary btn-lg" id = "12"
+				> ? </button> </td>
+			
+		<tr class="row">
+			<td><button type="button" class="btn btn-primary btn-lg" id = "20"
+				> ? </button> </td>
+			<td><button type="button" class="btn btn-primary btn-lg" id = "21"
+				> ? </button> </td>
+			<td><button type="button" class="btn btn-primary btn-lg" id = "22"
+				> ? </button> </td>
+		</tr>
+
+		</table>
+		<h3 id = "msg"> Click a square of your choice. </h3>
+	</div>
+	<script type="text/javascript">
+		buttons = document.getElementsByTagName('button');
+for(var i = 0; i< but.length; i++){
+	buttons[i].textContent = '?';
+}
+	</script>
+</body>
+</html>
