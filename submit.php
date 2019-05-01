@@ -8,9 +8,14 @@
 $name = $_REQUEST['name'];
 $phone = $_REQUEST['phone'];
 $email = $_REQUEST['email'];
-$message = $_REQUEST['msg'];
+$msg = $_REQUEST['msg'];
+$myEmail = 'shwetambry@yahoo.co.in';
+$subject = "Message from $name from github webpage";
+$message = "There is a message from $name whose phone number is $phone and email address 
+is $email. The message follows: <br> $msg";
 
-mail();
+mail($myEmail,$subject,$message);
+echo $name;
 echo "Your message has been sent. ";
 ?>
 
