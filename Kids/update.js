@@ -4,10 +4,13 @@ var correctM = 0;
 var attemptA = 0;
 var attemptS = 0;
 var attemptM = 0;
+var level = 'hardP';
+var size = 3;
 var num1 = 397;
 var num2 = 146;
 var panelToShow = 'add';
 var tmpAr=setsymb(panelToShow);
+
 $(document).ready(function(){
 		$('button.menu').click(function(){
 			$('button.menu.active').removeClass('active');
@@ -15,6 +18,7 @@ $(document).ready(function(){
 			panelToShow=$(this).attr('id');
 			tmpAr = setsymb(panelToShow);
 			$('.main-body #panel').slideUp(300,function(){
+				$('#next').trigger('click');
 				$('#namePanel').html(tmpAr[0]);
 				var cont = num1 + tmpAr[1]+num2 + "=";
 				$('#statement').html(cont);
@@ -23,15 +27,57 @@ $(document).ready(function(){
 			
 		});
 
+		$('#toggle_button').click(function(){
+			level = $(this).attr('data-lv');
+			if(level=='hardP'){
+				$(this).text("Get harder problems");
+				$(this).attr('data-lv','easyP');
+				$('#panel .prob .hard').css('display','none')
+				level='easyP';
+				size = 2;
+			}
+			else {
+				$(this).text("Get easier problems");
+				$(this).attr('data-lv','hardP');
+				$('#panel .prob .hard').css('display','inline-block');
+				level='hardP';
+				size = 3;
+			}
+			$('#next').trigger('click');
+				
+		});
+
 		$('#next').click(function(){
-			num1 = Math.floor(Math.random()*1000);
-			if(tmpAr[1]=='x'){num2 =Math.floor(Math.random()*10) }
-			else {num2 = Math.floor(Math.random()*num1);}
+			$('button.helpB').prop('disabled',false);
+			if(level == 'hardP'){
+				num1_1 = Math.floor(Math.random()*10);
+				num1_2 = Math.floor(Math.random()*9)+1;
+				num1_3 = Math.floor(Math.random()*10);
+				num1 = (100*num1_1) + (10*num1_2)+ num1_3;
+				if(tmpAr[1]=='x'){num2 =Math.floor(Math.random()*9)+1; }
+				else {num2 = Math.floor(Math.random()*num1);}
+			}
+			else{
+				if(tmpAr[1]=='x'){
+					num2 = 2;
+					num1_1 = Math.floor(Math.random()*4)+1;
+					num1_2 = Math.floor(Math.random()*5);
+				}
+				else{
+					num1_1 = Math.floor(Math.random()*9)+1;
+					num1_2 = Math.floor(Math.random()*10);
+					num2_1 = Math.floor(Math.random()*(Math.min(num1_1,10-num1_1)));
+					num2_2 = Math.floor(Math.random()*(Math.min(num1_2,10-num1_2)));
+					num2 = 10*num2_1 + num2_2;
+				}
+				num1 = 10*num1_1 + num1_2;
+					
+			}
 			st1 = num1.toString(10);
 			st2 = num2.toString(10);
 			setProb('n1',st1);
 			setProb('n2',st2);
-			var context = num1 + tmpAr[1] +num2 +"=";
+			var context = num1 +" "+ tmpAr[1]+" " +num2 +" = ";
 			$('#statement').html(context);
 			$('.clear').val("").change();
 			$('#msg').html("");
@@ -52,79 +98,26 @@ $(document).ready(function(){
 			
 		});
 
+		$('.carry').keyup(function(){
+			$carID = $(this).attr('id');
+			if(tmpAr[1]=='-'){
+				$(this).siblings('#n1'+$carID[$carID.length-1]).css('color','lightgray');
+			}
+
+		});
+
 		$('button.helpB').click(function(){
 			var id=$(this).attr("id");
 			if(id=="no"){
 				$('#helpContent').html("All the very best!!");
 			}
 			else{
+				var size;
 				$(this).prop('disabled',true);
-				var ctx = "";
-				var $a = $('#n13').val();
-				var $b = $('#n23').val();
-				var $x = $('#carry2').val();
-				var tmpAns = correctAns($a,$b,tmpAr[1]).toString();
-				if(tmpAns.length==2){$x=tmpAns[0];}
-				else{$x='0';}
-				ctx = "<p id = 'tmp'>First do "+$a + tmpAr[1]+$b + ".";
-				changeCol(['n13','n23','tmp'],['yellow','yellow','yellow']);
-				$('#helpContent').html(ctx);
+				$('#check').prop('disabled',true);
+				
 				if(tmpAr[1]=='+'){
-					setTimeout(function(){
-						
-						ctx += "<p id = 'tmp1'>"+$a + tmpAr[1]+$b +" = " +tmpAns +"</p>";
-						changeCol(['res3','carry2','tmp1'],['orange','orange','orange']);
-						$('#helpContent').html(ctx);
-						$('#res3').val(tmpAns[tmpAns.length-1]);
-						if(tmpAns.length==2){
-							$('#carry2').val(tmpAns[0]);
-							
-						}
-					},2000);
-					
-					
-					var $c = $('#n12').val();
-					var $d = $('#n22').val();
-					var $y = $('#carry1').val();
-					var tmpAns2 = correctAns(correctAns($c,$d,tmpAr[1]).toString(),$x,tmpAr[1]).toString();
-					if(tmpAns2.length==2){$y=tmpAns2[0];}
-					else{$y='0';}
-					setTimeout(function(){
-						ctx+= "<p id='tmp2'> Next add "+ $x+ tmpAr[1]+$c+tmpAr[1]+$d+".</p>"
-						changeCol(['carry2','n13','n23','n12','n22','res3','tmp2'],
-							['yellow', 'white','white','yellow','yellow','white','yellow']);
-						$('#helpContent').html(ctx);
-					},5000);
-
-					setTimeout(function(){
-						ctx += "<p id = 'tmp3'>"+
-						$x + tmpAr[1]+ $c + tmpAr[1] + $d + " = " +tmpAns2 +"</p>";
-						changeCol(['res2','carry1','tmp3'],['orange','orange','orange']);
-						$('#helpContent').html(ctx);
-						$('#res2').val(tmpAns2[tmpAns2.length-1]);
-						if(tmpAns2.length==2){
-							$('#carry1').val(tmpAns2[0]);
-							$y = tmpAns2[0];
-						}
-						
-					},10000);
-					var $e = $('#n11').val();
-					var $f = $('#n21').val();
-					var tmpAns3 = correctAns(correctAns($e,$f,tmpAr[1]).toString(),$y,tmpAr[1]).toString();
-					
-					
-					setTimeout(function(){
-						
-						ctx+="<p id='tmp4'>"+ $y+tmpAr[1]+$e+tmpAr[1]+$f+"="+tmpAns3+"</p";
-						changeCol(['res1','res2','carry2','n12','n22','carry1','n11','n21'],
-							['orange','white','white','white','white','yellow','yellow','yellow']);
-						$('#helpContent').html(ctx);
-						$('#res1').val(tmpAns3);
-					},15000);
-					setTimeout(function(){
-						changeCol(['res1','n11','n21','carry1'],['white','white','white','white']);
-					
-					},18000)
+					helpAdd();
 				}
 				else if(tmpAr[1]=='-'){
 					helpSub();
@@ -137,7 +130,179 @@ $(document).ready(function(){
 
 });
 
+function helpAdd(){
+	var ctx="";
+	ctx+="<p>First ";
+	$('#helpContent').html(ctx);
+	carryOrNot(3,ctx);
+	
+}
+function carryOrNot(idx,txt){
+	var a = Number($('#n1'+idx).val());
+	var b = Number($('#n2'+idx).val());
+	var t=$('#carry'+idx).val();
+	
+	changeCol(['n1'+idx,'n2'+idx],['yellow','yellow']);
+	
+	if(idx!=3){txt+="<p> Next ";}
+	txt+=" do ";
+	if(t==''){
+		t=0;
+		txt+= a+" + "+b+".</p> <p> ";
+	}
+	else{
+		changeCol(['carry'+idx],['yellow']);
+		txt+= t+" + "+a+" + "+b+".</p> <p> "+t+" + ";
+	}
+	var tmpAns = correctAns(correctAns(a,b,'+'),t,'+');
+	txt += a + ' + '+b +" = " +tmpAns +".</p>";
+	$('#helpContent').html(txt);
+	
+	var q = Math.floor(tmpAns/10);
 
+	setTimeout(function(){
+		changeCol(['res'+idx],['orange']);
+		if(idx == 1){
+			$('#res'+idx).val(tmpAns);
+			setTimeout(function(){
+				changeCol(['n1'+idx,'n2'+idx,'carry'+idx,'res'+idx],
+					['white','white','white','white']);
+			},4000);
+		}
+		else {
+			$('#res'+idx).val(tmpAns%10);
+			if(q!=0){
+				$('#carry'+(idx-1)).val(q);
+				changeCol(['carry'+(idx-1)],['orange']);
+			}
+			setTimeout(function(){
+				changeCol(['n1'+idx,'n2'+idx,'carry'+idx,'carry'+(idx-1),'res'+idx],
+					['white','white','white','white','white']);
+				setTimeout(function(){
+					carryOrNot(idx-1,txt);
+				},4000);
+			
+			},4000);
+		}
+	},4000);
+	
+		
+}
+function helpSub(){
+	var ctx = "";
+	var a = Number($('#n13').val());
+	var b = Number($('#n23').val());
+	var t = Number($('#carry1').val());
+	ctx="<p>First check "+a+" - "+b+".</p>";
+	var curIdx = 3;
+	changeCol(['n1'+curIdx,'n2'+curIdx],['yellow','yellow']);
+	$('#helpContent').html(ctx);
+	borrowOrNot(a,b,curIdx,ctx);
+}
+
+function borrowOrNot(a,b,idx,txt){
+	var t=0;
+	if(a>=b){
+		setTimeout(function(){
+			txt+="<p>Take away "+b +" from " + a+".</p>";
+			$('#helpContent').html(txt);
+			setTimeout(function(){
+				changeCol(['res'+idx],['orange']);
+				$('#res'+idx).val(correctAns(a,b,'-'));
+				txt+="<p>"+a+" - "+b+" = "+correctAns(a,b,'-');
+				$('#helpContent').html(txt);
+				
+			},4000);
+			
+		},4000);
+	}
+	else{
+		t=10+a;
+		var precV = Number($('#n1'+(idx-1)).val());
+		setTimeout(function(){
+			txt+="<p>It is not possible to take away "+b +" from " + a+". So "+a+ 
+			" will borrow from preceeding one which is "+precV +".</p>";
+			changeCol(['n1'+(idx-1)],['lightcyan']);
+			$('#helpContent').html(txt);
+			setTimeout(function(){
+				txt += "<p> After giving one away, the preceeding one becomes "+(precV-1)+
+				" and the current one becomes 1"+a+".</p>";
+				changeCol(['n1'+(idx-1),'n1'+idx,'carry'+(idx-1),'carry'+idx],
+					['lightgrey','lightgrey','lightcyan','yellow']);
+				$('#n1'+(idx-1)).css('color','gainsboro');
+				$('#n1'+idx).css('color','gainsboro');
+				
+				$('#carry'+idx).val(t);
+				$('#carry'+(idx-1)).val(precV-1);
+				$('#helpContent').html(txt);
+				borrowOrNot(t,b,idx,txt);
+				setTimeout(function(){
+					changeCol(['n1'+idx,'n2'+idx,'n1'+(idx-1),'carry'+idx,'carry'+(idx-1),'res'+idx],
+						['white','white','white','white','white','white']);
+				},4000);
+			},4000);
+		},4000);
+		
+	}
+}
+
+function helpMult(){
+	var ctx = "";
+	ctx="<p>First ";
+	$('#helpContent').html(ctx);
+	carryMult(3,ctx);
+}
+function carryMult(idx, txt){
+	var a = Number($('#n1'+idx).val());
+	var t=Number($('#carry'+idx).val());
+	
+	var tmpAns = (a*num2)+t;
+	changeCol(['n1'+idx,'n23'],['yellow','yellow']);
+	if(idx != 3){txt+="<p> Next ";}
+	txt+=" do ("+ a + " x " + num2 + ")";
+
+	if(t!=0){
+		changeCol(['carry'+idx],['yellow']);
+		txt+=" + " +t;
+		txt += "<p> ("+ a+" x "+num2 +") + "+t+" = "+tmpAns + "</p>";
+	}
+	else{
+		txt+="</p>";
+		txt += "<p> "+ a+" x "+num2 +" = "+tmpAns + "</p>";
+	
+	}
+	$('#helpContent').html(txt);
+	
+	var q = Math.floor(tmpAns/10);
+
+	setTimeout(function(){
+		changeCol(['res'+idx],['orange']);
+		if(idx == 1){
+			$('#res'+idx).val(tmpAns);
+			setTimeout(function(){
+				changeCol(['n1'+idx,'n23','carry'+idx,'res'+idx],
+					['white','white','white','white']);
+			},4000);
+		}
+		else{
+			$('#res'+idx).val(tmpAns%10);
+			if(q!=0){
+				$('#carry'+(idx-1)).val(q);
+				changeCol(['carry'+(idx-1)],['orange']);
+			}
+			setTimeout(function(){
+				changeCol(['n1'+idx,'n23','carry'+idx,'carry'+(idx-1),'res'+idx],
+					['white','white','white','white','white']);
+				setTimeout(function(){
+					carryMult(idx-1,txt);
+				},4000);
+			
+			},4000);
+		}
+	},4000);
+		
+	
+}
 function changeCol(vec1, vec2){
 	for (var i = 0; i < vec1.length; i++) {
 		$('#'+vec1[i]).css('background-color',vec2[i]);
@@ -148,7 +313,10 @@ function changeCol(vec1, vec2){
 
 function setProb(idVar,stVar){
 	var n=3;
-	for(var i=n;i>0;i--){
+	var l;
+	if(level=='hardP'){l=0;}
+	else{l=1;}
+	for(var i=n;i>l;i--){
 		var j = i-(n-stVar.length);
 		if(j>=1){
 			$('#'+idVar+i).val(stVar[j-1]);
