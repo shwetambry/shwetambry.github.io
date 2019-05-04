@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Some math problems for little kids. </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../myStyle.css" >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  	<script type="text/javascript" src="update.js"></script>
+
+</head>
+
+<body>
+	<div class="container text-center">
+		<div class="container" style="background-color: lightgrey; padding-bottom: 10px;">
+			<h1> Some math problems for little kids </h1>
+			<button type="button" id="add" class="btn btn-primary btn-lg menu active" data-panel="addPanel"> Addition </button>
+			<button type="button" id="sub" class="btn btn-primary btn-lg menu" data-panel="subPanel"> Subtraction </button>
+			<button type="button" id="mult" class="btn btn-primary btn-lg menu" data-panel="multPanel"> Multiplication </button>
+		</div>
+
+		<div class="container text-center">
+			<div class="row main-body">
+				
+				<div class="col-sm-4">
+					<h3>Scores</h3>
+					 <table class="table">
+					 	<thead>
+					 		<tr>
+					 			<th>Type</th>
+					 			<th>Correct</th>
+					 			<th>Attempted</th>
+					 		</tr>
+					 	</thead>
+					 	<tbody>
+					 		<tr> 
+					 			<td>Addition</td>  
+					 			<td id="addPanelC"> 0 </td>
+					 			<td id="addPanelA"> 0 </td>
+					 		</tr>
+					 		<tr> 
+					 			<td>Subtraction</td>  
+					 			<td id="subPanelC"> 0 </td>
+					 			<td id="subPanelA"> 0 </td>
+					 		</tr>
+					 		<tr> 
+					 			<td>Multiplication</td>  
+					 			<td id="multPanelC"> 0 </td>
+					 			<td id="multPanelA"> 0 </td>
+					 		</tr>
+					 		<tr> 
+					 			<th>Total</th>  
+					 			<th id="totalC"> 0 </th>
+					 			<th id="totalA"> 0 </th>
+					 		</tr>
+					 		
+					 		
+					 	</tbody>
+					</table>
+					<button class="btn btn-primary btn-lg" id="next"> Get new problem </button>
+				</div>
+				<div class="col-sm-4">
+				
+					<div id="panel">
+						<h3 id="namePanel"> Addition Problems </h3>
+						<div id="panelHead">
+						<p id="statement" style="font-size: 30px; display: inline-block;"> 397+146 &equals; </p> <input type="text" class="clear" name="answer" id = "answer" size="5" maxlength="4" readonly>
+						<button type="button" id="check" class="btn btn-primary btn-sm">Check Answer</button>
+						<p id="msg">  </p>
+						</div>
+						<div id="add" class="prob">
+
+							<input type="text" class="clear" name="carry" id="carry1" maxlength="1" size="3" value=""> <input type="text" class="clear" name="carry" id="carry2" maxlength="2" size="3" value = ""><input type="text" class="clear" name="carry" id="carry3" maxlength="2" size="3" value=""><br>
+							<input type="text" name="n11" id = "n11" maxlength="1" size="3" value="3" readonly><input type="text" name="n12" id = "n12" maxlength="1" size="3" value="9" readonly><input type="text" name="n13" id = "n13" maxlength="1" size="3" value="7" readonly ><br> 
+							<input type="text" name="n21" id = "n21" maxlength="1" size="3" value="1" readonly><input type="text" name="n22" id = "n22" maxlength="1" size="3" value="4" readonly><input type="text" name="n23" id = "n23" maxlength="1" size="3" value="6" readonly><br> 
+							<hr>
+							<input type="text" class="clear" name="res" id="res1" maxlength="2" size="3"> <input type="text" class="clear" name="res" id="res2" maxlength="1" size="3"><input type="text" class="clear" name="res" id="res3" maxlength="1" size="3"><br>
+							
+						</div>
+					
+					</div>	
+
+				</div>
+				<div class="col-sm-4 panels" id="help">
+					<h3>Need help??</h3>
+					<button type="button" id="yes" class="btn btn-primary btn-sm helpB">Yes</button>
+					<button type="button" id="no" class="btn btn-primary btn-sm helpB">No</button>
+					<p id="helpContent"></p>
+				</div>
+			</div>		
+		</div>
+	</div>
+	
+</body>
+
+
+</html>
+

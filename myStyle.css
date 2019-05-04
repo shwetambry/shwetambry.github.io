@@ -28,6 +28,28 @@ p{
 	text-align: left;
 }
 
+.prob {
+	width: 200;
+	height: 200;
+	border: 2px ridge black;
+	border-radius: 5px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+hr {
+	size: 5px;
+}
+input {
+	text-align: center;
+	font-size: 30px;
+}
+th {
+	text-align: center;;
+}
+
+#panelHead{
+	padding-bottom: 10px;
+}
 /*h1 {
 	color: #fef9e7;
 	text-align: center;
