@@ -13,8 +13,9 @@ function checkWin(rad){
 		var comb = winComb[i];
 		if ($('#'+comb[0]).text() == rad){
 			if($('#'+comb[1]).text() == rad && $('#'+comb[2]).text() == rad){
+				$('#msg').html("Game Over!!! "+ rad + " wins.")
 				endGame();
-				alert("Game over!!!  " + rad + " wins!!!!");
+				
 				break;
 			} 
 		}

@@ -36,6 +36,10 @@ p{
 	padding-bottom: 5px;
 	padding-top: 5px;
 }
+.myContent {
+	font-size: 16px;
+}
+
 hr {
 	size: 5px;
 }

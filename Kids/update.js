@@ -112,23 +112,67 @@ $(document).ready(function(){
 				$('#helpContent').html("All the very best!!");
 			}
 			else{
-				var size;
 				$(this).prop('disabled',true);
 				$('#check').prop('disabled',true);
-				
-				if(tmpAr[1]=='+'){
-					helpAdd();
-				}
-				else if(tmpAr[1]=='-'){
-					helpSub();
+					
+				if(level=='easyP'){
+					helpEasy(tmpAr[1]);
 				}
 				else{
-					helpMult();
+					if(tmpAr[1]=='+'){
+						helpAdd();
+					}
+					else if(tmpAr[1]=='-'){
+						helpSub();
+					}
+					else{
+						helpMult();
+					}
 				}
 			}
 		});
 
 });
+
+function helpEasy(op){
+	var ctx="";
+	ctx+="<p>First ";
+	$('#helpContent').html(ctx);
+	helperForEasy(3,3,ctx,op);
+}
+function helperForEasy(idx1,idx2,txt,op){
+	var a = Number($('#n1'+idx1).val());
+	var b = Number($('#n2'+idx2).val());
+	if(idx1!=3){txt+="<p> Next ";}
+	txt+= "do "+a+" "+op+" "+b + ".</p>";
+	changeCol(['n1'+idx1,'n2'+idx2],['yellow','yellow']);
+	$('#helpContent').html(txt);
+	var tmpAns = correctAns(a,b,op);
+		
+	setTimeout(function(){
+		txt += a + ' '+op+' '+b +" = " +tmpAns +".</p>";
+		$('#res'+idx1).val(tmpAns);
+		changeCol(['res'+idx1],['orange']);
+		$('#helpContent').html(txt);
+		setTimeout(function(){
+			changeCol(['n1'+idx1,'n2'+idx2,'res'+idx1],['white','white','white']);
+			if(idx1==3){
+				setTimeout(function(){
+					if(op=='x'){
+						helperForEasy(idx1-1,idx2, txt,op);
+					}
+					else{
+						helperForEasy(idx1-1,idx2-1, txt,op);
+					}
+					
+				},2000);
+			}
+	
+		},3000);
+	
+	},3000);
+	
+}
 
 function helpAdd(){
 	var ctx="";
@@ -350,16 +394,14 @@ function correctAns(n1,n2,op){
 	return ans;
 }
 function checkAns(n1,n2,op,inp){
+	var txt = '<p style="color:red;" >Incorrect answer!!! The correct answer is '+correctAns(n1,n2,op)+'</p>';
 	if(op=='+'){
 		attemptA+=1;
 		$('#addPanelA').html(attemptA);
 		if(n1+n2 == inp ){
 			correctA +=1;
-			$('#msg').html('Correct answer!!!');
+			txt = '<p style="color:blue;"> Correct answer!!! </p>';
 			$('#addPanelC').html(correctA);
-		}
-		else{
-			$('#msg').html('Incorrect answer!!!');
 		}
 	}
 	else if(op=='-'){
@@ -367,11 +409,8 @@ function checkAns(n1,n2,op,inp){
 		$('#subPanelA').html(attemptS);
 		if(n1-n2 == inp ){
 			correctS +=1;
-			$('#msg').html('Correct answer!!!');
+			txt = '<p style="color:blue;"> Correct answer!!! </p>';
 			$('#subPanelC').html(correctS);
-		}
-		else{
-			$('#msg').html('Incorrect answer!!!');
 		}
 	}
 	else{
@@ -379,13 +418,11 @@ function checkAns(n1,n2,op,inp){
 		$('#multPanelA').html(attemptM);
 		if(n1*n2 == inp ){
 			correctM +=1;
-			$('#msg').html('Correct answer!!!');
+			txt = '<p style="color:blue;"> Correct answer!!! </p>';
 			$('#multPanelC').html(correctM);
 		}
-		else{
-			$('#msg').html('Incorrect answer!!!');
-		}
 	}
+	$('#msg').html(txt);
 	var tC = correctA+correctS+correctM;
 	var tA = attemptA+attemptS+attemptM;
 	$('#totalC').html(tC);
