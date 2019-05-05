@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138592925-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-138592925-1');
+</script>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<title> Some math problems for little kids. </title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../myStyle.css" >
@@ -80,8 +93,8 @@
 							<input type="text" class="clear hard" name="res" id="res1" maxlength="2" size="3"> <input type="text" class="clear" name="res" id="res2" maxlength="1" size="3"><input type="text" class="clear" name="res" id="res3" maxlength="1" size="3"><br>
 							
 						</div>
-						<div style="padding-top: 5px;">
-							<button type="button" id="check" class="btn btn-primary btn-md">Submit and check</button>
+						<div style="padding-top: 20px;">
+							<button type="button" id="check" class="btn btn-primary btn-lg">Submit and check</button>
 							<p class = "myContent" id="msg">  </p>
 						</div>
 					
@@ -92,7 +105,8 @@
 					<h3>Need help in solving??</h3>
 					<button type="button" id="yes" class="btn btn-primary btn-md helpB">Yes</button>
 					<button type="button" id="no" class="btn btn-primary btn-md helpB">No</button>
-					<p class = "myContent" id="helpContent"></p>
+					<button type="button" id="stop" class="btn btn-primary btn-md" style="display: none;" > Stop animation. </button>
+					<p class = "myContent" id="helpContent" style="vertical-align: middle;"> <br>Having trouble to figure out how to proceed?? <br> " Harder problems involve carrying and borrowing digits. However, in easier problems, no such carrying or borrowing take place. <br> Still confused what to do. <br> Press 'yes' to understand it step by step via animation.</p>
 				</div>
 			</div>		
 		</div>

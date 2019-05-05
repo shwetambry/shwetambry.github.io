@@ -6,10 +6,10 @@ h3{
 	text-shadow: 1px 1px 0 #777;
 }
 p{
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-left: 2px;
+	padding-right: 2px;
+	
+	
 }
 .bg-1 {
 	background-color: d3d3d3;
@@ -24,8 +24,10 @@ p{
   padding-bottom: 70px;
 }
 
-.games {
+.leftS {
 	text-align: left;
+	
+
 }
 
 .prob {

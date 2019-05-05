@@ -10,6 +10,11 @@ var num1 = 397;
 var num2 = 146;
 var panelToShow = 'add';
 var tmpAr=setsymb(panelToShow);
+var timeOutObj=setTimeout(function(){},0);
+var defaultHelpText = "<p style='text-align:center';> <br> Having trouble to figure out how to proceed?? <br>"+
+" Harder problems involve carrying and borrowing digits. However, in easier problems, "+
+"no such carrying or borrowing take place. <br> Still confused what to do. <br> Press 'yes' to "+
+"understand it step by step via animation.</p>";
 
 $(document).ready(function(){
 		$('button.menu').click(function(){
@@ -48,7 +53,15 @@ $(document).ready(function(){
 		});
 
 		$('#next').click(function(){
+			clearTimeout(timeOutObj);
+			reset();
 			$('button.helpB').prop('disabled',false);
+			$('#yes').text('Yes');
+			$('#n11').css('color','black');
+			$('#n12').css('color','black');
+			$('#n13').css('color','black');
+			$('#stop').css('display', 'none');
+				
 			if(level == 'hardP'){
 				num1_1 = Math.floor(Math.random()*10);
 				num1_2 = Math.floor(Math.random()*9)+1;
@@ -82,7 +95,7 @@ $(document).ready(function(){
 			$('.clear').val("").change();
 			$('#msg').html("");
 			$('#check').prop('disabled',false);
-			$('#helpContent').html("");
+			$('#helpContent').html(defaultHelpText);
 
 			
 		});
@@ -100,8 +113,16 @@ $(document).ready(function(){
 		$('.carry').keyup(function(){
 			$carID = $(this).attr('id');
 			if(tmpAr[1]=='-'){
-				$(this).siblings('#n1'+$carID[$carID.length-1]).css('color','lightgray');
+				$(this).siblings('#n1'+$carID[$carID.length-1]).css('color','lavender');
 			}
+
+		});
+
+		$('#stop').click(function(){
+			clearTimeout(timeOutObj);
+			reset();
+			$('#yes').prop('disabled',false);
+			$('#yes').text('Restart');
 
 		});
 
@@ -113,6 +134,7 @@ $(document).ready(function(){
 			else{
 				$(this).prop('disabled',true);
 				$('#check').prop('disabled',true);
+				$('#stop').css('display','inline-block');
 					
 				if(level=='easyP'){
 					helpEasy(tmpAr[1]);
@@ -148,15 +170,15 @@ function helperForEasy(idx1,idx2,txt,op){
 	$('#helpContent').html(txt);
 	var tmpAns = correctAns(a,b,op);
 		
-	setTimeout(function(){
+	timeOutObj = setTimeout(function(){
 		txt += a + ' '+op+' '+b +" = " +tmpAns +".</p>";
 		$('#res'+idx1).val(tmpAns);
 		changeCol(['res'+idx1],['orange']);
 		$('#helpContent').html(txt);
-		setTimeout(function(){
+		timeOutObj = setTimeout(function(){
 			changeCol(['n1'+idx1,'n2'+idx2,'res'+idx1],['white','white','white']);
 			if(idx1==3){
-				setTimeout(function(){
+				timeOutObj = setTimeout(function(){
 					if(op=='x'){
 						helperForEasy(idx1-1,idx2, txt,op);
 					}
@@ -203,11 +225,11 @@ function carryOrNot(idx,txt){
 	
 	var q = Math.floor(tmpAns/10);
 
-	setTimeout(function(){
+	timeOutObj = setTimeout(function(){
 		changeCol(['res'+idx],['orange']);
 		if(idx == 1){
 			$('#res'+idx).val(tmpAns);
-			setTimeout(function(){
+			timeOutObj = setTimeout(function(){
 				changeCol(['n1'+idx,'n2'+idx,'carry'+idx,'res'+idx],
 					['white','white','white','white']);
 			},4000);
@@ -218,10 +240,10 @@ function carryOrNot(idx,txt){
 				$('#carry'+(idx-1)).val(q);
 				changeCol(['carry'+(idx-1)],['orange']);
 			}
-			setTimeout(function(){
+			timeOutObj = setTimeout(function(){
 				changeCol(['n1'+idx,'n2'+idx,'carry'+idx,'carry'+(idx-1),'res'+idx],
 					['white','white','white','white','white']);
-				setTimeout(function(){
+				timeOutObj = setTimeout(function(){
 					carryOrNot(idx-1,txt);
 				},4000);
 			
@@ -232,60 +254,75 @@ function carryOrNot(idx,txt){
 		
 }
 function helpSub(){
-	var ctx = "";
-	var a = Number($('#n13').val());
-	var b = Number($('#n23').val());
-	var t = Number($('#carry1').val());
-	ctx="<p>First check "+a+" - "+b+".</p>";
-	var curIdx = 3;
-	changeCol(['n1'+curIdx,'n2'+curIdx],['yellow','yellow']);
+	var ctx="";
+	ctx+="<p>First check ";
 	$('#helpContent').html(ctx);
-	borrowOrNot(a,b,curIdx,ctx);
+	borrowOrNot(3,ctx);
 }
 
-function borrowOrNot(a,b,idx,txt){
-	var t=0;
-	if(a>=b){
-		setTimeout(function(){
-			txt+="<p>Take away "+b +" from " + a+".</p>";
+function borrowOrNot(idx,txt){
+	var a = Number($('#n1'+idx).val());
+	var b = Number($('#n2'+idx).val());
+	var t = $('#carry'+idx).val();
+	var na = a;
+	if(idx!=3){txt+="<p> Next check ";}
+	if(t==''){
+		txt += a;
+		changeCol(['n1'+idx,'n2'+idx],['yellow','yellow']);
+	}
+	else{
+		na = t
+		txt+=t;
+		changeCol(['carry'+idx,'n2'+idx],['yellow','yellow']);
+	}
+	txt+= " - "+b + ".</p>";
+	$('#helpContent').html(txt);
+	if(na>=b){
+		timeOutObj = setTimeout(function(){
+			txt+="<p>Take away "+b +" from " + na+".</p>";
 			$('#helpContent').html(txt);
-			setTimeout(function(){
+			var tmpAns = correctAns(na,b,'-');
+			timeOutObj = setTimeout(function(){
 				changeCol(['res'+idx],['orange']);
-				$('#res'+idx).val(correctAns(a,b,'-'));
-				txt+="<p>"+a+" - "+b+" = "+correctAns(a,b,'-');
+				$('#res'+idx).val(tmpAns);
+				txt+="<p>"+na+" - "+b+" = "+tmpAns+"</p>";
 				$('#helpContent').html(txt);
-				
+				timeOutObj = setTimeout(function(){
+					changeCol(['carry'+idx,'n1'+idx,'n2'+idx,'res'+idx],['white','white','white','white']);
+					if(idx>1){
+						borrowOrNot(idx-1,txt);
+					}
+				},2000);
 			},4000);
 			
 		},4000);
 	}
 	else{
-		t=10+a;
 		var precV = Number($('#n1'+(idx-1)).val());
-		setTimeout(function(){
-			txt+="<p>It is not possible to take away "+b +" from " + a+". So "+a+ 
+		timeOutObj = setTimeout(function(){
+			txt +="<p>It is not possible to take away "+b +" from " + na+". So "+na+ 
 			" will borrow from preceeding one which is "+precV +".</p>";
 			changeCol(['n1'+(idx-1)],['lightcyan']);
 			$('#helpContent').html(txt);
-			setTimeout(function(){
+			timeOutObj = setTimeout(function(){
 				txt += "<p> After giving one away, the preceeding one becomes "+(precV-1)+
-				" and the current one becomes 1"+a+".</p>";
-				changeCol(['n1'+(idx-1),'n1'+idx,'carry'+(idx-1),'carry'+idx],
+				" and the current one becomes 1"+na+".</p>";
+				if(idx==3){
+					changeCol(['n1'+(idx-1),'n1'+idx,'carry'+(idx-1),'carry'+idx],
 					['lightgrey','lightgrey','lightcyan','yellow']);
-				$('#n1'+(idx-1)).css('color','gainsboro');
-				$('#n1'+idx).css('color','gainsboro');
-				
-				$('#carry'+idx).val(t);
+				}
+				$('#carry'+idx).val(10+Number(na));
+				$('#carry'+idx).trigger('keyup');
 				$('#carry'+(idx-1)).val(precV-1);
+				$('#carry'+(idx-1)).trigger('keyup');
+				borrowOrNot(idx,txt);
+				
 				$('#helpContent').html(txt);
-				borrowOrNot(t,b,idx,txt);
-				setTimeout(function(){
-					changeCol(['n1'+idx,'n2'+idx,'n1'+(idx-1),'carry'+idx,'carry'+(idx-1),'res'+idx],
-						['white','white','white','white','white','white']);
-				},4000);
 			},4000);
 		},4000);
-		
+		if(idx==3){
+
+		}
 	}
 }
 
@@ -318,11 +355,11 @@ function carryMult(idx, txt){
 	
 	var q = Math.floor(tmpAns/10);
 
-	setTimeout(function(){
+	timeOutObj = setTimeout(function(){
 		changeCol(['res'+idx],['orange']);
 		if(idx == 1){
 			$('#res'+idx).val(tmpAns);
-			setTimeout(function(){
+			timeOutObj = setTimeout(function(){
 				changeCol(['n1'+idx,'n23','carry'+idx,'res'+idx],
 					['white','white','white','white']);
 			},4000);
@@ -333,10 +370,10 @@ function carryMult(idx, txt){
 				$('#carry'+(idx-1)).val(q);
 				changeCol(['carry'+(idx-1)],['orange']);
 			}
-			setTimeout(function(){
+			timeOutObj = setTimeout(function(){
 				changeCol(['n1'+idx,'n23','carry'+idx,'carry'+(idx-1),'res'+idx],
 					['white','white','white','white','white']);
-				setTimeout(function(){
+				timeOutObj = setTimeout(function(){
 					carryMult(idx-1,txt);
 				},4000);
 			
@@ -349,9 +386,13 @@ function carryMult(idx, txt){
 function changeCol(vec1, vec2){
 	for (var i = 0; i < vec1.length; i++) {
 		$('#'+vec1[i]).css('background-color',vec2[i]);
-		
 	}
 
+}
+function changeValues(vec1){
+	for (var i = 0; i < vec1.length; i++) {
+		$('#'+vec1[i]).val('');
+	}
 }
 
 function setProb(idVar,stVar){
@@ -427,5 +468,10 @@ function checkAns(n1,n2,op,inp){
 	$('#totalC').html(tC);
 	$('#totalA').html(tA);
 	
+}
+function reset(){
+	changeCol(['carry1','carry2','carry3','n11','n12','n13','n21','n22','n23','res1','res2','res3'],
+				['white','white','white','white','white','white','white','white','white','white','white','white']);
+	changeValues(['carry1','carry2','carry3','res1','res2','res3']);
 }
 
