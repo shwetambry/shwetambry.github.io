@@ -69,9 +69,8 @@
 				
 					<div id="panel">
 						<h3 id="namePanel"> Addition Problems </h3>
-						<p id="statement" style="font-size: 30px; display: inline-block;"> 397+146 &equals; </p> <input type="text" class="clear" name="answer" id = "answer" size="5" maxlength="4" readonly>
-						<button type="button" id="check" class="btn btn-primary btn-md">Check Answer</button>
-						<p class = "myContent" id="msg">  </p>
+						<p id="statement" style="font-size: 30px; display: inline-block;"> 397+146 </p> 
+						
 						<div id="add" class="prob">
 
 							<input type="text" class="clear hard carry" name="carry" id="carry1" maxlength="1" size="3" value=""> <input type="text" class="clear hard carry" name="carry" id="carry2" maxlength="2" size="3" value = ""><input type="text" class="clear hard carry" name="carry" id="carry3" maxlength="2" size="3" value=""><br>
@@ -81,12 +80,16 @@
 							<input type="text" class="clear hard" name="res" id="res1" maxlength="2" size="3"> <input type="text" class="clear" name="res" id="res2" maxlength="1" size="3"><input type="text" class="clear" name="res" id="res3" maxlength="1" size="3"><br>
 							
 						</div>
+						<div style="padding-top: 5px;">
+							<button type="button" id="check" class="btn btn-primary btn-md">Submit and check</button>
+							<p class = "myContent" id="msg">  </p>
+						</div>
 					
 					</div>	
 
 				</div>
 				<div class="col-sm-4 panels" id="help">
-					<h3>Need help??</h3>
+					<h3>Need help in solving??</h3>
 					<button type="button" id="yes" class="btn btn-primary btn-md helpB">Yes</button>
 					<button type="button" id="no" class="btn btn-primary btn-md helpB">No</button>
 					<p class = "myContent" id="helpContent"></p>

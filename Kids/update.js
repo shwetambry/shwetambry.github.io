@@ -92,7 +92,6 @@ $(document).ready(function(){
 			var a2 = $('#res2').val();
 			var a3 = $('#res3').val();
 			inpAns = a1+a2+a3;
-			$("#answer").val(inpAns);
 			checkAns(num1,num2,tmpAr[1],Number(inpAns));
 			$(this).prop('disabled',true);
 			
