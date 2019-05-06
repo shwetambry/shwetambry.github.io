@@ -6,9 +6,20 @@ var numPlayerRadio = 1;
 var curplsymb = 'X';
 var curcol = 'maroon';
 var game_over = false;
+var defText = "You are Player 1 and your choice is ";
 function getNumPl(){
 	numPlayerRadio = $("input[name='players']:checked").val();
-	
+	updateTurnMsg();
+}
+function updateTurnMsg(){
+	if(numPlayerRadio == 2){
+		$('#whoseTurn').css('color',curcol);
+		$('#whoseTurn').html(curplsymb+"'s turn. ");
+	}
+	else{
+		$('#whoseTurn').html(defText + curplsymb);
+		$('#whoseTurn').css('color',curcol);
+	}
 }
 function getplSymb(){
 	curplsymb = $("input[name='optradio']:checked").val();
@@ -29,8 +40,8 @@ function checkWin(sym){
 		var comb = winComb[i];
 		if ($('#'+comb[0]).text() == sym){
 			if($('#'+comb[1]).text() == sym && $('#'+comb[2]).text() == sym){
-				$('#msg').html("Game Over!!! "+ sym + " wins.");
-				$('#msg').css('color','blue');
+				$('#whoseTurn').html("Game Over!!! "+ sym + " wins.");
+				$('#whoseTurn').css('color','blue');
 				endGame();
 				break;
 			} 
@@ -49,6 +60,8 @@ function toggleTurns(){
 		curplsymb = 'X';
 	}
 	curcol = getCol(curplsymb);
+	if(numPlayerRadio==2){
+	updateTurnMsg();}
 }
 function isValidSq(id){
 	var valid=false;
@@ -67,12 +80,15 @@ function makeMove(id,col,symb){
 			
 }
 $(document).ready(function(){
+	updateTurnMsg();
 	$("input[name='players']").change(function(){
 		getNumPl();
+		updateTurnMsg();
 		
 	});
 	$("input[name='optradio']").change(function(){
 		getplSymb();
+		updateTurnMsg();
 		
 	});
 	$('#reset').click(function(){
@@ -104,7 +120,9 @@ $(document).ready(function(){
 				}
 				else {
 					endGame();
-					alert("No one won and no more moves possible. Game finished!!!")
+					$('#whoseTurn').html("No one won and no more moves possible. Game finished!!!");
+					$('#whoseTurn').css('color','red');
+					
 				}
 			}
 		}

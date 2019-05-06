@@ -17,6 +17,8 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../myStyle.css" >
+	
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="board.js"></script>
@@ -28,34 +30,48 @@
 		</div>
 		<div class="container col-sm-5">
 			<form>
+				<div class="controls-row" style="font-size: 20px; padding-bottom: 10px;">
     			<label class="radio-inline">
       				<input style="transform: scale(1.5); font: 25px;" type="radio" name="players" value="1" checked> One player
     			</label>
     			<label class="radio-inline">
       				<input style="transform: scale(1.5); font: 25px;" type="radio" name="players" value="2">Two players
     			</label>
+    			</div>
     		</form>
-			<h3> Which symbol would you like to choose? </h3>
+			
 			<form>
-    			<label class="radio-inline">
-      				<input style="transform: scale(1.5); font: 20px;" type="radio" name="optradio" value="X" checked>X
-    			</label>
-    			<label class="radio-inline">
-      				<input style="transform: scale(1.5); font: 20px;" type="radio" name="optradio" value="O">O
-    			</label>
+				<div class="controls-row" style="font-size: 20px; ">
+					<label class="control-label" style="margin-right: 10px;"> Player 1 symbol:  </label>
+    				<label class="radio-inline">
+      					<input style="transform: scale(1.5); font: 20px;" type="radio" name="optradio" value="X" checked>X
+    				</label>
+    				<label class="radio-inline">
+      					<input style="transform: scale(1.5); font: 20px;" type="radio" name="optradio" value="O">O
+    				</label>
+    				</div>
     		</form>
+			
+			<h3> Scores </h3>
+    		<div class="prob">
+    			
+    			<table class="table" style="font-size: 16px; text-align: left;">
+    				<tr> <td>Player 1 wins </td> <td id="pl1Win"> 0 </td></tr> 
+    				<tr><td>Player 2 wins </td><td id="pl2Win"> 0 </td> </tr>
+    				<tr><td>Draws</td><td id="draw">0</td> </tr>
+    			</table>
+    		</div>
+
     		
   
 		</div>
 		<div class="container col-sm-7 center-block">
 			<div style="padding-top: 13px;">
     		<button type = "button" class="btn btn-primary btn-lg" id="reset" "> Reset or Play again </button>
-    	<!--	<p style="color: blue;font-size: 30px" id="msg"></p>-->
-			</div>
-			<h3 id = "msg"> Click a square of your choice. </h3>
-		<!--<table style="position: absolute;top: 70%; left: 50%;transform: translateX(-50%);">-->
+    		</div>
+			<h2 id = "msg"> Click a square of your choice. </h2>
 			<div style="text-align: center; padding-top: 20px;">
-			<table style="position:absolute; left: 50%;transform: translateX(-50%);">
+			<table style="position: relative; left: 50%;transform: translateX(-50%);">
 				<tr class="row" >
 					<td><button type="button" class="btn btn-primary btn-lg sq" 
 						id = "00"> ? </button>  </td>
@@ -83,6 +99,7 @@
 
 			</table>
 			</div>
+			<div id="whoseTurn" class="prob" style="font-size: 30px"></div>
 		</div>
 	</div>
 	
