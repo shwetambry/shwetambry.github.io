@@ -7,6 +7,11 @@ var curplsymb = 'X';
 var curcol = 'maroon';
 var game_over = false;
 var defText = "You are Player 1 and your choice is ";
+var score1 = 0;
+var score2 = 0;
+var scoreD = 0;
+var pl1 = null;
+
 function getNumPl(){
 	numPlayerRadio = $("input[name='players']:checked").val();
 	updateTurnMsg();
@@ -42,6 +47,14 @@ function checkWin(sym){
 			if($('#'+comb[1]).text() == sym && $('#'+comb[2]).text() == sym){
 				$('#whoseTurn').html("Game Over!!! "+ sym + " wins.");
 				$('#whoseTurn').css('color','blue');
+				if(sym==pl1){
+					score1+=1;
+					$('#pl1Win').html(score1);
+				}
+				else{
+					score2+=1;
+					$('#pl2Win').html(score2);
+				}
 				endGame();
 				break;
 			} 
@@ -92,10 +105,19 @@ $(document).ready(function(){
 		
 	});
 	$('#reset').click(function(){
-		document.location.reload(true);
+		$('button.sq').prop('disabled',false);
+		$('button.sq').text('?');
+		$('button.sq').css('background-color','steelblue');
+		freeSq = ['00','01','02','10','11','12','20','21','22'];
+		$("input[type=radio]").attr('disabled',false);
+		updateTurnMsg();
+		game_over = false;
+		pl1 = null;
 	});
 
 	$('button.sq').click(function(){
+		if(pl1==null){
+		pl1 = curplsymb;}
 		$("input[type=radio]").attr('disabled',true);
 		var curID = $(this).attr('id');
 		var okay = isValidSq(curID);
@@ -120,6 +142,8 @@ $(document).ready(function(){
 				}
 				else {
 					endGame();
+					scoreD += 1;
+					$('#draw').html(scoreD);
 					$('#whoseTurn').html("No one won and no more moves possible. Game finished!!!");
 					$('#whoseTurn').css('color','red');
 					
