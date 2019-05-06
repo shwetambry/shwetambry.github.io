@@ -45,6 +45,7 @@ function checkWin(sym){
 		var comb = winComb[i];
 		if ($('#'+comb[0]).text() == sym){
 			if($('#'+comb[1]).text() == sym && $('#'+comb[2]).text() == sym){
+				changeCol([comb[0],comb[1],comb[2]],['black','black','black']);
 				$('#whoseTurn').html("Game Over!!! "+ sym + " wins.");
 				$('#whoseTurn').css('color','blue');
 				if(sym==pl1){
@@ -61,6 +62,13 @@ function checkWin(sym){
 		}
 	}
 }
+
+function changeCol(vec1, vec2){
+	for (var i = 0; i < vec1.length; i++) {
+		$('#'+vec1[i]).css('background-color',vec2[i]);
+	}
+}
+
 function endGame(){
 	game_over = true;
 	$("button.sq").prop("disabled", true);
