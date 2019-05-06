@@ -40,14 +40,30 @@ function toggleTurns(){
 		curplsymb = 'X';
 	}
 }
+function isValidSq(id){
+	var valid=false;
+	for (var i = 0; i< freeSq.length;i++){
+		if(id==freeSq[i]){
+			valid=true;
+			freeSq.splice(i,1);
+			break;
+		}
+	}
+	return valid;
+}
+function makeMove(id,col,symb){
+	$('#'+id).css('background-color',col);
+	$('#'+id).html(symb).promise().done(checkWin(symb));
+			
+}
 $(document).ready(function(){
 	$("input[name='players']").change(function(){
 		getNumPl();
-		//numPlayerRadio = getNumPl();
+		
 	});
 	$("input[name='optradio']").change(function(){
 		getplSymb();
-		//pl1symb = getp1Symb();
+		
 	});
 	$('#reset').click(function(){
 		document.location.reload(true);
@@ -55,34 +71,25 @@ $(document).ready(function(){
 
 	$('button.sq').click(function(){
 		$("input[type=radio]").attr('disabled',true);
-		var  okay = false;
 		var curID = $(this).attr('id');
-		for (var i = 0; i< freeSq.length;i++){
-			if(curID==freeSq[i]){
-				okay=true;
-				freeSq.splice(i,1);
-				break;
-			}
-		}
+		var okay = isValidSq(curID);
 		if(okay==false){
 			alert("Clicked square is already taken. Choose another one.");
 		}
 		else{
-			$('#'+curID).css('background-color','maroon');
-			$('#'+curID).html(curplsymb).promise().done(checkWin(curplsymb));
+			makeMove(curID,'maroon',curplsymb);
 			if(game_over == false){
 				if (freeSq.length > 0){
 					toggleTurns();
 					if(numPlayerRadio == 1){
 						setTimeout(function(){
 							var randInd = Math.floor(Math.random()*freeSq.length);
-							//var compRadioVal = $("input[name='optradio']:not(:checked)").val();
-							$('#'+freeSq[randInd]).css('background-color','olive');
-							$('#'+freeSq[randInd]).html(pl2symb).promise().done(function(){
-								freeSq.splice(randInd,1);
-								checkWin(pl2symb);
-							});
-						},500);
+							makeMove(freeSq[randInd],'olive',curplsymb);
+							freeSq.splice(randInd,1);
+							setTimeout(function(){
+								toggleTurns();
+							},10);
+						},300);
 					}
 					else{
 
