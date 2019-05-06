@@ -4,7 +4,7 @@ var winComb = [['00','01','02'],['10','11','12'],['20','21','22'],
 ['00','11','22'],['02','11','20']];
 var numPlayerRadio = 1;
 var curplsymb = 'X';
-//var pl2symb = 'O';
+var curcol = 'maroon';
 var game_over = false;
 function getNumPl(){
 	numPlayerRadio = $("input[name='players']:checked").val();
@@ -12,8 +12,17 @@ function getNumPl(){
 }
 function getplSymb(){
 	curplsymb = $("input[name='optradio']:checked").val();
+	curcol = getCol(curplsymb);
 	//pl2symb = $("input[name='optradio']:not(:checked)").val();
 	
+}
+function getCol(sym){
+	if(sym == 'X'){
+		return 'maroon';
+	}
+	else{
+		return 'olive';
+	}
 }
 function checkWin(sym){
 	for(var i = 0; i<8;i++){
@@ -39,6 +48,7 @@ function toggleTurns(){
 	else{
 		curplsymb = 'X';
 	}
+	curcol = getCol(curplsymb);
 }
 function isValidSq(id){
 	var valid=false;
@@ -77,22 +87,19 @@ $(document).ready(function(){
 			alert("Clicked square is already taken. Choose another one.");
 		}
 		else{
-			makeMove(curID,'maroon',curplsymb);
+			makeMove(curID,curcol,curplsymb);
 			if(game_over == false){
 				if (freeSq.length > 0){
 					toggleTurns();
 					if(numPlayerRadio == 1){
 						setTimeout(function(){
 							var randInd = Math.floor(Math.random()*freeSq.length);
-							makeMove(freeSq[randInd],'olive',curplsymb);
+							makeMove(freeSq[randInd],curcol,curplsymb);
 							freeSq.splice(randInd,1);
 							setTimeout(function(){
 								toggleTurns();
 							},10);
 						},300);
-					}
-					else{
-
 					}
 				}
 				else {
