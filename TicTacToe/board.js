@@ -2,6 +2,11 @@ var freeSq = ['00','01','02','10','11','12','20','21','22'];
 var winComb = [['00','01','02'],['10','11','12'],['20','21','22'],
 ['00','10','20'],['01','11','21'],['02','12','22'],
 ['00','11','22'],['02','11','20']];
+var empty0 = [];
+var empty1 = [];
+var empty2 = [];
+var empty3 = [];
+
 var numPlayerRadio = 1;
 var curplsymb = 'X';
 var curcol = 'maroon';
@@ -100,6 +105,72 @@ function makeMove(id,col,symb){
 	$('#'+id).html(symb).promise().done(checkWin(symb));
 			
 }
+function addElt(ar1,ar2){
+	for (var i = 0; i < ar2.length; i++) {
+		ar1.push(ar2[i]);
+	}
+}
+function seg(ar){
+	var count = ar.length;
+	if(count==3){addElt(empty3,ar);}
+	else if (count==2){addElt(empty2,ar);}
+	
+}
+
+function segregate(){
+	empty0=[];empty1=[];empty2=[];empty3=[];
+	for (var i = 0; i < 8; i++) {
+		var tmp = winComb[i];
+		var ar = [];
+		var trash = [];
+		for (var j = 0; j < 3; j++) {
+			if($('#'+tmp[j]).text()!='X' && $('#'+tmp[j]).text()!='O'){
+				ar.push(tmp[j]);
+			}
+			else{
+				trash.push(j);
+			}
+		}
+		if(ar.length==1){
+			if ($('#'+tmp[trash[0]]).text()==$('#'+tmp[trash[1]]).text()){
+				if($('#'+tmp[trash[0]]).text()==curplsymb){
+					empty0.push(ar[0]);
+				}
+				else {
+					empty1.push(ar[0]);
+				}
+			}
+		}
+		else{seg(ar)};
+	}
+	
+}
+function pickSq(ar){
+	var randx = Math.floor(Math.random()*ar.length);
+	var randSq = ar[randx];
+	for (var i = 0; i < freeSq.length; i++) {
+		if (freeSq[i] == randSq){
+			freeSq.splice(i,1);
+			return randSq;
+		}
+	}
+}
+function strategy(){	
+	segregate();
+	if(empty0.length>0){
+		return pickSq(empty0);
+	}
+	else if(empty1.length>0){
+		return pickSq(empty1);
+	}
+	else if(empty2.length>0){
+		return pickSq(empty2);
+	}
+	else{
+		return pickSq(empty3);
+	}
+}
+
 $(document).ready(function(){
 	updateTurnMsg();
 	$("input[name='players']").change(function(){
@@ -139,9 +210,11 @@ $(document).ready(function(){
 					toggleTurns();
 					if(numPlayerRadio == 1){
 						setTimeout(function(){
-							var randInd = Math.floor(Math.random()*freeSq.length);
-							makeMove(freeSq[randInd],curcol,curplsymb);
-							freeSq.splice(randInd,1);
+							var pick = strategy();
+							makeMove(pick,curcol,curplsymb);
+							//var randInd = Math.floor(Math.random()*freeSq.length);
+							//makeMove(freeSq[randInd],curcol,curplsymb);
+							//freeSq.splice(randInd,1);
 							setTimeout(function(){
 								toggleTurns();
 							},10);
