@@ -1,0 +1,13 @@
+<html>
+<body>
+<img id= "pic" src = "Categories.png" alt = "" width = "600" height="500" usemap="#shapes" >
+<map id = "shapes" name="shapes">
+<area shape="rect" coords="30, 150,90,210" onmouseover= "pic.src = 'FrozenFood.png'" >
+<area shape="rect" coords="140,150,200,210" onmouseover="pic.src = 'FreshFood.png'" >
+<area shape="rect" coords="260,150,330,210" onmouseover="pic.src = 'Beverages.png'" >
+<area shape="rect" coords="385,150,450,210" onmouseover="pic.src = 'HomeHealth.png'" >
+<area shape="rect" coords="500,150,570,210" onmouseover="pic.src = 'PetFood.png'" >
+
+</map>
+</body>
+</html>

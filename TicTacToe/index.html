@@ -23,8 +23,18 @@
 </head>
 <body>
 	<div class="container text-center" >
+		<div class="jumbotron" style="background-color: black; color: white">
 		<h1> Tic Tac Toe </h1>
-		<div class="container">
+		</div>
+		<div class="container col-sm-5">
+			<form>
+    			<label class="radio-inline">
+      				<input style="transform: scale(1.5); font: 25px;" type="radio" name="players" value="1" checked> One player
+    			</label>
+    			<label class="radio-inline">
+      				<input style="transform: scale(1.5); font: 25px;" type="radio" name="players" value="2">Two players
+    			</label>
+    		</form>
 			<h3> Which symbol would you like to choose? </h3>
 			<form>
     			<label class="radio-inline">
@@ -34,46 +44,47 @@
       				<input style="transform: scale(1.5); font: 20px;" type="radio" name="optradio" value="O">O
     			</label>
     		</form>
-    		<div style="padding-top: 13px;">
-    		<input type = "reset" id="reset" value="Reset or Play again" style="color: white;background-color:black; padding-top: 5px; font: 20px;"> </input>
-    		<p style="color: blue;font-size: 30px" id="msg"></p>
-			</div>
+    		
   
 		</div>
-		<table style="position: absolute;top: 50%; left: 50%;transform: translateX(-50%);">
-		<tr class="row" >
-			<td><button type="button" class="btn btn-primary btn-lg" 
-				id = "00"> ? </button>  </td>
-			<td><button type="button" class="btn btn-primary btn-lg" 
-				id = "01"> ? </button>  </td>
-			<td><button type="button" class="btn btn-primary btn-lg" 
-				id="02"> ? </button>  </td>
-			
-		<tr class="row">
-			<td><button type="button" class="btn btn-primary btn-lg" id = "10"
-				> ? </button>  </td>
-			<td><button type="button" class="btn btn-primary btn-lg" id = "11"
-				> ? </button>  </td>
-			<td><button type="button" class="btn btn-primary btn-lg" id = "12"
-				> ? </button> </td>
-			
-		<tr class="row">
-			<td><button type="button" class="btn btn-primary btn-lg" id = "20"
-				> ? </button> </td>
-			<td><button type="button" class="btn btn-primary btn-lg" id = "21"
-				> ? </button> </td>
-			<td><button type="button" class="btn btn-primary btn-lg" id = "22"
-				> ? </button> </td>
-		</tr>
+		<div class="container col-sm-7 center-block">
+			<div style="padding-top: 13px;">
+    		<button type = "button" class="btn btn-primary btn-lg" id="reset" "> Reset or Play again </button>
+    	<!--	<p style="color: blue;font-size: 30px" id="msg"></p>-->
+			</div>
+			<h3 id = "msg"> Click a square of your choice. </h3>
+		<!--<table style="position: absolute;top: 70%; left: 50%;transform: translateX(-50%);">-->
+			<div style="text-align: center; padding-top: 20px;">
+			<table style="position:absolute; left: 50%;transform: translateX(-50%);">
+				<tr class="row" >
+					<td><button type="button" class="btn btn-primary btn-lg sq" 
+						id = "00"> ? </button>  </td>
+					<td><button type="button" class="btn btn-primary btn-lg sq" 
+						id = "01"> ? </button>  </td>
+					<td><button type="button" class="btn btn-primary btn-lg sq" 
+						id="02"> ? </button>  </td>
+				</tr>	
+				<tr class="row">
+					<td><button type="button" class="btn btn-primary btn-lg sq" id = "10"
+						> ? </button>  </td>
+					<td><button type="button" class="btn btn-primary btn-lg sq" id = "11"
+						> ? </button>  </td>
+					<td><button type="button" class="btn btn-primary btn-lg sq" id = "12"
+						> ? </button> </td>
+				</tr>	
+				<tr class="row">
+					<td><button type="button" class="btn btn-primary btn-lg sq" id = "20"
+						> ? </button> </td>
+					<td><button type="button" class="btn btn-primary btn-lg sq" id = "21"
+						> ? </button> </td>
+					<td><button type="button" class="btn btn-primary btn-lg sq" id = "22"
+						> ? </button> </td>
+				</tr>
 
-		</table>
-		<h3 id = "msg"> Click a square of your choice. </h3>
+			</table>
+			</div>
+		</div>
 	</div>
-	<script type="text/javascript">
-		buttons = document.getElementsByTagName('button');
-for(var i = 0; i< but.length; i++){
-	buttons[i].textContent = '?';
-}
-	</script>
+	
 </body>
 </html>

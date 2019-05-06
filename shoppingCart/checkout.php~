@@ -1,0 +1,45 @@
+<?php
+session_start();
+
+if(isset($_SESSION['products']))
+{
+	print "<form id = 'check_out' name = 'check_out' method = 'POST' action = 'email.php' onsubmit = 'return validate_form()'>";
+	print "<table> <tr> <td> Name: <span style = 'color:red;'>*</span> </td>" ;
+	print "<td> <input type = 'text' id = 'custName' name = 'custName'> </td>";
+	print "<tr> <td> Address: <span style = 'color:red;'>*</span> </td> ";
+	print "<td> <input type = 'text' id = 'address' name = 'address'> </td>";
+	print "<tr> <td> Suburb: <span style = 'color:red;'>*</span></td>";
+	print "<td> <input type = 'text' id = 'suburb' name = 'suburb'> </td>";
+	print "<tr> <td> State:<span style = 'color:red;'>*</span> </td>"; 
+	print "<td><input type = 'text' id = 'state' name = 'state'> </td> ";
+	print "<tr> <td> Country: <span style = 'color:red;'>*</span>  </td>";
+	print "<td> <input type = 'text' id = 'country' name = 'country'> </td> ";
+	print "<tr> <td> e-mail: <span style= 'color:red;'>*</span> </td>"; 
+	print "<td> <input type = 'text' id = 'email' name = 'email'> </td> ";
+	print "<tr> <td colspan ='2' align = 'center'> <input type = 'submit' value = 'Purchase' ></td> <tr>";
+	
+	
+	print "</form>";
+}
+?>
+
+function validate_form()
+{
+	if (hasblanks()){
+		alert("One or more compulsory\nfields is blank");
+		return false;
+	}
+	return true;
+}
+
+function hasblanks()
+{
+	var compulsory_fields = new Array('custName','address','suburb','state','country','email');
+	for (i=0;i<compulsory_fields.length;i++)
+	{
+		var form_field = document.getElementById(compulsory_fields[i]);
+		if (form_field.value = "")
+			return true;
+	}
+	return false;
+}	

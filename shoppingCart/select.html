@@ -1,0 +1,96 @@
+<html>
+<link rel = "stylesheet" type = "text/css" href = "styleFile.css">
+
+<head>
+<?php require "retrieval.php"; ?>
+
+<script type="text/javascript">
+function display(arg) {
+	document.getElementById('pic').src = arg.concat(".png");
+	document.getElementById('pic').useMap = "#".concat(arg);
+}
+
+function leaves(arg){
+	document.getElementById('prodDetail').value = arg;
+	document.getElementById('leafToSend').submit();
+}
+
+function mclose(){
+	display("Categories");
+}
+
+
+</script>
+</head>
+
+<body>
+
+<h1>Welcome to my Online Grocery Store </h1>
+<img id="pic" src="Categories.png" width="600" height="500" alt="" usemap="#Categories">
+<map name = "Categories" id = "Categories">
+	<area target = "_self" coords = "30,150,90,210" shape = "rect" onmouseover = "display('FrozenFood')">
+	<area target = "_self" coords = "140,150,200,210" shape = "rect" onmouseover = "display('FreshFood')" >
+	<area target = "_self" coords = "260,150,330,210" shape = "rect" onmouseover ="display('Beverages')" >
+	<area target = "_self" coords = "385,150,450,210" shape = "rect" onmouseover = "display('HomeHealth')" >
+    	<area target= '_self'  coords =  "500,150,570,210" shape="rect"  onmouseover="display('PetFood')" >
+</map>
+<div > <form id = 'leafToSend' action = 'retrieval.php' method = 'post' target = 'up'> <input type = "hidden" name = "prodDetail" id = "prodDetail" ></form>
+
+</div>
+<map name = "FrozenFood" id= "FrozenFood">
+	<area coords = "0,0,0,150,90,150,90,210,140,210,140,150,200,150,200,210,260,210,260,150,330,150,330,210,385,210,385, 150,450,150,450,210,500,210,500,150,570,150,570,0" shape = "poly" onmouseover = "mclose()">
+	<area coords = "30,400,90,450" shape = "rect" onClick = "leaves('FishFingersL')" >
+    	<area coords = "110,400,170,450" shape= "rect"  onClick = "leaves('FishFingersS')">
+	<area coords = "180,400,250,450" shape = "rect" onClick = "leaves('ShelledPrawns')">
+    	<area coords = "290,400,370,450" shape="rect"  onClick = "leaves('1IceCream')">
+	<area coords = "380,400,450,450" shape="rect"  onClick = "leaves('2IceCream')">
+	<area coords = "480,400,560,450" shape="rect"  onClick = "leaves('Hamburger')">
+</map>
+
+<map name = "FreshFood" id = "FreshFood">
+	<area coords = "0,0,0,150,90,150,90,210,140,210,140,150,200,150,200,210,260,210,260,150,330,150,330,210,385,210,385, 150,450,150,450,210,500,210,500,150,570,150,570,0" shape = "poly" onmouseover = "mclose()">
+	
+	<area coords = "30,285,90,340" shape = "rect" onCick = "leaves('Steak')">
+    	<area coords = "50,425,120,474" shape="rect"  onClick = "leaves('Cheese500')">
+	<area coords = "170,425,230,474" shape="rect"  onClick = "leaves('Cheese1000')">
+    	<area coords = "190,285,250,340" shape="rect"  onClick = "leaves('Oranges')">
+    	<area coords = "270,285,340,340" shape="rect"  onClick = "leaves('Bananas')">
+    	<area coords = "360,285,420,340" shape="rect"  onClick = "leaves('Grapes')">
+    	<area coords = "435,285,500,340" shape="rect"  onClick = "leaves('Apples')">
+    	<area coords = "520,285,580,340" shape="rect"  onClick = "leaves('Peaches')">
+</map>
+
+<map name = "Beverages" id = "Beverages">
+	<area coords = "0,0,0,150,90,150,90,210,140,210,140,150,200,150,200,210,260,210,260,150,330,150,330,210,385,210,385, 150,450,150,450,210,500,210,500,150,570,150,570,0" shape = "poly" onmouseover = "mclose()">
+	<area coords = "60,425,130,474" shape="rect"  onClick = "leaves('Coffee200')">
+    	<area coords = "170,425,230,474" shape="rect"  onClick = "leaves('Coffee500')">
+    	<area coords = "260,425,320,474" shape="rect"  onClick = "leaves('Tea25')">
+    	<area coords = "340,425,410,474" shape="rect"  onClick = "leaves('Tea100')">
+    	<area coords = "430,425,490,474" shape="rect"  onClick = "leaves('Tea200')">
+    	<area coords = "490,295,550,350" shape="rect"  onClick = "leaves('Chocolate')">
+</map>
+
+
+<map name = "HomeHealth" id = "HomeHealth">
+	<area coords = "0,0,0,150,90,150,90,210,140,210,140,150,200,150,200,210,260,210,260,150,330,150,330,210,385,210,385, 150,450,150,450,210,500,210,500,150,570,150,570,0" shape = "poly" onmouseover = "mclose()">
+	<area coords = "130,290,200,350" shape="rect"  onClick = "leaves('Soap')">
+    	<area coords = "165,400,225,450" shape="rect"  onClick = "leaves('Panadol24')">
+    	<area coords = "260,400,325,450" shape="rect"  onClick = "leaves('Panadol50')">
+    	<area coords = "310,290,380,350" shape="rect"  onClick = "leaves('WashingP')">
+    	<area coords = "370,400,430,450" shape="rect"  onClick = "leaves('Garbage10')">
+    	<area coords = "460,400,520,450" shape="rect"  onClick = "leaves('Garbage50')">
+    	<area coords = "480,290,550,350" shape="rect"  onClick = "leaves('LaundryBleach')">
+</map>
+
+<map name = "PetFood" id = "PetFood">
+	<area coords = "0,0,0,150,90,150,90,210,140,210,140,150,200,150,200,210,260,210,260,150,330,150,330,210,385,210,385, 150,450,150,450,210,500,210,500,150,570,150,570,0" shape = "poly" onmouseover = "mclose()">
+	<area coords = "210,290,270,350" shape="rect"  onClick = "leaves('BirdF')">
+	<area coords = "310,290,375,350" shape="rect"  onClick = "leaves('CatF')">
+	<area coords = "370,420,440,470" shape="rect"  onClick = "leaves('DogF1')">
+	<area coords = "460,420,530,470" shape="rect"  onClick = "leaves('DogF5')">
+	<area coords = "510,290,570,350" shape="rect"  onClick = "leaves('FishF')">
+</map>
+
+
+</body>
+</html>

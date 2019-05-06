@@ -1,0 +1,14 @@
+<?php
+session_start();
+$name = $_REQUEST['custName'];
+$address = $_REQUEST['address'];
+$suburb = $_REQUEST['suburb'];
+$state= $_REQUEST['state'];
+$country = $_REQUEST['country'];
+$email = $_REQUEST['email'];
+$subject = "Details of order placed.";
+$message = "Dear $name <br> Thank you for placing an online order with us. Here are the items that you ordered: <table>  </table>";
+
+mail($email, $subject,$message);
+
+?>

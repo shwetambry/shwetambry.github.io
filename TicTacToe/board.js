@@ -2,18 +2,27 @@ var freeSq = ['00','01','02','10','11','12','20','21','22'];
 var winComb = [['00','01','02'],['10','11','12'],['20','21','22'],
 ['00','10','20'],['01','11','21'],['02','12','22'],
 ['00','11','22'],['02','11','20']];
-var radioValue;
+var numPlayerRadio = 1;
+var pl1symb = 'X';
+var pl2symb = 'O';
 var game_over = false;
-function getRadioValue(){
-	var radioValue = $("input[name='optradio']:checked").val();
-	return radioValue;
+function getNumPl(){
+	numPlayerRadio = $("input[name='players']:checked").val();
+	//return numPlayerRadio;
+}
+function getplSymb(){
+	pl1symb = $("input[name='optradio']:checked").val();
+	pl2symb = $("input[name='optradio']:not(:checked)").val();
+	//return pl1symb;
 }
 function checkWin(rad){
 	for(var i = 0; i<8;i++){
 		var comb = winComb[i];
 		if ($('#'+comb[0]).text() == rad){
 			if($('#'+comb[1]).text() == rad && $('#'+comb[2]).text() == rad){
-				$('#msg').html("Game Over!!! "+ rad + " wins.")
+				$('#msg').html("Game Over!!! "+ rad + " wins.");
+				$('#msg').css('color','blue');
+				
 				endGame();
 				
 				break;
@@ -23,23 +32,26 @@ function checkWin(rad){
 }
 function endGame(){
 	game_over = true;
-	$("button").prop("disabled", true);
+	$("button.sq").prop("disabled", true);
 }
 $(document).ready(function(){
+	$("input[name='players']").change(function(){
+		getNumPl();
+		//numPlayerRadio = getNumPl();
+	});
 	$("input[name='optradio']").change(function(){
-		radioValue = getRadioValue();
-		alert(radioValue);
-	
+		getplSymb();
+		//pl1symb = getp1Symb();
 	});
 	$('#reset').click(function(){
 		document.location.reload(true);
 	});
-	$('button').click(function(){
-		radioValue = getRadioValue();
+	$('button.sq').click(function(){
+		$("input[type=radio]").attr('disabled',true);
 		var  okay = false;
 		var curID = $(this).attr('id');
 		for (var i = 0; i< freeSq.length;i++){
-			if(curID===freeSq[i]){
+			if(curID==freeSq[i]){
 				okay=true;
 				freeSq.splice(i,1);
 				break;
@@ -50,16 +62,23 @@ $(document).ready(function(){
 		}
 		else{
 			$('#'+curID).css('background-color','maroon');
-			$('#'+curID).html(radioValue).promise().done(checkWin(radioValue));
+			$('#'+curID).html(pl1symb).promise().done(checkWin(pl1symb));
 			if(game_over == false){
 				if (freeSq.length > 0){
-					var randInd = Math.floor(Math.random()*freeSq.length);
-					var compRadioVal = $("input[name='optradio']:not(:checked)").val();
-					$('#'+freeSq[randInd]).css('background-color','olive');
-					$('#'+freeSq[randInd]).html(compRadioVal).promise().done(function(){
-						freeSq.splice(randInd,1);
-						checkWin(compRadioVal);
-					});
+					if(numPlayerRadio == 1){
+						setTimeout(function(){
+							var randInd = Math.floor(Math.random()*freeSq.length);
+							//var compRadioVal = $("input[name='optradio']:not(:checked)").val();
+							$('#'+freeSq[randInd]).css('background-color','olive');
+							$('#'+freeSq[randInd]).html(pl2symb).promise().done(function(){
+								freeSq.splice(randInd,1);
+								checkWin(pl2symb);
+							});
+						},500);
+					}
+					else{
+
+					}
 				}
 				else {
 					endGame();

@@ -11,12 +11,12 @@ var num2 = 146;
 var panelToShow = 'add';
 var tmpAr=setsymb(panelToShow);
 var timeOutObj=setTimeout(function(){},0);
-var defaultHelpText = "<p style='text-align:center';> <br> Having trouble to figure out how to proceed?? <br>"+
-" Harder problems involve carrying and borrowing digits. However, in easier problems, "+
-"no such carrying or borrowing take place. <br> Still confused what to do. <br> Press 'yes' to "+
-"understand it step by step via animation.</p>";
+var defaultHelpText = "<p style='text-align:left';> <br> Having trouble to figure out how to proceed??<br>"+
+"<br> Harder problems involve carrying and borrowing digits. However, in easier problems, no such carrying or borrowing takes place.<br>"+ 
+"<br> Still confused what to do. <br> Press 'yes' to understand it step by step via animation.</p>";	
 
 $(document).ready(function(){
+	$('#helpContent').html(defaultHelpText);
 		$('button.menu').click(function(){
 			$('button.menu.active').removeClass('active');
 			$(this).addClass('active');
@@ -30,6 +30,7 @@ $(document).ready(function(){
 				$(this).slideDown(300);
 			});
 			
+
 		});
 
 		$('#toggle_button').click(function(){

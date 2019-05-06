@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title></title>
+</head>
+<body>
+<form action = 'session_php.php' method = 'get'>Displaying the result of your product choice. <br><table> <tr style="padding: 10px; 
+                background-color: #48577D; 
+                color: #fff; 
+                text-align: left; "> <th> Product name </th> <th> Product Price </th> <th> Unit Quantity </th> <th> Units needed </th> </tr> 
+		<tr style = "background-color: #d3dcf2; "> <td> Fish Fingers </td> <td> 2.55 </td> <td> 500 gram </td> <td> <select name = 'quantity' id = 'quantity'>
+	<option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option> <option>7</option>
+	<option>8</option> <option>9</option> <option>10</option></select> </td><tr> <td colspan = '3' align = 'center'> <input type = 'submit' value = 'Add to List'> </td> </tr></table> <input type = 'hidden' id = 'prodId' name = 'prodId' value = 1000'><input type = 'hidden' id = 'form_products' name = 'form_products' value = Fish Fingers><input type ='hidden' id = 'form_prod_price' name = 'form_prod_price' value = 2.55><br></form>
+</html>

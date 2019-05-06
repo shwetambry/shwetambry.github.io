@@ -1,0 +1,17 @@
+<html>
+<head> 
+<title>
+	Welcome to my Grocery Store
+</title>
+</head>
+	
+<FRAMESET cols = "40%,60%" framespacing= "0" frameborder="0" border="0"> 
+	<FRAME src = "left.html" name = "left">
+	<FRAMESET rows = "50%, 50%"> 
+		<FRAME src = "tester.html" name = "up" style = "background:#FFC0FF;">
+		<FRAME src = "virtualCart.html" name = "down"style = "background:#C0FFFF">
+	</FRAMESET>
+</FRAMESET>
+
+
+</html>

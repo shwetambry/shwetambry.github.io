@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="validate.js" type ="text/javascript">
+</script>
+</head>
+<body >
+<div>
+<form id = "check_out" name = "check_out" method = "POST" action = "email.php" onsubmit = "return validate()" >
+	<table> <tr> <th colspan = "2" > Please enter your details: </th></tr> <tr> <td> Name:<span style = "color:red;">*</span> </td>
+	<td> <input type = "text" id = "custName" name = "custName"> </td> </tr>
+	<tr> <td> Address:<span style = "color:red;">*</span> </td> 
+	<td> <input type = "text" id = "address" name = "address"> </td> </tr>
+	<tr> <td> Suburb:<span style = "color:red;">*</span></td>
+	<td> <input type = "text" id = "suburb" name = "suburb"> </td> </tr>
+	<tr> <td> State:<span style = "color:red;">*</span> </td>
+	<td><input type = "text" id = "state" name = "state"> </td> </tr>
+	<tr> <td> Country:<span style = "color:red;">*</span>  </td>
+	<td> <input type = "text" id = "country" name = "country"> </td> </tr>
+	<tr> <td> e-mail:<span style= "color:red;">*</span> </td>
+	<td> <input type = "text" id = "email" name = "email"> </td> </tr>
+	<tr> <td colspan ="2" align = "center"> <input type = "submit" value = "Purchase" ></td> </tr>
+	</table>
+	
+	</form>
+</div>
+
+</body>
+</html>

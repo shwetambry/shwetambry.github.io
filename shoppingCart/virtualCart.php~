@@ -1,0 +1,21 @@
+<?php
+if(isset($_SESSION['products']))
+	print "Number of products added to the cart = ";
+	print sizeof($_SESSION['products'])."<br>";
+	print "<b> Your cart : </b> ";
+	print "<table> <tr> <td> Product </td> <td> Unit Price </td> <td> Quantity </td> <td> Total Price </td> ";
+	$cartPrice = 0;
+	for ($i=0;$i<sizeof($_SESSION['products']);$i++)
+	{
+		print "<tr> <td> $_SESSION['products'][$i]</td> ";
+		print "<td> $_SESSION['prodPrice'][$i] </td>";
+		print "<td> $_SESSION['quantity'][$i]</td>";
+		$tmp = $_SESSION['prodPrice'][$i]*$_SESSION['quantity'][$i];
+		print "<td> $tmp </td></tr>";
+		$cartPrice += $tmp;
+	}
+	print "</table>";
+	print "Total Price for current products = ";
+	print $cartPrice. "<br>";
+
+?>
