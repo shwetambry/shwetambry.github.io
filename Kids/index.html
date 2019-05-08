@@ -21,22 +21,24 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
   	<script type="text/javascript" src="update.js"></script>
-
+  	
+  	
 </head>
 
 <body>
 	<div class="container text-center">
 		<div class="container" style="background-color: lightgrey; padding-bottom: 10px;">
 			<h1> Some math problems for little kids </h1>
-			<button type="button" id="add" class="btn btn-primary btn-lg menu active" data-panel="addPanel"> Addition </button>
-			<button type="button" id="sub" class="btn btn-primary btn-lg menu" data-panel="subPanel"> Subtraction </button>
-			<button type="button" id="mult" class="btn btn-primary btn-lg menu" data-panel="multPanel"> Multiplication </button>
+			<button type="button" id="add" class="btn btn-primary btn-lg menu asm active" data-panel="addPanel"> Addition </button>
+			<button type="button" id="sub" class="btn btn-primary btn-lg menu asm" data-panel="subPanel"> Subtraction </button>
+			<button type="button" id="mult" class="btn btn-primary btn-lg menu asm" data-panel="multPanel"> Multiplication </button>
+			<button type="button" id="clock" class="btn btn-primary btn-lg menu clockC" data-panel="clockPanel"> Clock Problems</button>
 		</div>
 
 		<div class="container text-center">
-			<div class="row main-body">
+			<div class="row main-body text-center">
 				
-				<div class="col-sm-4">
+				<div class="col-sm-4 ">
 					<h3>Scores</h3>
 					 <table class="table myContent">
 					 	<thead>
@@ -62,6 +64,13 @@
 					 			<td id="multPanelC"> 0 </td>
 					 			<td id="multPanelA"> 0 </td>
 					 		</tr>
+					 		
+					 		<tr> 
+					 			<td>Clock Problems</td>  
+					 			<td id="clockPC"> 0 </td>
+					 			<td id="clockPA"> 0 </td>
+					 		</tr>
+					 		
 					 		<tr> 
 					 			<th>Total</th>  
 					 			<th id="totalC"> 0 </th>
@@ -71,6 +80,11 @@
 					 		
 					 	</tbody>
 					</table>
+					<script> 
+						document.getElementById('totalA').innerHTML = Number(document.getElementById('addPanelA').innerHTML) + Number(document.getElementById('subPanelA').innerHTML) + Number(document.getElementById('multPanelA').innerHTML) +Number(document.getElementById('clockPA').innerHTML);
+						document.getElementById('totalC').innerHTML = Number(document.getElementById('addPanelC').innerHTML) + Number(document.getElementById('subPanelC').innerHTML) + Number(document.getElementById('multPanelC').innerHTML) +Number(document.getElementById('clockPC').innerHTML);
+
+					</script>
 					<div style="padding-bottom: 5px; padding-top: 5px; margin-bottom: 10px;">
 						<button class="btn btn-primary btn-lg" id="next"> Get new problem </button>
 					</div>
@@ -78,7 +92,7 @@
 						<button class="btn btn-primary btn-lg" id="toggle_button" data-lv = "hardP"> Get easier problems </button>
 					</div>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4 asm">
 				
 					<div id="panel">
 						<h3 id="namePanel"> Addition Problems </h3>
@@ -95,18 +109,57 @@
 						</div>
 						<div style="padding-top: 20px;">
 							<button type="button" id="check" class="btn btn-primary btn-lg">Submit and check</button>
-							<p class = "myContent" id="msg">  </p>
+							<p class = "myContent" id="msg" style="font-size: 20px;">  </p>
 						</div>
 					
 					</div>	
 
 				</div>
-				<div class="col-sm-4 panels" id="help">
+				<div class="col-sm-4 asm panels" id="help">
 					<h3>Need help in solving??</h3>
 					<button type="button" id="yes" class="btn btn-primary btn-md helpB">Yes</button>
 					<button type="button" id="no" class="btn btn-primary btn-md helpB">No</button>
 					<button type="button" id="stop" class="btn btn-primary btn-md" style="display: none;" > Stop animation. </button>
 					<p class = "myContent" id="helpContent" style="vertical-align: middle; text-align: left";> </p>
+				</div>
+
+				<div class="col-sm-8 wordC"  style="display: none;">
+					<h3> Word Problems</h3>
+				</div>
+				<div class="col-sm-8 clockC "  style="display: none;" ">
+					<h3> Clock Problems</h3>
+					<div class="row">
+						<div class="col-sm-6 " >
+							<div style="padding-bottom: 5px;">
+							<canvas id="myCanvas" width="300" height="300" style="border:1px solid #d3d3d3;">
+							Your browser does not support the canvas element.
+							</canvas>
+							</div>
+							<script type="text/javascript" src="clockproblem.js"></script>
+							<div  style="text-align:left; padding-left: 25px; display: block">
+							<p id="timeAns"></p>
+							</div>
+						</div>
+
+						<div class="col-sm-6" style="text-align: left;font-size: 20px; ">
+							<p style="font-weight: bold;"> 1. What is the time on the clock? </p>
+							<p> <input type="text" name="time" id="timeHour" size = "3" maxlength="2" value="" >:
+								<input type="text" name="time" id="timeMin" size = "3" maxlength="2" value="" ></p>
+							<p style="font-weight: bold;"> 2. Time in words   </p>
+							<p style="font-size: 12px;"> (quarter past, half past, quarter to, o'clock)</p>
+							<p><input type="text" name="time" id="timeM" size = "15" value=""></p>
+							<p style="font-weight: bold;">3. What will be the time after </p>
+							<p style="font-weight: bold; padding-left: 25px;" id="futQues">1 hour and 15 minutes.</p>
+							<p> <input type="text" id = "futureTimeHour" size="3" maxlength="2" value="">:
+								<input type="text" id = "futureTimeMin" size="3" maxlength="2" value="">
+							</p>
+							<button type="button" id="timeCheck" class="btn btn-primary btn-lg"> Submit and Check</button>
+							<p class = "myContent" id="timeMsg">  </p>
+						
+						</div>
+					</div>
+
+
 				</div>
 			</div>		
 		</div>

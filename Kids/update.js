@@ -20,17 +20,27 @@ $(document).ready(function(){
 		$('button.menu').click(function(){
 			$('button.menu.active').removeClass('active');
 			$(this).addClass('active');
-			panelToShow=$(this).attr('id');
-			tmpAr = setsymb(panelToShow);
-			$('.main-body #panel').slideUp(300,function(){
-				$('#next').trigger('click');
-				$('#namePanel').html(tmpAr[0]);
-				var cont = num1 + tmpAr[1]+num2 + "=";
-				$('#statement').html(cont);
-				$(this).slideDown(300);
-			});
+			if($(this).hasClass('asm')){
+				panelToShow=$(this).attr('id');
+				tmpAr = setsymb(panelToShow);
+				$('.main-body #panel').slideUp(300,function(){
+					$('#next').trigger('click');
+					$('#namePanel').html(tmpAr[0]);
+					var cont = num1 + tmpAr[1]+num2 + "=";
+					$('#statement').html(cont);
+					$(this).slideDown(300);
+				});
+			}
 			
 
+		});
+
+		$('button.asm').click(function(){
+			$('.container .row .asm').css('display','block');
+			//$('.container .row .wordC').css('display','none');
+			$('.container .row .clockC').css('display','none');
+			$('#toggle_button').css('display','block');
+			$('#toggle_button').css('margin','auto');
 		});
 
 		$('#toggle_button').click(function(){
@@ -54,52 +64,53 @@ $(document).ready(function(){
 		});
 
 		$('#next').click(function(){
-			clearTimeout(timeOutObj);
-			reset();
-			$('button.helpB').prop('disabled',false);
-			$('#yes').text('Yes');
-			$('#n11').css('color','black');
-			$('#n12').css('color','black');
-			$('#n13').css('color','black');
-			$('#stop').css('display', 'none');
-				
-			if(level == 'hardP'){
-				num1_1 = Math.floor(Math.random()*10);
-				num1_2 = Math.floor(Math.random()*9)+1;
-				num1_3 = Math.floor(Math.random()*10);
-				num1 = (100*num1_1) + (10*num1_2)+ num1_3;
-				if(tmpAr[1]=='x'){num2 =Math.floor(Math.random()*9)+1; }
-				else {num2 = Math.floor(Math.random()*num1);}
-			}
-			else{
-				if(tmpAr[1]=='x'){
-					num2 = 2;
-					num1_1 = Math.floor(Math.random()*4)+1;
-					num1_2 = Math.floor(Math.random()*5);
+			if($('button.menu.active').hasClass('asm')){
+				clearTimeout(timeOutObj);
+				reset();
+				$('button.helpB').prop('disabled',false);
+				$('#yes').text('Yes');
+				$('#n11').css('color','black');
+				$('#n12').css('color','black');
+				$('#n13').css('color','black');
+				$('#stop').css('display', 'none');
+					
+				if(level == 'hardP'){
+					num1_1 = Math.floor(Math.random()*10);
+					num1_2 = Math.floor(Math.random()*9)+1;
+					num1_3 = Math.floor(Math.random()*10);
+					num1 = (100*num1_1) + (10*num1_2)+ num1_3;
+					if(tmpAr[1]=='x'){num2 =Math.floor(Math.random()*9)+1; }
+					else {num2 = Math.floor(Math.random()*num1);}
 				}
 				else{
-					num1_1 = Math.floor(Math.random()*9)+1;
-					num1_2 = Math.floor(Math.random()*10);
-					num2_1 = Math.floor(Math.random()*(Math.min(num1_1,10-num1_1)));
-					num2_2 = Math.floor(Math.random()*(Math.min(num1_2,10-num1_2)));
-					num2 = 10*num2_1 + num2_2;
+					if(tmpAr[1]=='x'){
+						num2 = 2;
+						num1_1 = Math.floor(Math.random()*4)+1;
+						num1_2 = Math.floor(Math.random()*5);
+					}
+					else{
+						num1_1 = Math.floor(Math.random()*9)+1;
+						num1_2 = Math.floor(Math.random()*10);
+						num2_1 = Math.floor(Math.random()*(Math.min(num1_1,10-num1_1)));
+						num2_2 = Math.floor(Math.random()*(Math.min(num1_2,10-num1_2)));
+						num2 = 10*num2_1 + num2_2;
+					}
+					num1 = 10*num1_1 + num1_2;
+						
 				}
-				num1 = 10*num1_1 + num1_2;
-					
+				st1 = num1.toString(10);
+				st2 = num2.toString(10);
+				setProb('n1',st1);
+				setProb('n2',st2);
+				var context = num1 +" "+ tmpAr[1]+" " +num2 +" = ";
+				$('#statement').html(context);
+				$('.clear').val("").change();
+				$('#msg').html("");
+				$('#check').prop('disabled',false);
+				$('#helpContent').html(defaultHelpText);
 			}
-			st1 = num1.toString(10);
-			st2 = num2.toString(10);
-			setProb('n1',st1);
-			setProb('n2',st2);
-			var context = num1 +" "+ tmpAr[1]+" " +num2 +" = ";
-			$('#statement').html(context);
-			$('.clear').val("").change();
-			$('#msg').html("");
-			$('#check').prop('disabled',false);
-			$('#helpContent').html(defaultHelpText);
-
-			
 		});
+		
 		$('#check').click(function(){
 			var inpAns;
 			var a1 = $('#res1').val();
