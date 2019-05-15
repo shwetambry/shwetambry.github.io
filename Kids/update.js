@@ -477,8 +477,8 @@ function checkAns(n1,n2,op,inp){
 	$('#msg').html(txt);
 	var tC = correctA+correctS+correctM;
 	var tA = attemptA+attemptS+attemptM;
-	$('#totalC').html(tC);
-	$('#totalA').html(tA);
+	$('#totalC').html(tC+Number($('#clockPC').text()));
+	$('#totalA').html(tA+Number($('#clockPA').text()));
 	
 }
 function reset(){

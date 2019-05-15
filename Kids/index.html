@@ -81,7 +81,11 @@
 					 	</tbody>
 					</table>
 					<script> 
-						document.getElementById('totalA').innerHTML = Number(document.getElementById('addPanelA').innerHTML) + Number(document.getElementById('subPanelA').innerHTML) + Number(document.getElementById('multPanelA').innerHTML) +Number(document.getElementById('clockPA').innerHTML);
+						tmp = Number($('#addPanelA').html()) + Number($('#subPanelA').html()) +
+						Number($('#multPanelA').html()) + Number($('#clockPA').html()) 
+						$('#totalA').html(tmp);
+
+						/*document.getElementById('totalA').innerHTML = Number(document.getElementById('addPanelA').innerHTML) + Number(document.getElementById('subPanelA').innerHTML) + Number(document.getElementById('multPanelA').innerHTML) +Number(document.getElementById('clockPA').innerHTML);
 						document.getElementById('totalC').innerHTML = Number(document.getElementById('addPanelC').innerHTML) + Number(document.getElementById('subPanelC').innerHTML) + Number(document.getElementById('multPanelC').innerHTML) +Number(document.getElementById('clockPC').innerHTML);
 
 					</script>

@@ -43,7 +43,8 @@ $(document).ready(function(){
 	$('#timeCheck').click(function(){
 		$('#timeAns').css('display','block');
 		attemptC+=3;
-		$('#totalA').html(attemptC+Number($('#totalA').text()));
+		tmp = Number($('#totalA').text());
+		$('#totalA').html(tmp+3);
 		$('#clockPA').html(attemptC);
 		var txt = "<p style='font-weight:bold;'> Answers </p>";
 		txt+="<p>1. "+h+":"+m;
@@ -74,8 +75,10 @@ function makeValBlank(vec){
 	}
 }
 function timeCheckAnswers(){
+	tmp = 0;
 	if(($('#timeHour').val()==h && ($('#timeMin').val()==m ) || $('#timeMin').val()=='0'+m)){
 		correctC+=1;
+		tmp+=1;
 		changeCol(['timeMin','timeHour'],['green','green']);
 		
 	}
@@ -85,6 +88,7 @@ function timeCheckAnswers(){
 	}
 	if($('#timeM').val().toLowerCase()==timeInWords(h,m)){
 		correctC += 1;
+		tmp+=1;
 		$('#timeM').css('background-color','green');
 	}
 	else{
@@ -93,6 +97,7 @@ function timeCheckAnswers(){
 	var ft=futureTime(h,m,fh,fm);
 	if(($('#futureTimeHour').val()==ft[0]) && ($('#futureTimeMin').val()==ft[1])){
 		correctC+=1;
+		tmp+=1
 		changeCol(['futureTimeMin','futureTimeHour'],['green','green']);
 		
 	}
@@ -101,7 +106,7 @@ function timeCheckAnswers(){
 	}
 	$('#clockPC').html(correctC);
 	
-	$('#totalC').html(correctC+Number($('#totalC').text()));
+	$('#totalC').html(tmp+Number($('#totalC').text()));
 }
 function futureTime(h1,m1,h2,m2){
 	var mins = (m1+m2)%60;
