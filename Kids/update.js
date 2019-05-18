@@ -69,9 +69,9 @@ $(document).ready(function(){
 				reset();
 				$('button.helpB').prop('disabled',false);
 				$('#yes').text('Yes');
-				$('#n11').css('color','black');
-				$('#n12').css('color','black');
-				$('#n13').css('color','black');
+				$('#n11').css('color','saddlebrown');
+				$('#n12').css('color','saddlebrown');
+				$('#n13').css('color','saddlebrown');
 				$('#stop').css('display', 'none');
 					
 				if(level == 'hardP'){

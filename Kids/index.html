@@ -26,8 +26,8 @@
 </head>
 
 <body>
-	<div class="container text-center">
-		<div class="container" style="background-color: lightgrey; padding-bottom: 10px;">
+	<div class="container text-center" style="color: saddlebrown;">
+		<div class="container" style="background-color: saddlebrown; color: white; padding-bottom: 10px;">
 			<h1> Some math problems for little kids </h1>
 			<button type="button" id="add" class="btn btn-primary btn-lg menu asm active" data-panel="addPanel"> Addition </button>
 			<button type="button" id="sub" class="btn btn-primary btn-lg menu asm" data-panel="subPanel"> Subtraction </button>
@@ -38,8 +38,8 @@
 		<div class="container text-center">
 			<div class="row main-body text-center">
 				
-				<div class="col-sm-4 ">
-					<h3>Scores</h3>
+				<div class="col-sm-4 " style="background-color: wheat;">
+					<h3 style="background-color: saddlebrown;">Scores</h3>
 					 <table class="table myContent">
 					 	<thead>
 					 		<tr>
@@ -80,15 +80,7 @@
 					 		
 					 	</tbody>
 					</table>
-					<script> 
-						tmp = Number($('#addPanelA').html()) + Number($('#subPanelA').html()) +
-						Number($('#multPanelA').html()) + Number($('#clockPA').html()) 
-						$('#totalA').html(tmp);
-
-						/*document.getElementById('totalA').innerHTML = Number(document.getElementById('addPanelA').innerHTML) + Number(document.getElementById('subPanelA').innerHTML) + Number(document.getElementById('multPanelA').innerHTML) +Number(document.getElementById('clockPA').innerHTML);
-						document.getElementById('totalC').innerHTML = Number(document.getElementById('addPanelC').innerHTML) + Number(document.getElementById('subPanelC').innerHTML) + Number(document.getElementById('multPanelC').innerHTML) +Number(document.getElementById('clockPC').innerHTML);
-
-					</script>
+					
 					<div style="padding-bottom: 5px; padding-top: 5px; margin-bottom: 10px;">
 						<button class="btn btn-primary btn-lg" id="next"> Get new problem </button>
 					</div>
@@ -99,7 +91,7 @@
 				<div class="col-sm-4 asm">
 				
 					<div id="panel">
-						<h3 id="namePanel"> Addition Problems </h3>
+						<h3 id="namePanel" style="background-color: saddlebrown;"> Addition Problems </h3>
 						<p id="statement" style="font-size: 30px; display: inline-block;"> 397+146 </p> 
 						
 						<div id="add" class="prob">
@@ -120,7 +112,7 @@
 
 				</div>
 				<div class="col-sm-4 asm panels" id="help">
-					<h3>Need help in solving??</h3>
+					<h3 style="background-color: saddlebrown;">Need help in solving??</h3>
 					<button type="button" id="yes" class="btn btn-primary btn-md helpB">Yes</button>
 					<button type="button" id="no" class="btn btn-primary btn-md helpB">No</button>
 					<button type="button" id="stop" class="btn btn-primary btn-md" style="display: none;" > Stop animation. </button>
@@ -128,10 +120,10 @@
 				</div>
 
 				<div class="col-sm-8 wordC"  style="display: none;">
-					<h3> Word Problems</h3>
+					<h3 style="background-color: saddlebrown;"> Word Problems</h3>
 				</div>
 				<div class="col-sm-8 clockC "  style="display: none;" ">
-					<h3> Clock Problems</h3>
+					<h3 style="background-color: saddlebrown;"> Clock Problems</h3>
 					<div class="row">
 						<div class="col-sm-6 " >
 							<div style="padding-bottom: 5px;">
@@ -157,7 +149,7 @@
 							<p> <input type="text" id = "futureTimeHour" size="3" maxlength="2" value="">:
 								<input type="text" id = "futureTimeMin" size="3" maxlength="2" value="">
 							</p>
-							<button type="button" id="timeCheck" class="btn btn-primary btn-lg"> Submit and Check</button>
+							<button type="submit" id="timeCheck" class="btn btn-primary btn-lg"> Submit and Check</button>
 							<p class = "myContent" id="timeMsg">  </p>
 						
 						</div>
