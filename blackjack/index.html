@@ -25,6 +25,27 @@
   		img {
   			width: 100px; height: 150px; padding-bottom: 10px; padding-left: 10px;
   		}
+  		.table{
+  			display: none;
+  			border: 3px ridge green;
+  			padding-top: 20px; 
+  			margin: auto; 
+  			color: green; 
+  			font-size: 20px;
+  		}
+  		.board {
+  			border: 5px ridge saddlebrown;
+  			background-color: yellowgreen;
+  			padding-top: 20px;
+  			padding-bottom: 10px;
+  		}
+  		.heading {
+  			background-color: saddlebrown;
+  			color: white;
+  			font-weight: bolder;
+  			font-size: 20px;
+
+  		}
   	</style>
 
 </head>
@@ -44,7 +65,7 @@
 				
 					<button class="btn btn-primary btn-lg" id="deal" style="display: none; padding-top: 10px; padding-bottom: 10px;"> Deal cards</button> <br>
 					<div style="padding-bottom: 20px; padding-top: 20px;">
-					<table class="table" style="padding-top: 20px; display: none; margin: auto; color: green;">
+					<table class="table">
 						<thead>
 							<tr>
 								<th> Owner </th>
@@ -81,12 +102,12 @@
 					
 				</div>
 				<div class="col-sm-8 main" style="display: none;">
-					<div class="row" id="playerCards" style="background-color: skyblue;">
-						<p class="text-center"> <strong> Your cards </strong></p>
+					<div class="row board" id="playerCards" >
+						<p class="text-center heading" > <strong> Your cards </strong></p>
 						
 					</div>
-					<div class="row" id="dealerCards" style="background-color: yellowgreen;">
-						<p class="text-center"><strong> Dealer's cards</strong></p>
+					<div class="row board" id="dealerCards" >
+						<p class="text-center heading"><strong> Dealer's cards</strong></p>
 						
 					</div>
 					<div class="row" style="color: green; font-size: 30px; font-weight: bolder;">

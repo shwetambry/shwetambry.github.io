@@ -37,6 +37,7 @@ $(document).ready(function(){
 					display(card,'dealer');
 				}
 			}
+				
 		}
 		$('#playerValue').html(checkVal(playerCards));
 		$('#dealerValue').html(checkVal(dealerCards.slice(1,dealerCards.length)));
@@ -85,6 +86,7 @@ $(document).ready(function(){
 				dealerCards.push(card);
 				valD = checkVal(dealerCards);
 				$('#dealerValue').html(valD);
+					
 			}
 			if(valD>21){
 				result = "Dealer busted and you win!!"
@@ -101,6 +103,7 @@ $(document).ready(function(){
 					dealerCards.push(card);
 					valD = checkVal(dealerCards);
 					$('#dealerValue').html(valD);
+					
 				}
 				$('#stand').trigger('click');
 				
