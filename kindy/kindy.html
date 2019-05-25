@@ -16,21 +16,42 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+  <script type="text/javascript" src="Kindy.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
 </head>
-<body>
+<body style="background-color: beige;">
 	<div class="container text-center">
-		<div class="container" style="background-color: lightgrey; padding-bottom: 10px;">
+		<div class="container" style="background-color: saddlebrown; color: white;padding-bottom: 10px;">
 			<h1> Math and English help for kindergarten kids </h1>
-			<button type="button" id="add" class="btn btn-primary btn-lg menu active" id="eng"> English </button>
-			<button type="button" id="sub" class="btn btn-primary btn-lg menu" id="math" > Math </button>
+			<button type="button" id="add" class="btn btn-primary btn-lg menu active" data-panel="eng"> English </button>
+			<button type="button" id="sub" class="btn btn-primary btn-lg menu" data-panel="math" > Math </button>
 			
 		</div>
 	</div>
-	<div class="container active" style="padding-top: 10px;">
-		<img src="frontpage.jpg" width="200px" height="300px" title="Reading for beginners">
+	<div class="container main-body active" style="padding-top: 10px;">
+		<div id= "eng" class="container" style="display: block;">
+			<div class="row text-center"> 
+				<div class="col-sm-4">
+					<img id= "pdf1" src="frontpage.jpg" width="150px" height="200px" title="Reading for beginners"><br>
+					<a href="readingV1.pdf">Reading for beginners </a>
+				</div>
+
+				<div class="col-sm-4">
+					<img id="bodyParts" src="frontpage.jpg" width="150px" height="200px" title="Reading for beginners"><br>
+					<a href="partsOfBody.pdf">Parts of body </a>
+				</div>
+
+				<div class="col-sm-4">
+					<img src="frontpage.jpg" width="150px" height="200px" title="Reading for beginners"><br>
+					<a href="animalsCounting.pdf">Learn numbers in words</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="math" class="container" style="display: none;">
+			
+		</div>
 	</div>
 
 </body>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+				<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138592925-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-138592925-1');
+	</script>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title> Blackjack </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  	<script type="text/javascript" src="blackjack.js"></script>
+  	<style type="text/css">
+  		img {
+  			width: 100px; height: 150px; padding-bottom: 10px; padding-left: 10px;
+  		}
+  	</style>
+
+</head>
+
+<body>
+	<div class="container text-center">
+		<div class="container" style="background-color: green; color: white;">
+			<h2> Blackjack </h2>
+		</div>
+	</div>
+	<div class="container text-center">
+		<!--<div class="bet text-center" style="display: block;">-->
+			<div class="row text-center">
+				<div class="col-sm-4 text-center">
+					<h2 id="stmtBet" style="color:green; display: block;"> Betting Amount: $0</h2>
+					<button class="btn btn-primary btn-lg" id="changeBet" style="display: none; padding-top: 10px; padding-bottom: 10px;"> Change bet </button>
+				
+					<button class="btn btn-primary btn-lg" id="deal" style="display: none; padding-top: 10px; padding-bottom: 10px;"> Deal cards</button> <br>
+					<div style="padding-bottom: 20px; padding-top: 20px;">
+					<table class="table" style="padding-top: 20px; display: none; margin: auto; color: green;">
+						<thead>
+							<tr>
+								<th> Owner </th>
+								<th> Card Values </th>
+								<th> Gain/Loss</th>
+							</tr>
+						</thead>
+						<tr>
+							<td>Player </td>
+							<td id="playerValue"> 0</td>
+							<td id="gainLoss"> 0 </td>
+						</tr>
+						<tr>
+							<td>Dealer</td>
+							<td id="dealerValue">0</td>
+							<td id="dealerGL"> 0</td>
+						</tr>
+					</table>
+					</div>
+					<button class="btn btn-primary btn-lg gameOn main" id="hit" style="display: none;">
+						Hit
+					</button>
+					<button class="btn btn-primary btn-lg gameOn main" id="stand" style="display: none;">
+						Stand					
+					</button>
+					
+				</div>
+				<div class="col-sm-8 bet">
+					<h2 style="color: green;">Choose a betting amount.</h2>
+					<button class="btn btn-primary btn-lg betAmt" id="1"> $1</button>
+					<button class="btn btn-primary btn-lg betAmt" id="10"> $10</button>
+					<button class="btn btn-primary btn-lg betAmt" id="100"> $100</button>
+					<button class="btn btn-primary btn-lg betAmt" id="500"> $500</button>
+					
+				</div>
+				<div class="col-sm-8 main" style="display: none;">
+					<div class="row" id="playerCards" style="background-color: skyblue;">
+						<p class="text-center"> <strong> Your cards </strong></p>
+						
+					</div>
+					<div class="row" id="dealerCards" style="background-color: yellowgreen;">
+						<p class="text-center"><strong> Dealer's cards</strong></p>
+						
+					</div>
+					<div class="row" style="color: green; font-size: 30px; font-weight: bolder;">
+						<p id="res"></p>
+					</div>
+					
+				</div>
+			
+			</div>
+		
+		
+	</div>
+</body>
+</html>
