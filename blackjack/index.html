@@ -34,14 +34,14 @@
   			font-size: 20px;
   		}
   		.board {
-  			border: 5px ridge saddlebrown;
+  			border: 10px ridge saddlebrown;
   			background-color: yellowgreen;
   			padding-top: 20px;
-  			padding-bottom: 10px;
+  			padding-bottom: 20px;
   		}
   		.heading {
   			background-color: saddlebrown;
-  			color: white;
+  			color: yellowgreen;
   			font-weight: bolder;
   			font-size: 20px;
 
@@ -52,20 +52,20 @@
 
 <body>
 	<div class="container text-center">
-		<div class="container" style="background-color: green; color: white;">
+		<div class="container" style="background-color: steelblue; color: white;">
 			<h2> Blackjack </h2>
 		</div>
 	</div>
 	<div class="container text-center">
 		<!--<div class="bet text-center" style="display: block;">-->
 			<div class="row text-center">
-				<div class="col-sm-4 text-center">
+				<div class="col-sm-4 text-center" >
 					<h2 id="stmtBet" style="color:green; display: block;"> Betting Amount: $0</h2>
-					<button class="btn btn-primary btn-lg" id="changeBet" style="display: none; padding-top: 10px; padding-bottom: 10px;"> Change bet </button>
+					<button class="btn btn-primary btn-lg" id="changeBet" data-flag = "ch" style="display: none; padding-top: 10px; padding-bottom: 10px;"> Change Bet </button>
 				
 					<button class="btn btn-primary btn-lg" id="deal" style="display: none; padding-top: 10px; padding-bottom: 10px;"> Deal cards</button> <br>
 					<div style="padding-bottom: 20px; padding-top: 20px;">
-					<table class="table">
+					<table class="table" >
 						<thead>
 							<tr>
 								<th> Owner </th>
@@ -91,15 +91,19 @@
 					<button class="btn btn-primary btn-lg gameOn main" id="stand" style="display: none;">
 						Stand					
 					</button>
+					<div id="BetsToAdd">
+						
+					</div>
 					
 				</div>
-				<div class="col-sm-8 bet">
+				<div class="col-sm-8 ">
+					<div class="bet" id="bet">
 					<h2 style="color: green;">Choose a betting amount.</h2>
 					<button class="btn btn-primary btn-lg betAmt" id="1"> $1</button>
 					<button class="btn btn-primary btn-lg betAmt" id="10"> $10</button>
 					<button class="btn btn-primary btn-lg betAmt" id="100"> $100</button>
 					<button class="btn btn-primary btn-lg betAmt" id="500"> $500</button>
-					
+					</div>
 				</div>
 				<div class="col-sm-8 main" style="display: none;">
 					<div class="row board" id="playerCards" >

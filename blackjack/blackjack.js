@@ -49,12 +49,25 @@ $(document).ready(function(){
 	});
 
 	$('#changeBet').click(function(){
-		bet = 0;
-		$('#deal').prop('disabled',false);
-		$('#changeBet').css('display','none');
-		$('.bet').css('display','inline-block');
-		
-		$('.main').css('display','none');
+		var flag = $(this).attr('data-flag');
+		if (flag == "ch"){
+			bet = 0;
+			$('#changeBet').html('Done');
+			$(this).attr('data-flag','dn');
+			$('#deal').prop('disabled',true);
+			$('#hit').prop('disabled',true);
+			$('#stand').prop('disabled',true);
+			$('#bet').appendTo('#BetsToAdd');
+			$('#bet').css('display','inline-block');
+		}
+		else {
+			$('#bet').css('display','none');
+			$('#changeBet').html('Change Bet');
+			$(this).attr('data-flag','ch');
+			$('#deal').prop('disabled',false);
+			$('#hit').prop('disabled',false);
+			$('#stand').prop('disabled',false);
+		}
 		
 	})
 
@@ -76,6 +89,9 @@ $(document).ready(function(){
 	$('#stand').click(function(){
 		$('#hid').attr('src','PNGcards/'+dealerCards[0]+'.png');
 		$('#deal').prop('disabled',false);
+		$('#hit').prop('disabled',true);
+		$('#stand').prop('disabled',true);
+		
 		var valD = checkVal(dealerCards);
 		$('#dealerValue').html(valD);
 		var valP = checkVal(playerCards);
@@ -117,6 +133,9 @@ $(document).ready(function(){
 });
 
 function reset(){
+	$('#hit').prop('disabled',false);
+	$('#stand').prop('disabled',false);
+		
 	dealerCards = [];
 	playerCards = [];
 	cards = [];
