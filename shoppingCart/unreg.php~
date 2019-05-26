@@ -1,7 +1,0 @@
-<?php
-session_start();
-session_destroy();
-print "All selected items de-selected. <br>";
-print "<a href = session_php.php> Return to product choice page. </a>";
-
-?>
