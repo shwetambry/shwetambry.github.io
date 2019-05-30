@@ -1,8 +1,8 @@
 var correctP = 0;
 var attemptP = 0;
 var num,inc,miss;
-var incArray = [1]
-//var incArray = [1,2,3,4,5,10];
+//var incArray = [1]
+var incArray = [1,2,3,4,5,10];
 //forward variable
 var fwd = true;
 
