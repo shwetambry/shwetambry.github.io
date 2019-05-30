@@ -17,6 +17,7 @@ $(document).ready(function(){
 		$('.container .row .asm').css('display','none');
 		//$('.container .row .wordC').css('display','none');
 		$('.container .row .clockC').css('display','block');
+		$('.container .row .patternP').css('display','none');
 		$('#toggle_button').css('display','none');
 	});
 	$('#next').click(function(){

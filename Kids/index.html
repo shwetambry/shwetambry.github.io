@@ -21,7 +21,7 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
   	<script type="text/javascript" src="update.js"></script>
-  	
+  	<script type="text/javascript" src="patterns.js"></script>
   	
 </head>
 
@@ -29,10 +29,12 @@
 	<div class="container text-center" style="color: saddlebrown;">
 		<div class="container" style="background-color: saddlebrown; color: white; padding-bottom: 10px;">
 			<h1> Some math problems for little kids </h1>
-			<button type="button" id="add" class="btn btn-primary btn-lg menu asm active" data-panel="addPanel"> Addition </button>
+			<button type="button" id="clock" class="btn btn-primary btn-lg menu clockC active" data-panel="clockPanel"> Clock Problems</button>
+			<button type="button" id="pattern" class="btn btn-primary btn-lg menu patternP" data-panel="patternPanel"> Patterns</button>
+			<button type="button" id="add" class="btn btn-primary btn-lg menu asm " data-panel="addPanel"> Addition </button>
 			<button type="button" id="sub" class="btn btn-primary btn-lg menu asm" data-panel="subPanel"> Subtraction </button>
 			<button type="button" id="mult" class="btn btn-primary btn-lg menu asm" data-panel="multPanel"> Multiplication </button>
-			<button type="button" id="clock" class="btn btn-primary btn-lg menu clockC" data-panel="clockPanel"> Clock Problems</button>
+			
 		</div>
 
 		<div class="container text-center">
@@ -49,6 +51,17 @@
 					 		</tr>
 					 	</thead>
 					 	<tbody>
+
+					 		<tr> 
+					 			<td>Clock Problems</td>  
+					 			<td id="clockPC"> 0 </td>
+					 			<td id="clockPA"> 0 </td>
+					 		</tr>
+					 		<tr>
+					 			<td> Pattern Problems</td>
+					 			<td id="patC">0</td>
+					 			<td id="patA">0</td>
+					 		</tr>
 					 		<tr> 
 					 			<td>Addition</td>  
 					 			<td id="addPanelC"> 0 </td>
@@ -65,11 +78,7 @@
 					 			<td id="multPanelA"> 0 </td>
 					 		</tr>
 					 		
-					 		<tr> 
-					 			<td>Clock Problems</td>  
-					 			<td id="clockPC"> 0 </td>
-					 			<td id="clockPA"> 0 </td>
-					 		</tr>
+					 		
 					 		
 					 		<tr> 
 					 			<th>Total</th>  
@@ -84,11 +93,11 @@
 					<div style="padding-bottom: 5px; padding-top: 5px; margin-bottom: 10px;">
 						<button class="btn btn-primary btn-lg" id="next"> Get new problem </button>
 					</div>
-					<div style="padding-bottom: 5px; padding-top: 5px; margin-bottom: 10px;">
+					<div style="padding-bottom: 5px; padding-top: 5px; margin-bottom: 10px; display: none;">
 						<button class="btn btn-primary btn-lg" id="toggle_button" data-lv = "hardP"> Get easier problems </button>
 					</div>
 				</div>
-				<div class="col-sm-4 asm">
+				<div class="col-sm-4 asm" style="display: none">
 				
 					<div id="panel">
 						<h3 id="namePanel" style="background-color: saddlebrown;"> Addition Problems </h3>
@@ -111,7 +120,7 @@
 					</div>	
 
 				</div>
-				<div class="col-sm-4 asm panels" id="help">
+				<div class="col-sm-4 asm panels" id="help" style="display: none;">
 					<h3 style="background-color: saddlebrown;">Need help in solving??</h3>
 					<button type="button" id="yes" class="btn btn-primary btn-md helpB">Yes</button>
 					<button type="button" id="no" class="btn btn-primary btn-md helpB">No</button>
@@ -119,10 +128,8 @@
 					<p class = "myContent" id="helpContent" style="vertical-align: middle; text-align: left";> </p>
 				</div>
 
-				<div class="col-sm-8 wordC"  style="display: none;">
-					<h3 style="background-color: saddlebrown;"> Word Problems</h3>
-				</div>
-				<div class="col-sm-8 clockC "  style="display: none;" ">
+				
+				<div class="col-sm-8 clockC "  style="display: block;" ">
 					<h3 style="background-color: saddlebrown;"> Clock Problems</h3>
 					<div class="row">
 						<div class="col-sm-6 " >
@@ -149,13 +156,32 @@
 							<p> <input type="text" id = "futureTimeHour" size="3" maxlength="2" value="">:
 								<input type="text" id = "futureTimeMin" size="3" maxlength="2" value="">
 							</p>
-							<button type="submit" id="timeCheck" class="btn btn-primary btn-lg"> Submit and Check</button>
+							<button type="submit" id="timeCheck" class="btn btn-primary btn-lg"> Submit and Check
+							</button>
 							<p class = "myContent" id="timeMsg">  </p>
 						
 						</div>
 					</div>
 
 
+				</div>
+
+				<div class="col-sm-8 text-center patternP" style="display: none;">
+					<h3 style="background-color: saddlebrown;"> Pattern Problems</h3>
+					<div class="row">
+						<div class="col-sm-12 ">
+							<h4 style="font-size: 20px;"> Fill in the missing number. </h4>
+							<input type="text" name="0" id="0" size="3" maxlength="3" value="" readonly>
+							<input type="text" name="1" id="1" size="3" maxlength="3" value="" readonly>
+							<input type="text" name="2" id="2" size="3" maxlength="3" value="" readonly>
+							<input type="text" name="3" id="3" size="3" maxlength="3" value="" readonly>
+							<input type="text" name="4" id="4" size="3" maxlength="3" value="" readonly>
+							<br><p> </p>
+							<button  type="submit" id="patCheck" class="btn btn-primary btn-lg"> Submit </button>
+							<p id="patAns" style="font-size: 25px; font-weight: bolder;"></p>
+							
+						</div>
+					</div>
 				</div>
 			</div>		
 		</div>
