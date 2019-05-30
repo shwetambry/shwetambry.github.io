@@ -1,7 +1,8 @@
 var correctP = 0;
 var attemptP = 0;
 var num,inc,miss;
-var incArray = [1,2,3,4,5,10];
+var incArray = [1]
+//var incArray = [1,2,3,4,5,10];
 //forward variable
 var fwd = true;
 
@@ -19,13 +20,17 @@ $(document).ready(function(){
 		if($('button.menu.active').hasClass('patternP')){
 			resetPat();
 			patternSetUp();
-			$('#patCheck').prop('disabled',false);
 		}
 	});
 
 	$('#patCheck').click(function(){
 		$('#patCheck').prop('disabled',true);
+		$('#'+miss).prop('readOnly',true);
 		checkPat();
+		attemptP+=1;
+		$('#patA').html(attemptP);
+		$('#totalA').html(1+Number($('#totalA').text()))
+	
 	})
 })
 function resetPat(){
@@ -34,9 +39,11 @@ function resetPat(){
 		$('#'+i).prop('readOnly',true);
 		$('#patAns').html('');
 		$('input').css('background-color','white');
+		$('#patCheck').prop('disabled',false);
 	}
 }
 function patternSetUp(){
+	resetPat();
 	num = Math.floor(Math.random()*100)+1;
 	inc = incArray[Math.floor(Math.random()*incArray.length)];
 	miss = Math.floor(Math.random()*5);
@@ -64,17 +71,11 @@ function patternSetUp(){
 	}
 	$('#'+miss).prop('readOnly',false);
 	$('#'+miss).focus();
-	$('#'+miss).keypress(function(e){
-		if(e.which == 13){
-			$('#patCheck').focus().click();
-		}
-	})
+	
 }
 
 
 function checkPat(){
-	
-	var tmp =0;
 	var text = ""
 	var x = $('#'+miss).val();
 	var correctAns;
@@ -84,17 +85,12 @@ function checkPat(){
 	else{
 		correctAns = num + (4-miss)*inc;
 	}
-	
-	attemptP += 1;
-	$('#patA').html(attemptP);
-	$('#totalA').html(1+Number($('#totalA').html()))
 	if (x == correctAns){
 		$('#'+miss).css('background-color','green');
 		text = "Good job!!! Correct Answer!!!!";
-		correctP+=1;
-		tmp+=1;
+		correctP += 1;
 		$('#patC').html(correctP);
-		$('#totalC').html(tmp+Number($('#totalC').html()));
+		$('#totalC').html(1+Number($('#totalC').text()));
 	}
 	else{
 		$('#'+miss).css('background-color','red');
