@@ -40,7 +40,7 @@ $(document).ready(function(){
 			//$('.container .row .wordC').css('display','none');
 			$('.container .row .clockC').css('display','none');
 			$('.container .row .patternP').css('display','none');
-			$('#toggle_button').css('display','inline-block');
+			$('#toggle_button').css('display','block');
 			$('#toggle_button').css('margin','auto');
 		});
 
