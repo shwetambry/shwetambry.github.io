@@ -22,6 +22,8 @@
 
   	<script type="text/javascript" src="update.js"></script>
   	<script type="text/javascript" src="patterns.js"></script>
+  	<script type="text/javascript" src="coins.js"></script>
+  	
   	
 </head>
 
@@ -31,6 +33,7 @@
 			<h1> Some math problems for little kids </h1>
 			<button type="button" id="clock" class="btn btn-primary btn-lg menu clockC active" data-panel="clockPanel"> Clock Problems</button>
 			<button type="button" id="pattern" class="btn btn-primary btn-lg menu patternP" data-panel="patternPanel"> Patterns</button>
+			<button type="button" id="pattern" class="btn btn-primary btn-lg menu coinP" data-panel="coinPanel"> Coins</button>
 			<button type="button" id="add" class="btn btn-primary btn-lg menu asm " data-panel="addPanel"> Addition </button>
 			<button type="button" id="sub" class="btn btn-primary btn-lg menu asm" data-panel="subPanel"> Subtraction </button>
 			<button type="button" id="mult" class="btn btn-primary btn-lg menu asm" data-panel="multPanel"> Multiplication </button>
@@ -61,6 +64,11 @@
 					 			<td> Patterns</td>
 					 			<td id="patC">0</td>
 					 			<td id="patA">0</td>
+					 		</tr>
+					 		<tr>
+					 			<td> Coins</td>
+					 			<td id="coinC">0</td>
+					 			<td id="coinA">0</td>
 					 		</tr>
 					 		<tr> 
 					 			<td>Addition</td>  
@@ -182,6 +190,25 @@
 							
 						</div>
 					</div>
+				</div>
+
+				<div class="col-sm-8  text-center coinP" style="display: none;">
+					<h3 style="background-color: saddlebrown;"> Coin Problems </h3>
+					<div class="row">
+						<div class="col-sm-12">
+							<h4 style="font-size: 20px;"> What is the total value of coins? </h4>
+							<p id="coinImages"></p>
+							<input type="text" id="cents" name="cents" size="4" maxlength="3" value="" > cents
+							<br><p>
+			
+							</p>
+							<button type="submit" id="coinCheck" class="btn btn-lg btn-primary"> Submit </button>
+							<p id="coinAns" style="font-size: 25px; font-weight: bolder;"></p>
+						</div>
+						
+					</div>
+					
+
 				</div>
 			</div>		
 		</div>

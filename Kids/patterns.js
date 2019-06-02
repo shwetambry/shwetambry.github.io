@@ -1,7 +1,7 @@
 var correctP = 0;
 var attemptP = 0;
 var num,inc,miss;
-//var incArray = [1]
+//var incArray = [1,2]
 var incArray = [1,2,3,4,5,10];
 //forward variable
 var fwd = true;
@@ -9,7 +9,7 @@ var fwd = true;
 $(document).ready(function(){
 	$('button.menu.patternP').click(function(){
 		$('.container .row .asm').css('display','none');
-		//$('.container .row .wordC').css('display','none');
+		$('.container .row .coinP').css('display','none');
 		$('.container .row .clockC').css('display','none');
 		$('.container .row .patternP').css('display','block');
 		$('#toggle_button').css('display','none');

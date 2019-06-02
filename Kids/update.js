@@ -37,7 +37,7 @@ $(document).ready(function(){
 
 		$('button.asm').click(function(){
 			$('.container .row .asm').css('display','block');
-			//$('.container .row .wordC').css('display','none');
+			$('.container .row .coinP').css('display','none');
 			$('.container .row .clockC').css('display','none');
 			$('.container .row .patternP').css('display','none');
 			$('#toggle_button').css('display','block');
