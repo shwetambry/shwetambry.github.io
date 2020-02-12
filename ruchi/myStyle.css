@@ -1,0 +1,38 @@
+.vision {
+	color: #666666;
+} 
+
+.section_heading{
+	background-color: black;
+	color: grey;
+	text-align: center;
+	
+	font-weight: bolder;
+}
+
+.section_matter {
+	padding-top: 10px;
+}
+
+#me_section {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.active, .panel-heading:hover {
+	background-color: #ccc;
+}
+
+/*
+.panel-title:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) 
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) 
+}
+*/
