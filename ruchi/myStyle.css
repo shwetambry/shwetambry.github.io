@@ -1,17 +1,36 @@
+body{
+  background-color: #fdebd0;
+  margin-top: 70px;
+  
+}
+
+.navbar, .section_heading{
+  background-color: #a04000;
+  color: #fdebd0;
+  text-align: center;
+  font-weight: bolder;
+}
+.level2section, .level3section {
+  text-align: center;
+  font-style: oblique;
+}
+.navItem {
+  margin-left: 2px;
+  margin-right: 2px;
+}
 .vision {
 	color: #666666;
 } 
 
-.section_heading{
-	background-color: black;
-	color: grey;
-	text-align: center;
-	
-	font-weight: bolder;
+.navItem:hover {
+  background-color: #6e2c00;
+  cursor: pointer;
 }
 
 .section_matter {
-	padding-top: 10px;
+  text-align: center;
+  padding-top: 10px;
+  font-style: oblique;
 }
 
 #me_section {
@@ -19,9 +38,27 @@
   padding-bottom: 70px;
 }
 
-.active, .panel-heading:hover {
-	background-color: #ccc;
+.navItem.active {
+	background-color: #6e2c00;
 }
+.section.inactive, .product-content.inactive {
+  display: none;
+} 
+.section.active, .product-content.active{
+  display: block;
+  margin-top: 70px;
+}
+.product-images {
+  margin-bottom: 20px;
+}
+
+.panel-heading:hover{
+  background-color: #fad7a0;
+}
+
+
+
+
 
 /*
 .panel-title:after {
@@ -32,6 +69,31 @@
   margin-left: 5px;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #6e2c00;
+  color: #fdebd0;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 .active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) 
 }
