@@ -3,8 +3,19 @@ body{
   margin-top: 70px;
   
 }
-
-.navbar, .section_heading{
+.navbar{
+  width: 100%;
+  background-color: #a04000;
+  overflow: auto;
+}
+.navbar a {
+  float: left;
+  padding: 12px;
+  color:#fdebd0;
+  width: 10%;
+  text-align: center;
+}
+.section_heading{
   background-color: #a04000;
   color: #fdebd0;
   text-align: center;
@@ -14,10 +25,7 @@ body{
   text-align: center;
   font-style: oblique;
 }
-.navItem {
-  margin-left: 2px;
-  margin-right: 2px;
-}
+
 .vision {
 	color: #666666;
 } 

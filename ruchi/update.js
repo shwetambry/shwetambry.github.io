@@ -6,8 +6,8 @@ $(document).ready(function () {
 		$("#myModal").modal("hide");
 	});
 
-	$("li.navItem").click(function () {
-		$('li.navItem.active').removeClass('active');
+	$("a.navItem").click(function () {
+		$('a.navItem.active').removeClass('active');
 		$(this).addClass('active');
 		var contentToShow = $(this).attr('id');
 		var contentID = contentToShow + '_section';
