@@ -27,7 +27,8 @@ body{
 }
 
 .vision {
-	color: #666666;
+  padding-bottom: 20px;
+  padding-top: 10px;
 } 
 
 .navItem:hover {
