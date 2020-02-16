@@ -7,6 +7,7 @@ body{
   width: 100%;
   background-color: #a04000;
   overflow: auto;
+  margin-bottom: 0px;
 }
 .navbar a {
   float: left;
@@ -57,12 +58,20 @@ body{
   display: block;
   margin-top: 70px;
 }
-.product-images {
+.product-images .team-image{
   margin-bottom: 20px;
 }
 
 .panel-heading:hover{
   background-color: #fad7a0;
+}
+
+#home_section{
+  padding-top: 20px;
+}
+#home_section p{
+  font-size: 20px;
+  text-align: left;
 }
 
 
