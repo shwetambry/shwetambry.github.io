@@ -72,7 +72,9 @@ nav li a {
   text-align: center;
   padding-top: 10px;
 }
-
+.no-center {
+  text-align: left;
+}
 
 
 .navItem.active {
