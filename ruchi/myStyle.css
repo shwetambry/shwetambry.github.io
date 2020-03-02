@@ -112,12 +112,6 @@ nav li a {
 
 
 
-
-.navItem:hover {
-  background-color: #659EC7;
-  cursor: pointer;
-}
-
 .section_matter {
   text-align: justify;
   padding-top: 10px;
@@ -125,8 +119,21 @@ nav li a {
   margin: auto;
   
 }
+.quote {
+  font-style: italic;
+  text-align: center;
+  color: blue;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
 .no-center {
   text-align: left;
+}
+.navItem:hover {
+  background-color: #659EC7;
+  cursor: pointer;
 }
 
 
