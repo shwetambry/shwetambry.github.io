@@ -41,7 +41,7 @@ $(document).ready(function () {
 							counter += 1;
 
 						}
-					}, 2000);
+					}, 5000);
 				}
 			};
 
@@ -86,7 +86,7 @@ $(document).ready(function () {
 
 	});
 
-
+	showSlides(0);
 
 
 
@@ -97,7 +97,7 @@ function showSlides(n) {
 	$('.mySlides.active').removeClass('active');
 
 	var slides = $('.slideshow-container').find('.mySlides');
-	var indicators = $('.slideshow-container').find('.dot');
+	var indicators = $('#about_us_section').find('.dot');
 
 
 
