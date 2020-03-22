@@ -29,33 +29,44 @@
 					<a id="nav-toggle" href="#!"><span></span> </a>
 				</div>
 				<ul class="nav-list">
-					<li><a class="navItem active" id="home"> HOME</a> </li>
-					<li><a class="navItem" id="about_us">ABOUT US</a></li>
-					<li><a class="navItem" id="vision">VISION</a></li>
-					<li><a class="navItem" id="services"> SERVICES</a></li>
-					<li><a class="navItem" id="ip_prod"> IP PRODUCTS</a></li>
-					<li><a class="navItem" id="resources">RESOURCES</a></li>
-					<li><a class="navItem" id="paralegal">PARALEGAL SUPPORT</a></li>
-					<li><a class="navItem" id="faq">FAQ</a></li>
-					<li><a class="navItem" id="contact">CONTACT US</a></li>
+					<li><a class="navItem prime active" id="home"> HOME</a> 
+					<ul class="nav-dropdown">
+						<li><a class="navItem subnav" id="about_us">ABOUT US</a></li>
+						<li><a class="navItem subnav" id="vision">VISION</a></li>
+						<li><a class="navItem subnav" id="resources">CORE TEAM</a></li>
+					</ul></li>
+					<li><a class="navItem prime" id="services"> SERVICES</a>
+					<ul class="nav-dropdown">
+						<li><a class="navItem subnav" id="services_solutions"> SERVICES-SOLUTIONS-WHAT WE DO</a></li>
+						<li><a class="navItem subnav" id="paralegal">PARALEGAL SUPPORT</a></li>
+					</ul></li>
+					<li><a class="navItem prime" id="ip_prod"> IP PRODUCTS</a>
+					<ul class="nav-dropdown"> 
+						<li><a class="navItem subnav" id="Patent"> PATENTS</a></li>
+						<li><a class="navItem subnav" id="Trademark"> TRADEMARK</a></li>
+						<li><a class="navItem subnav" id="Copyright"> COPYRIGHT</a></li>
+						<li><a class="navItem subnav" id="Ind-design"> INDUSTRIAL DESIGN</a></li>
+						<li><a class="navItem subnav" id="GI"> GEOGRAPHICAL INDICATION</a></li>
+						<li><a class="navItem subnav" id="Trade-secret"> TRADE SECRET</a></li>
+						
+					</ul></li>
+					<li><a class="navItem prime" id="training"> TRAINING</a>
+					<ul class="nav-dropdown">
+						<li><a class="navItem subnav" id="exam"> INDIAN PATENT AGENT EXAM</a></li>
+						<li><a class="navItem subnav" id="coaching"> COACHING FOR PATENT AGENT EXAM</a></li>
+					</ul></li>
+					<li><a class="navItem prime" id="faq">FAQ</a></li>
+					<li><a class="navItem prime" id="contact">CONTACT US</a>
+					<ul class="nav-dropdown">
+						<li><a class="navItem subnav" id="contact"> CONTACT US</a></li>
+						<li><a class="navItem subnav" id="address"> OFFICE-ADDRESS</a></li>
+						<li><a class="navItem subnav" id="careers"> CAREERS</a></li>
+						<li><a class="navItem subnav" id="blog"> BLOG</a></li>
+						<li><a class="navItem subnav" id="events"> EVENTS</a></li>
+					</ul></li>
 				</ul>
 			</nav>
-			<!--
-			<nav class="navbar navbar-inverse navbar-fixed-top" id="main-nav">
-				<div class="container-fluid">
-
-					<div class="navbar">
-						<a class="navItem active" id="home"> Home</a>
-						<a class="navItem" id="about_us">About us</a>
-						<a class="navItem" id="services"> Services</a>
-						<a class="navItem" id="resources">Resources</a>
-						<a class="navItem" id="faq">FAQ</a>
-						<a class="navItem" id="contact">Contact us</a>
-					</div>
-
-				</div>
-			</nav>
-		-->
+			
 		</div>
 	</section>
 
@@ -102,20 +113,20 @@
 
 	<!-- Home page -->
 	<div class="container section active" id="home_section">
-		<div id="homepage-slideshow">
-			<img class="slide" src="slideshow/Homepage/pic0.jpg" />
-			<img class="slide" src="slideshow/Homepage/pic1.jpg" />
-			<img class="slide" src="slideshow/Homepage/pic2.jpg" />
-			<img class="slide" src="slideshow/Homepage/pic3.jpg" />
-			<img class="slide" src="slideshow/Homepage/pic4.jpg" />
-			<img class="slide" src="slideshow/Homepage/pic5.jpg" />
-			<img class="slide" src="slideshow/Homepage/pic6.jpg" />
-			<img class="slide" src="slideshow/Homepage/pic7.jpg" />
-			<img class="slide" src="slideshow/Homepage/pic8.jpg" />
-			<img class="slide" src="slideshow/Homepage/pic9.jpg" />
+		<div class="slideshow" id="home_slideshow">
+			<div><img class="slide" src="slideshow/Homepage/pic0.jpg" /></div>
+			<div><img class="slide" src="slideshow/Homepage/pic1.jpg" /></div>
+			<div><img class="slide" src="slideshow/Homepage/pic2.jpg" /></div>
+			<div><img class="slide" src="slideshow/Homepage/pic3.jpg" /></div>
+			<div><img class="slide" src="slideshow/Homepage/pic4.jpg" /></div>
+			<div><img class="slide" src="slideshow/Homepage/pic5.jpg" /></div>
+			<div><img class="slide" src="slideshow/Homepage/pic6.jpg" /></div>
+			<div><img class="slide" src="slideshow/Homepage/pic7.jpg" /></div>
+			<div><img class="slide" src="slideshow/Homepage/pic8.jpg" /></div>
+			<div><img class="slide" src="slideshow/Homepage/pic9.jpg" /></div>
 		</div>
 
-		<div class="row ">
+		<div class="row">
 			<div class="quote">Secure your ideas with us...</div>
 			<div class="section_matter text-center">
 				<p>
@@ -139,32 +150,20 @@
 
 	<!-- About section  -->
 	<div class="container section inactive" id="about_us_section">
-
-		<div class="slideshow-container ">
-			<div class="mySlides" id="slide0">
-				<img src="slideshow/aboutus/pic1.jpg" width="800px" height="400px">
-			</div>
-			<div class="mySlides" id="slide1">
-				<img src="slideshow/aboutus/pic2.jpg" width="800px" height="400px">
-			</div>
-			<div class="mySlides" id="slide2">
-				<img src="slideshow/aboutus/pic3.jpeg" width="800px" height="400px">
-			</div>
+		<div class="slideshow" id="about_us_slideshow">
+			<div><img class="slide" src="slideshow/aboutus/pic0.jpg"/></div>
+			<div><img class="slide" src="slideshow/aboutus/pic1.jpg"/></div>
+			<div><img class="slide" src="slideshow/aboutus/pic2.jpeg"/></div>
 		</div>
-		<div class="dots text-center">
-			<span class="dot" id="dot0"></span>
-			<span class="dot" id="dot1"></span>
-			<span class="dot" id="dot2"></span>
-		</div>
-
-
+		
+		
 		<div class="section_matter">
 			<div class="quote">
 				"Coming Together Is A Beginning. Keeping Together Is
 				Progress. Working Together Is Success."" --Henry Ford
 			</div>
 			<p>
-				The DETERMINDS IP SERVICES started with an objective to spread awareness of Intellectual property rights
+				The <strong>DETERMINDS IP SERVICES </strong>started with an objective to spread awareness of Intellectual property rights
 				among individuals, research institutes, colleges and companies.
 			</p>
 			<p>
@@ -175,11 +174,11 @@
 				experienced professionals in the field of Intellectual Property Services.
 			</p>
 			<p>
-				DETERMINDS is a step decider in the Indian patent services. From the date of its commencement, our firm
+				<strong>DETERMINDS </strong>is a step decider in the Indian patent services. From the date of its commencement, our firm
 				has aimed to improve IPR consultation in India by using innovative approach.
 			</p>
 			<p>
-				DETERMINDS has shown constant improvement by sustenance and owning what we consider our most valuable
+				<strong>DETERMINDS </strong>has shown constant improvement by sustenance and owning what we consider our most valuable
 				asset, our human resource, and encouraging them to be at the forefront of Indian patent consulting
 			</p>
 
@@ -224,6 +223,10 @@
 	</div>
 
 	<div class="container section inactive" id="vision_section">
+		<div class="slideshow" id="vision_slideshow">
+			<div><img class="slide" src="slideshow/vision/pic0.jpg"/></div>
+			<div><img class="slide" src="slideshow/vision/pic1.jpg"/></div>
+		</div>
 		<div class="section_heading">
 			<h1 class="text-center">Our Vision</h1>
 		</div>
@@ -235,11 +238,109 @@
 				services"</p>
 		</div>
 	</div>
+
+	<div class="container section inactive" id="resources_section">
+		<div class="slideshow" >
+			<div><img class="slide" src="slideshow/team.jpg"/></div>
+		</div>
+		<div class="section_heading">
+			<h2>Resources</h2>
+		</div>
+		<div class="section_matter">
+			<div class="quote">
+				TEAM Work Makes the Dream Work
+			</div>
+			<p>The resources of our firm include patent agents, trademark agents, attorneys, scientists and lawyers.
+			</p>
+			<p> We are well equipped with experienced and technically sound people who are expertise in handling IP
+				related issues of diversified domains for instance patents, trademarks, designs, copyrights,
+				geographical indications and protection of plant varieties. </p>
+			<p> Our team is further having enthusiastic lawyers and advocates to handle IP litigation matters in
+				district courts, High courts and supreme court of India.</p>
+			<p> Scientists and Engineers of the firm assist in prior art searches, Patent drafting, providing technical
+				opinion on examination reports, preparing technical arguments for office action reply and submissions,
+				technical analysis of subject matter and providing technical support in prosecution and litigation
+				matters involving IP Infringements.
+			</p>
+			<p>
+				We are committed to provide excellent service to our clients through expert people in the field of IPR.
+			</p>
+			<div class="text-center">
+				<h2> Team members</h2>
+
+				<div class="row ">
+					<div class="col-sm-4 team-image">
+						<img src="person.jpeg">
+						<p>Dr. Ruchi Tejpal</p>
+						<p>IN/PA-3238</p>
+						<p>Ph.D. - Chemistry</p>
+					</div>
+					<div class="col-sm-4 team-image">
+						<img src="person.jpeg">
+						<p> Mr. V. Anil Kumar </p>
+						<p>IN/PA-3199</p>
+						<p>M.Pharma</p>
+					</div>
+					<div class="col-sm-4 team-image">
+						<img src="person.jpeg">
+						<p> Ms. YRSN Tejaswini</p>
+						<p>IN/PA-2824</p>
+						<p>M.Sc. - Biotechnology</p>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4 team-image">
+						<img src="person.jpeg">
+						<p>Mr. D.S.Divakar</p>
+						<p>BE, MS(USA), LLB</p>
+					</div>
+					<div class="col-sm-4 team-image">
+						<img src="person.jpeg">
+						<p> Mr. M.V. Kiran Kumar </p>
+						<p>B.Tech(CHE), CMA (Semi-Qualified)</p>
+					</div>
+					<div class="col-sm-4 team-image">
+						<img src="person.jpeg">
+						<p> Mr. B. Uday Kumar</p>
+						<p>M.Tech(CHE)</p>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4 team-image">
+						<img src="person.jpeg">
+						<p>Mr. R. Srikanth</p>
+						<p>B.Tech (ECE)</p>
+					</div>
+					<div class="col-sm-4 team-image">
+						<img src="person.jpeg">
+						<p> Mrs. G. Durga Prasanna </p>
+						<p>M.Sc. (Zoology)</p>
+					</div>
+					<div class="col-sm-4 team-image">
+						<img src="person.jpeg">
+						<p> Mr. U. Maneesh Chowdary</p>
+						<p>B.Tech(ECE)</p>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 	<!--  Services section/ What do we do -->
 	<div class="container section inactive" id="services_section">
-		<div class="section_heading">
-			<h1>Services - Solutions - What we do </h1>
+		<div class="slideshow" >
+			<div><img class="slide" src="slideshow/services.jpg"/></div>
+			
 		</div>
+	</div>
+		<div class="section inactive" id="services_solutions_section">
+			<div class="section_heading"><h1>Services - Solutions - What we do</h1></div>
 		<div class="section_matter no-center">
 			<div class="quote">
 				Effort Is Important, but Knowing Where to Make an Effort Makes All the Difference
@@ -275,9 +376,110 @@
 				</ul>
 			</p>
 		</div>
+		</div>
+	
+
+	<div class="container section inactive" id="paralegal_section">
+		<div class="slideshow" >
+			<div><img class="slide" src="slideshow/paralegal.jpg"/></div>
+			
+		</div>
+		<div class="section_heading">
+			<h2> Paralegal Support - Drafting</h2>
+		</div>
+		<div class="section_matter no-center">
+			<p>
+				The foundation of any industry, corporation, business or sector is based on its ability to
+				fine-tune its operation to an extent that it has the time to focus on aspects that really
+				contribute to growth and development.</p>
+			<p>
+				These are known as core activities and while their importance cannot be questioned
+				there is another side to the picture. There is always a wide range of tasks that support the
+				main ones without which no industry can function well. The same is relevant for the
+				legal scenario too.</p>
+			<p>
+				Client servicing, trials, depositions and exact interpretation of the law form the basis of
+				legal practice but all these have to be ably backed up by drafting of contracts,
+				agreements, documents and letters and legal research on cases including non-legal
+				research. These paralegal tasks are crucial to the success of any case.</p>
+			<p>
+				It has been proved beyond any reasonable doubt that if you opt for paralegal support
+				services it can do wonders for your legal firm. But before coming to a detailed analysis
+				of how and why this can be achieved, it will be relevant to see the areas of law for which
+				you can take help of these specialized services.</p>
+			<p>
+				These include broadly all branches of corporate and business law, criminal and civil law,
+				banking, finance, bankruptcy and labor, and employment law and others pertaining to
+				patents and trademarks, product liability, personal injury, and immigration laws.</p>
+			<p>
+				This list is only indicative and not exhaustive in nature. Any backup required under
+				these laws can be safely entrusted to paralegal outsourcing agencies that have over the
+				years built up a strong infrastructure of resources and are well versed in the finer
+				nuances of every aspect of the law.
+			</p>
+			<p style="color: red;">
+				There are two scenarios that will be considered here and these are the biggest
+				beneficiaries of a top of the line paralegal support services:
+			</p>
+			<ol>
+				<li> <strong> Law firms and corporations</strong>
+					<p>
+						While the business goals are different for these two entities, there is common ground
+						when it comes to  outsourcing paralegal services . In both cases, you can take assistance
+						on-demand from these agencies without resorting to adding to the staff strength
+						whenever there is a short-term rise in legal requirements. This will keep overheads under
+						control.</p>
+					<p>
+						There is also an increase in productivity as you have the time to focus on core activities
+						related to your business or law firm while outsourcing the regular and tedious tasks to
+						paralegals. Examples of the work that can be delegated include assistance in due
+						diligence, reviewing contracts and agreements and normal corporate assistance in legal
+						matters which the regular legal department need not be tied down to.</p>
+					<p>
+						For law firms specifically, you can be sure that paralegal support services have the
+						necessary professional expertise to carry out all backup services. You do not need to get
+						tied down to the tedious task of legal research, drafting, and preparation of contracts and
+						agreements and reviewing existing letters and documents for loopholes in the law.</p>
+					<p>
+						This saves you the costs of hiring a legal team to look after these aspects only, more so
+						since backup work is mostly on a project to project basis and not all forms run
+						simultaneously. Permanent staff will, therefore, be underutilized.
+					</p>
+
+				</li>
+
+				<li><strong>Small firms and individual practitioners</strong>
+					<p>
+						This is the sector that is most benefitted by paralegal support services. If you have a
+						small law firm these services are like an extension of your business. You need not be
+						limited by scalability issues knowing there is a whole team of expert paralegals to
+						support you.</p>
+					<p>
+						There is a significant saving in infrastructure investment as the majority of the work can
+						be outsourced while you focus on incremental business and new clients as well as trials
+						and depositions. The research and preparation of briefs will be ready for you at prices
+						that will not break your bank.</p>
+					<p>
+						The same is true for individual and solo practitioners of law who can depend on expert
+						services, both on legal and administrative fronts. They can expand business knowing
+						that there is always a team of senior paralegals to back them up in every respect. This is
+
+						a big help especially when they take on more business without having to incur
+						prohibitive overheads.</p>
+					<p>
+						Do not worry when you go for more business or in the case of law firms or corporate
+						entities when there is a sudden jump in the quantum of business. Paralegal support
+						services will take care of the finer details leaving you to concentrate on the broader
+						picture.
+					</p>
+				</li>
+			</ol>
+		</div>
+
 	</div>
 
 	<div class="container section inactive" id="ip_prod_section">
+		
 		<div class="section_heading">
 			<h1> Areas of expertise</h1>
 		</div>
@@ -290,10 +492,9 @@
 				<li>Patent Opposition</li>
 			</ul>
 		</div>
-		<div class="section_heading">
-			<h1> IP Products</h1>
-		</div>
-		<div class="section_matter no-center">
+	</div>
+		<!--
+		<div class="section_matter no-center ">
 			<div class="row">
 				<div class="col-sm-4 product-images" id="Patent">
 					<a href="#Patent-content">
@@ -330,8 +531,10 @@
 				</div>
 
 			</div>
-			<div class="container">
-				<div class="product-content inactive" id="Patent-content">
+		-->
+			
+				<div class="section inactive" id="Patent_section">
+					<div class="section_matter">
 					<div class="quote">
 						“Set Your Goals High, and Don’t Stop Till You Get There.”– Bo Jackson
 					</div>
@@ -431,8 +634,10 @@
 								matters</p>
 						</li>
 					</ul>
+					</div>
 				</div>
-				<div class="product-content inactive" id="Trademark-content">
+				<div class="section inactive" id="Trademark_section">
+					<div class="section_matter">
 					<div class="quote">
 						“Value Of A Trade Mark Is Directly Proportional To Your Aggression And Risk Ratio.”
 						― Kalyan C. Kankanala
@@ -457,9 +662,11 @@
 
 						</li>
 					</ul>
+					</div>
 
 				</div>
-				<div class="product-content inactive" id="Copyright-content">
+				<div class="section inactive" id="Copyright_section">
+					<div class="section_matter">
 					<h3 class="level3section">Copyrights</h3>
 					<p>
 						Copyright is the exclusive right given to the creator of a creative work to reproduce the work,
@@ -480,8 +687,10 @@
 
 						</li>
 					</ul>
+					</div>
 				</div>
-				<div class="product-content inactive" id="Ind-design-content">
+				<div class="section inactive" id="Ind-design_section">
+					<div class="section_matter">
 					<h3 class="level3section"> Industrial Designs</h3>
 					<p>
 						An industrial design particularly includes the features of shape, configuration, pattern,
@@ -534,8 +743,10 @@
 							</p>
 						</li>
 					</ul>
+					</div>
 				</div>
-				<div class="product-content inactive" id="GI-content">
+				<div class="section inactive" id="GI_section">
+					<div class="section_matter">
 					<h3 class="level3section">Geographical Indications</h3>
 					<p>
 						Geographical Indications include sign on products that have a particular geographical origin
@@ -556,10 +767,11 @@
 						<li> Prosecution of registered application after examination report and verification of
 							technical details after consultation with our EXPERT TEAM.
 						</li>
-					</ul>
-					</p>
+					</ul> 
+					</div>
 				</div>
-				<div class="product-content inactive" id="Trade-secret-content">
+				<div class="section inactive" id="Trade-secret_section">
+					<div class="section_matter">
 					<h3 class="level3section">Trade Secrets</h3>
 					<p>
 						Broadly speaking, any confidential business information which provides an enterprise a
@@ -581,201 +793,72 @@
 						<li> Infringement and violation matter handling.</li>
 						<li> We offer services for opposition proceedings of trade secrets. </li>
 						<li> Prosecution of registration application after examination report and verification of
-							technical details after consultation with experts </li>
-						</p>
+							technical details after consultation with experts. </li>
+					</ul>
+					</div>
 				</div>
-			</div>
+			
+		
+
+	
+
+	<div class="container section inactive" id="training_section">
+		<div class="slideshow" >
+			<div><img class="slide" src="slideshow/training.jpg"/></div>
 		</div>
-
-	</div>
-
-
-	<div class="container section inactive" id="resources_section">
-		<div class="section_heading">
-			<h2>Resources</h2>
+		<div class="section_heading"id="exam_section">
+			<h2> Indian Patent Agent Exam</h2>
 		</div>
-		<div class="section_matter">
-			<div class="quote">
-				TEAM Work Makes the Dream Work
-			</div>
-			<p>The resources of our firm include patent agents, trademark agents, attorneys, scientists and lawyers.
-			</p>
-			<p> We are well equipped with experienced and technically sound people who are expertise in handling IP
-				related issues of diversified domains for instance patents, trademarks, designs, copyrights,
-				geographical indications and protection of plant varieties. </p>
-			<p> Our team is further having enthusiastic lawyers and advocates to handle IP litigation matters in
-				district courts, High courts and supreme court of India.</p>
-			<p> Scientists and Engineers of the firm assist in prior art searches, Patent drafting, providing technical
-				opinion on examination reports, preparing technical arguments for office action reply and submissions,
-				technical analysis of subject matter and providing technical support in prosecution and litigation
-				matters involving IP Infringements.
-			</p>
+		<div class="section_matter" >
 			<p>
-				We are committed to provide excellent service to our clients through expert people in the field of IPR.
+				Up on clearing the Indian patent agent exam conducted by Indian Government under The Patent Act, 1970, candidates will get an 
+				opportunity to become an international patent professional. </p> 
+			<p>	Indian Patent Agent Exam was going to be conducted by the Controller General of Patents, Department of Industrial Policy & Promotion, 
+				Govt. of India, notified that the Indian Patent Agent Exam to be conducted in the month of June 2020.</p>
+			<p> <strong>  PATENT AGENTS: </strong> Patent Agents, also called Patent Attorneys are specialist Techno-Legal advisors, similar to Lawyers, 
+				who advice their clients how to protect their inventions. Patent Attorneys work either in IP Law Firms or in Patent Departments of 
+				large industrial Organizations in India or Abroad.</p>
+			<p> <strong>CAREER SCOPE:</strong></p>
+				<ol>
+					<li> Patent Agent's can file International Patent Applications (PCT) on behalf of Indian Applicants.</li>
+					<li> Foreign Applicants can file Patent in India through an Indian Patent Agent only.</li>
+					<li> Patent Specification Drafting is outsourced to Indian Patent Agents from US, Canada, Australia and Europe</li>
+					<li> Patent agent can work as a Freelancer in Patent specification drafting for Indian & Foreign IP Law Firms</li>
+					<li> Very Attractive Remuneration/Salary package for Regd. Patent Agents in India, in Biotechnology, Pharmacy and Engineering R & D Firms.</li>
+					<li> Patent Agents can start their own IP Law Firms and Consultancy Services.</li>
+					<li> Chance to work English Speaking Foreign Law Firms as In-House Drafting Attorney</li>
+				</ol>
+
+		</div>
+
+		<div class="section_heading" id="coaching_section">
+			<h2> Coaching for Patent Agent Exam 2020</h2>
+		</div>
+		<div class="section_matter" >
+			<p> <strong>DETERMINDS IP SERVICES is going to conduct coaching for Patent Agent Examination </strong>as per the following schedule: </p>
+			<p><strong> MODE OF PROGRAMME:</strong> We have prepared individual Modules of study materials for Paper I, II & Viva Voce. 
+				<strong> Immediately after receiving application, we will send you the modules. We suggest you to read the materials before attending class 
+					room coaching. Class room coaching </strong>will be conducted on the following center:</p>
+					<p><strong> Hyderabad: </strong>1st March 2020 to 31st May, 2020. Admission for Hyderabad classes open from 1st Feb 2020 to 28th Feb, 2020. </p>
+			<p>The venue of the coaching will be communicated, directly to participants </p>
+			<p>
+					The Training Program is scheduled as 12-week program - classes will be provided every weekend starting from 1st March 2020 till 31st May 2020. 
+					Training program is scheduled in such a way that morning there will be teaching sessions and post lunch there will be tests, via-voice, quiz, 
+					group discussions, presentations by participants etc. </p>
+			<p> <strong>WHO ARE ELIGIBLE? </strong>
+			<p>Degree holders in Science, Pharmacy, Engineering and Technology.</p>
+			<p><strong>ADMISSION: </strong>For Fees, Registration & further details E-mail to: info.dmips@gmail.com or SMS your Email ID to +91-8885406788. </p>
+			<p><strong>COURSE CERTIFICATE: DETERMINDS IP Services </strong>(DMIPS) Shall Issue A Separate Certificate of Training: <strong>Training On Indian 
+				Patent Law & Practice </strong>
 			</p>
-			<div class="text-center">
-				<h2> Team members</h2>
-
-				<div class="row ">
-					<div class="col-sm-4 team-image">
-						<img src="person.jpeg">
-						<p>Dr. Ruchi Tejpal</p>
-						<p>IN/PA-3238</p>
-						<p>Ph.D. - Chemistry</p>
-					</div>
-					<div class="col-sm-4 team-image">
-						<img src="person.jpeg">
-						<p> Mr. V. Anil Kumar </p>
-						<p>IN/PA-3199</p>
-						<p>M.Pharma</p>
-					</div>
-					<div class="col-sm-4 team-image">
-						<img src="person.jpeg">
-						<p> Ms. YRSN Tejaswini</p>
-						<p>IN/PA-2824</p>
-						<p>M.Sc. - Biotechnology</p>
-					</div>
-
-				</div>
-
-				<div class="row">
-					<div class="col-sm-4 team-image">
-						<img src="person.jpeg">
-						<p>Mr. D.S.Divakar</p>
-						<p>BE, MS(USA), LLB</p>
-					</div>
-					<div class="col-sm-4 team-image">
-						<img src="person.jpeg">
-						<p> Mr. M.V. Kiran Kumar </p>
-						<p>B.Tech(CHE), CMA (Semi-Qualified)</p>
-					</div>
-					<div class="col-sm-4 team-image">
-						<img src="person.jpeg">
-						<p> Mr. B. Uday Kumar</p>
-						<p>M.Tech(CHE)</p>
-					</div>
-
-				</div>
-
-				<div class="row">
-					<div class="col-sm-4 team-image">
-						<img src="person.jpeg">
-						<p>Mr. R. Srikanth</p>
-						<p>B.Tech (ECE)</p>
-					</div>
-					<div class="col-sm-4 team-image">
-						<img src="person.jpeg">
-						<p> Mrs. G. Durga Prasanna </p>
-						<p>M.Sc. (Zoology)</p>
-					</div>
-					<div class="col-sm-4 team-image">
-						<img src="person.jpeg">
-						<p> Mr. U. Maneesh Chowdary</p>
-						<p>B.Tech(ECE)</p>
-					</div>
-
-				</div>
-			</div>
-
 		</div>
 	</div>
-
-	<div class="container section inactive" id="paralegal_section">
-		<div class="section_heading">
-			<h2> Paralegal Support - Drafting</h2>
-		</div>
-		<div class="section_matter no-center">
-			<p>
-				The foundation of any industry, corporation, business or sector is based on its ability to
-				fine-tune its operation to an extent that it has the time to focus on aspects that really
-				contribute to growth and development.</p>
-			<p>
-				These are known as core activities and while their importance cannot be questioned
-				there is another side to the picture. There is always a wide range of tasks that support the
-				main ones without which no industry can function well. The same is relevant for the
-				legal scenario too.</p>
-			<p>
-				Client servicing, trials, depositions and exact interpretation of the law form the basis of
-				legal practice but all these have to be ably backed up by drafting of contracts,
-				agreements, documents and letters and legal research on cases including non-legal
-				research. These paralegal tasks are crucial to the success of any case.</p>
-			<p>
-				It has been proved beyond any reasonable doubt that if you opt for paralegal support
-				services it can do wonders for your legal firm. But before coming to a detailed analysis
-				of how and why this can be achieved, it will be relevant to see the areas of law for which
-				you can take help of these specialized services.</p>
-			<p>
-				These include broadly all branches of corporate and business law, criminal and civil law,
-				banking, finance, bankruptcy and labor, and employment law and others pertaining to
-				patents and trademarks, product liability, personal injury, and immigration laws.</p>
-			<p>
-				This list is only indicative and not exhaustive in nature. Any backup required under
-				these laws can be safely entrusted to paralegal outsourcing agencies that have over the
-				years built up a strong infrastructure of resources and are well versed in the finer
-				nuances of every aspect of the law.
-			</p>
-			<p style="color: red;">
-				There are two scenarios that will be considered here and these are the biggest
-				beneficiaries of a top of the line paralegal support services:
-			</p>
-			<ol>
-				<li> <strong> Law firms and corporations</strong>
-					<p>
-						While the business goals are different for these two entities, there is common ground
-						when it comes to  outsourcing paralegal services . In both cases, you can take assistance
-						on-demand from these agencies without resorting to adding to the staff strength
-						whenever there is a short-term rise in legal requirements. This will keep overheads under
-						control.</p>
-					<p>
-						There is also an increase in productivity as you have the time to focus on core activities
-						related to your business or law firm while outsourcing the regular and tedious tasks to
-						paralegals. Examples of the work that can be delegated include assistance in due
-						diligence, reviewing contracts and agreements and normal corporate assistance in legal
-						matters which the regular legal department need not be tied down to.</p>
-					<p>
-						For law firms specifically, you can be sure that paralegal support services have the
-						necessary professional expertise to carry out all backup services. You do not need to get
-						tied down to the tedious task of legal research, drafting, and preparation of contracts and
-						agreements and reviewing existing letters and documents for loopholes in the law.</p>
-					<p>
-						This saves you the costs of hiring a legal team to look after these aspects only, more so
-						since backup work is mostly on a project to project basis and not all forms run
-						simultaneously. Permanent staff will, therefore, be underutilized.
-					</p>
-
-				</li>
-
-				<li><strong>Small firms and individual practitioners</strong>
-					<p>
-						This is the sector that is most benefitted by paralegal support services. If you have a
-						small law firm these services are like an extension of your business. You need not be
-						limited by scalability issues knowing there is a whole team of expert paralegals to
-						support you.</p>
-					<p>
-						There is a significant saving in infrastructure investment as the majority of the work can
-						be outsourced while you focus on incremental business and new clients as well as trials
-						and depositions. The research and preparation of briefs will be ready for you at prices
-						that will not break your bank.</p>
-					<p>
-						The same is true for individual and solo practitioners of law who can depend on expert
-						services, both on legal and administrative fronts. They can expand business knowing
-						that there is always a team of senior paralegals to back them up in every respect. This is
-
-						a big help especially when they take on more business without having to incur
-						prohibitive overheads.</p>
-					<p>
-						Do not worry when you go for more business or in the case of law firms or corporate
-						entities when there is a sudden jump in the quantum of business. Paralegal support
-						services will take care of the finer details leaving you to concentrate on the broader
-						picture.
-					</p>
-				</li>
-			</ol>
-		</div>
-
-	</div>
-
+	
+	
 	<div class="container section inactive" id="faq_section">
+		<div class="slideshow" >
+			<div><img class="slide" src="slideshow/faq.jpg"/></div>
+		</div>
 		<div class="section_heading">
 			<h2> Frequently Asked Questions</h2>
 		</div>
@@ -1929,6 +2012,9 @@
 	</div>
 
 	<div class="container section inactive" id="contact_section">
+		<div class="slideshow">
+			<div><img class="slide" src="slideshow/contact.jpg"> </div>
+		</div>
 		<div class="section_heading">
 			<h2>Contact us</h2>
 		</div>
