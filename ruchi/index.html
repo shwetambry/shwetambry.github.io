@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="update.js"></script>
 
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -29,18 +29,18 @@
 					<a id="nav-toggle" href="#!"><span></span> </a>
 				</div>
 				<ul class="nav-list">
-					<li><a class="navItem prime active" id="home"> HOME</a> 
-					<ul class="nav-dropdown">
-						<li><a class="navItem subnav" id="about_us">ABOUT US</a></li>
+					<li><a class="navItem prime active" id="home"> <span>HOME</span></a> 
+					<ul class="nav-dropdown active">
+						<li><a class="navItem subnav" id="about_us"><span>ABOUT US</span></a></li>
 						<li><a class="navItem subnav" id="vision">VISION</a></li>
 						<li><a class="navItem subnav" id="resources">CORE TEAM</a></li>
 					</ul></li>
-					<li><a class="navItem prime" id="services"> SERVICES</a>
+					<li><a class="navItem prime" id="services"><span> SERVICES</span></a>
 					<ul class="nav-dropdown">
 						<li><a class="navItem subnav" id="services_solutions"> SERVICES-SOLUTIONS-WHAT WE DO</a></li>
 						<li><a class="navItem subnav" id="paralegal">PARALEGAL SUPPORT</a></li>
 					</ul></li>
-					<li><a class="navItem prime" id="ip_prod"> IP PRODUCTS</a>
+					<li><a class="navItem prime" id="ip_prod"><span> IP PRODUCTS</span></a>
 					<ul class="nav-dropdown"> 
 						<li><a class="navItem subnav" id="Patent"> PATENTS</a></li>
 						<li><a class="navItem subnav" id="Trademark"> TRADEMARK</a></li>
@@ -50,15 +50,17 @@
 						<li><a class="navItem subnav" id="Trade-secret"> TRADE SECRET</a></li>
 						
 					</ul></li>
-					<li><a class="navItem prime" id="training"> TRAINING</a>
+					<li><a class="navItem prime" id="training"> <span>TRAINING</span></a>
 					<ul class="nav-dropdown">
-						<li><a class="navItem subnav" id="exam"> INDIAN PATENT AGENT EXAM</a></li>
-						<li><a class="navItem subnav" id="coaching"> COACHING FOR PATENT AGENT EXAM</a></li>
+						<li><a class="navItem subnav" id="exam" href="#exam_section"> INDIAN PATENT AGENT EXAM</a></li>
+						<li><a class="navItem subnav" id="coaching" href="#coaching_section"> COACHING FOR PATENT AGENT EXAM</a></li>
 					</ul></li>
-					<li><a class="navItem prime" id="faq">FAQ</a></li>
-					<li><a class="navItem prime" id="contact">CONTACT US</a>
+					<li><a class="navItem prime" id="faq"><span>FAQ</span></a><ul class="nav-dropdown"></ul>
+					</li>
+
+					<li><a class="navItem prime" id="contact"><span>CONTACT US</span></a>
 					<ul class="nav-dropdown">
-						<li><a class="navItem subnav" id="contact"> CONTACT US</a></li>
+						<li><a class="navItem subnav" id="contactus"> CONTACT US</a></li>
 						<li><a class="navItem subnav" id="address"> OFFICE-ADDRESS</a></li>
 						<li><a class="navItem subnav" id="careers"> CAREERS</a></li>
 						<li><a class="navItem subnav" id="blog"> BLOG</a></li>
@@ -806,7 +808,9 @@
 		<div class="slideshow" >
 			<div><img class="slide" src="slideshow/training.jpg"/></div>
 		</div>
-		<div class="section_heading"id="exam_section">
+	</div>
+	<div class="section inactive" id="exam_section">
+		<div class="section_heading">
 			<h2> Indian Patent Agent Exam</h2>
 		</div>
 		<div class="section_matter" >
@@ -830,8 +834,9 @@
 				</ol>
 
 		</div>
-
-		<div class="section_heading" id="coaching_section">
+	</div>
+	<div class="section inactive" id="coaching_section">
+		<div class="section_heading" >
 			<h2> Coaching for Patent Agent Exam 2020</h2>
 		</div>
 		<div class="section_matter" >
