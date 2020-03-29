@@ -254,6 +254,35 @@ nav ul li ul li a {
   background-color: var(--main-color);
   color: #ffffff;
 }
+.connect.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.connect.fa:hover {
+  opacity: 0.7;
+}
+
+.connect.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.connect.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+.connect.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.connect.fa-instagram {
+  background: #125688;
+  color: white;
+}
 
 /*
 
