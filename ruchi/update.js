@@ -66,7 +66,7 @@ $(document).ready(function() {
   // start of the slideshow
   showSlideshow("home");
   $("nav ul li a.prime").click(function(e) {
-    if (cur_prime_id != $(this).attr("id")) {
+    if (cur_prime_id != $(this).attr("id") || cur_prime_id == "home") {
       cur_prime_id = $(this).attr("id");
       $("a.prime.active").removeClass("active");
       $(this).addClass("active");
@@ -151,7 +151,7 @@ function showSlideshow(cur_id) {
       .fadeIn()
       .end()
       .appendTo("#" + cur_id + "_slideshow");
-  }, 5000);
+  }, 10000);
 }
 /*
 function mapWidth(class1) {
