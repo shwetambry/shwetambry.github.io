@@ -66,11 +66,13 @@ $(document).ready(function() {
   // start of the slideshow
   showSlideshow("home");
   $("nav ul li a.prime").click(function(e) {
-    cur_prime_id = $(this).attr("id");
-    $("a.prime.active").removeClass("active");
-    $(this).addClass("active");
-    cur_page_id = "";
-    toggleSection(cur_prime_id);
+    if (cur_prime_id != $(this).attr("id")) {
+      cur_prime_id = $(this).attr("id");
+      $("a.prime.active").removeClass("active");
+      $(this).addClass("active");
+      cur_page_id = "";
+      toggleSection(cur_prime_id);
+    }
     $(this)
       .siblings(".nav-dropdown")
       .toggle();
