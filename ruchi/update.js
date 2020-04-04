@@ -8,13 +8,12 @@ $(document).ready(function() {
   $("#nav-toggle").click(function() {
     $("nav ul").toggle();
   });
-  //$("#myModal").modal({ show: true, backdrop: "static" });
+  $("#myModal").modal({ show: true, backdrop: "static" });
 
   // Hide the Modal
-  //$("#agree").click(function () {
-  //	$("#myModal").modal("hide");
-  //	slideshowFlag = true;
-  //});
+  $("#agree").click(function() {
+    $("#myModal").modal("hide");
+  });
   /*
   $(".nav-dropdown").css({
     width: $("nav").width() + "px"
@@ -68,15 +67,17 @@ $(document).ready(function() {
 
   // // hover over navitem functionality
   // $("nav ul li a.prime").hover(function(e) {
-  //   $(this)
-  //     .siblings(".nav-dropdown")
-  //     .toggle();
-  //   $(".nav-dropdown")
-  //     .not($(this).siblings())
-  //     .hide();
-  //   e.stopPropagation();
+  //   if ($(this).attr("id") != cur_prime_id) {
+  //     $(this)
+  //       .siblings(".nav-dropdown")
+  //       .toggle();
+  //     $(".nav-dropdown")
+  //       .not($(this).siblings())
+  //       .hide();
+  //     e.stopPropagation();
+  //   }
   // });
-  // // click functionality over navitem
+  // click functionality over navitem
   $("nav ul li a.prime").click(function(e) {
     if (cur_prime_id != $(this).attr("id") || cur_prime_id == "home") {
       cur_prime_id = $(this).attr("id");
