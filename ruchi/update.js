@@ -65,6 +65,18 @@ $(document).ready(function() {
   */
   // start of the slideshow
   showSlideshow("home");
+
+  // // hover over navitem functionality
+  // $("nav ul li a.prime").hover(function(e) {
+  //   $(this)
+  //     .siblings(".nav-dropdown")
+  //     .toggle();
+  //   $(".nav-dropdown")
+  //     .not($(this).siblings())
+  //     .hide();
+  //   e.stopPropagation();
+  // });
+  // // click functionality over navitem
   $("nav ul li a.prime").click(function(e) {
     if (cur_prime_id != $(this).attr("id") || cur_prime_id == "home") {
       cur_prime_id = $(this).attr("id");
@@ -89,18 +101,7 @@ $(document).ready(function() {
     cur_page_id = $(this).attr("id");
     toggleSection(cur_page_id);
   });
-  /*
-  // hover over navitem functionality
-  $("nav ul li a").hover(function(e) {
-    $(this)
-      .siblings(".nav-dropdown")
-      .toggle();
-    $(".nav-dropdown")
-      .not($(this).siblings())
-      .hide();
-    e.stopPropagation();
-  });
-  */
+
   // accordion behaviour for FAQs
   $(".panel-default").click(function() {
     var panelTitle = $(this).find(".panel-heading");

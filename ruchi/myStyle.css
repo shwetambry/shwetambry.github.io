@@ -1,12 +1,14 @@
 :root {
-  --image-width: 1000px;
-  --image-height: 650px;
+  --image-width: 100%;
+  --image-height: 500px;
   --image-width-mobile: 400px;
-  --image-height-mobile: 250px;
+  --image-height-mobile: 200px;
   --main-color: #a04000;
 }
 body {
   background-color: #ffffff;
+  font-family: "Cambria";
+  font-size: 18px;
 }
 #breadcrumb {
   color: var(--main-color);
@@ -14,11 +16,10 @@ body {
 .navigation {
   height: 100px;
   background: #ffffff;
-  margin-bottom: 30px;
 }
-.nav-container {
-  max-width: 100%;
-  margin: 0 auto;
+.sticky {
+  position: fixed;
+  top: 0;
 }
 .brand {
   position: absolute;
@@ -39,6 +40,7 @@ nav ul li {
   float: left;
   position: relative;
 }
+
 nav ul li a {
   display: block;
   padding: 0 20px;
@@ -46,20 +48,23 @@ nav ul li a {
   color: var(--main-color);
   background-color: #ffffff;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-  font-family: "Times New Roman";
+  font-family: "Cambria";
 }
 nav ul li a:active {
   background-color: var(--main-color);
   color: #ffffff;
+}
+nav ul li ul {
+  background: white;
 }
 nav ul li ul li {
   min-width: auto;
 }
 nav ul li ul li a {
   padding: 10px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 20px;
   z-index: 1;
 }
@@ -215,6 +220,7 @@ nav ul li ul li a {
   text-align: center;
   font-weight: bolder;
   margin: auto;
+  z-index: 0;
 }
 
 .section_matter {
@@ -230,7 +236,9 @@ nav ul li ul li a {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-
+.email {
+  color: blue;
+}
 .no-center {
   text-align: left;
 }
