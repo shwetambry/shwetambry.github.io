@@ -39,6 +39,7 @@ $(document).ready(function () {
     $(".container .row .coinP").css("display", "none");
     $(".container .row .clockC").css("display", "none");
     $(".container .row .patternP").css("display", "none");
+    $(".container .row .variableP").css("display", "none");
     $("#toggle_button").css("display", "block");
     $("#toggle_button").css("margin", "auto");
   });

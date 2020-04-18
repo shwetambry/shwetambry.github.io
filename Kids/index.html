@@ -1,221 +1,566 @@
 <!DOCTYPE html>
 <html>
-<head>
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138592925-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-138592925-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-138592925-1');
-</script>
-	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+      gtag("config", "UA-138592925-1");
+    </script>
 
-	<title> Some math problems for little kids. </title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="myStyle.css" >
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  	<script type="text/javascript" src="update.js"></script>
-  	<script type="text/javascript" src="patterns.js"></script>
-  	<script type="text/javascript" src="coins.js"></script>
-  	
-  	
-</head>
+    <title>Some math problems for little kids.</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="myStyle.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<body>
-	<div class="container text-center" style="color: saddlebrown;">
-		<div class="container" style="background-color: saddlebrown; color: white; padding-bottom: 10px;">
-			<h1> Some math problems for little kids </h1>
-			<button type="button" id="clock" class="btn btn-primary btn-lg menu clockC active" data-panel="clockPanel"> Clock Problems</button>
-			<button type="button" id="pattern" class="btn btn-primary btn-lg menu patternP" data-panel="patternPanel"> Patterns</button>
-			<button type="button" id="pattern" class="btn btn-primary btn-lg menu coinP" data-panel="coinPanel"> Coins</button>
-			<button type="button" id="add" class="btn btn-primary btn-lg menu asm " data-panel="addPanel"> Addition </button>
-			<button type="button" id="sub" class="btn btn-primary btn-lg menu asm" data-panel="subPanel"> Subtraction </button>
-			<button type="button" id="mult" class="btn btn-primary btn-lg menu asm" data-panel="multPanel"> Multiplication </button>
-			
-		</div>
+    <script type="text/javascript" src="update.js"></script>
+    <script type="text/javascript" src="patterns.js"></script>
+    <script type="text/javascript" src="coins.js"></script>
+    <script type="text/javascript" src="SolveUnknown.js"></script>
+  </head>
 
-		<div class="container text-center">
-			<div class="row main-body text-center">
-				
-				<div class="col-sm-4 " style="background-color: wheat;">
-					<h3 style="background-color: saddlebrown;">Scores</h3>
-					 <table class="table myContent">
-					 	<thead>
-					 		<tr>
-					 			<th>Type</th>
-					 			<th>Correct</th>
-					 			<th>Attempted</th>
-					 		</tr>
-					 	</thead>
-					 	<tbody>
+  <body>
+    <div class="container text-center" style="color: saddlebrown;">
+      <div
+        class="container"
+        style="
+          background-color: saddlebrown;
+          color: white;
+          padding-bottom: 10px;
+        "
+      >
+        <h1>Some math problems for little kids</h1>
+        <button
+          type="button"
+          id="clock"
+          class="btn btn-primary btn-lg menu clockC active"
+          data-panel="clockPanel"
+        >
+          Clock Problems
+        </button>
+        <button
+          type="button"
+          id="pattern"
+          class="btn btn-primary btn-lg menu patternP"
+          data-panel="patternPanel"
+        >
+          Patterns
+        </button>
+        <button
+          type="button"
+          id="pattern"
+          class="btn btn-primary btn-lg menu coinP"
+          data-panel="coinPanel"
+        >
+          Coins
+        </button>
+        <button
+          type="button"
+          id="add"
+          class="btn btn-primary btn-lg menu asm"
+          data-panel="addPanel"
+        >
+          Addition
+        </button>
+        <button
+          type="button"
+          id="sub"
+          class="btn btn-primary btn-lg menu asm"
+          data-panel="subPanel"
+        >
+          Subtraction
+        </button>
+        <button
+          type="button"
+          id="mult"
+          class="btn btn-primary btn-lg menu asm"
+          data-panel="multPanel"
+        >
+          Multiplication
+        </button>
+        <button
+          type="button"
+          id="variable"
+          class="btn btn-primary btn-lg menu variableP"
+          data-panel="variablePanel"
+        >
+          Variables
+        </button>
+      </div>
 
-					 		<tr> 
-					 			<td>Clock Problems</td>  
-					 			<td id="clockPC"> 0 </td>
-					 			<td id="clockPA"> 0 </td>
-					 		</tr>
-					 		<tr>
-					 			<td> Patterns</td>
-					 			<td id="patC">0</td>
-					 			<td id="patA">0</td>
-					 		</tr>
-					 		<tr>
-					 			<td> Coins</td>
-					 			<td id="coinC">0</td>
-					 			<td id="coinA">0</td>
-					 		</tr>
-					 		<tr> 
-					 			<td>Addition</td>  
-					 			<td id="addPanelC"> 0 </td>
-					 			<td id="addPanelA"> 0 </td>
-					 		</tr>
-					 		<tr> 
-					 			<td>Subtraction</td>  
-					 			<td id="subPanelC"> 0 </td>
-					 			<td id="subPanelA"> 0 </td>
-					 		</tr>
-					 		<tr> 
-					 			<td>Multiplication</td>  
-					 			<td id="multPanelC"> 0 </td>
-					 			<td id="multPanelA"> 0 </td>
-					 		</tr>
-					 		
-					 		
-					 		
-					 		<tr> 
-					 			<th>Total</th>  
-					 			<th id="totalC"> 0 </th>
-					 			<th id="totalA"> 0 </th>
-					 		</tr>
-					 		
-					 		
-					 	</tbody>
-					</table>
-					
-					<div style="padding-bottom: 5px; padding-top: 5px; margin-bottom: 10px;">
-						<button class="btn btn-primary btn-lg" id="next"> Get new problem </button>
-					</div>
-					<div style="padding-bottom: 5px; padding-top: 5px; margin-bottom: 10px; ">
-						<button class="btn btn-primary btn-lg" id="toggle_button" data-lv = "hardP" style="display: none;"> Get easier problems </button>
-					</div>
-				</div>
-				<div class="col-sm-4 asm" style="display: none">
-				
-					<div id="panel">
-						<h3 id="namePanel" style="background-color: saddlebrown;"> Addition Problems </h3>
-						<p id="statement" style="font-size: 30px; display: inline-block;"> 397+146 </p> 
-						
-						<div id="add" class="prob">
+      <div class="container text-center">
+        <div class="row main-body text-center">
+          <div class="col-sm-4" style="background-color: wheat;">
+            <h3 style="background-color: saddlebrown;">Scores</h3>
+            <table class="table myContent">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Correct</th>
+                  <th>Attempted</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Clock Problems</td>
+                  <td id="clockPC">0</td>
+                  <td id="clockPA">0</td>
+                </tr>
+                <tr>
+                  <td>Patterns</td>
+                  <td id="patC">0</td>
+                  <td id="patA">0</td>
+                </tr>
+                <tr>
+                  <td>Coins</td>
+                  <td id="coinC">0</td>
+                  <td id="coinA">0</td>
+                </tr>
+                <tr>
+                  <td>Variables</td>
+                  <td id="varC">0</td>
+                  <td id="varA">0</td>
+                </tr>
+                <tr>
+                  <td>Addition</td>
+                  <td id="addPanelC">0</td>
+                  <td id="addPanelA">0</td>
+                </tr>
+                <tr>
+                  <td>Subtraction</td>
+                  <td id="subPanelC">0</td>
+                  <td id="subPanelA">0</td>
+                </tr>
+                <tr>
+                  <td>Multiplication</td>
+                  <td id="multPanelC">0</td>
+                  <td id="multPanelA">0</td>
+                </tr>
 
-							<input type="text" class="clear hard carry" name="carry" id="carry1" maxlength="1" size="2" value=""> <input type="text" class="clear hard carry" name="carry" id="carry2" maxlength="2" size="2" value = ""><input type="text" class="clear hard carry" name="carry" id="carry3" maxlength="2" size="2" value=""><br>
-							<input type="text" class = "hard" name="n11" id = "n11" maxlength="1" size="2" value="3" readonly><input type="text" name="n12" id = "n12" maxlength="1" size="2" value="9" readonly><input type="text" name="n13" id = "n13" maxlength="1" size="2" value="7" readonly ><br> 
-							<input type="text" class = "hard" name="n21" id = "n21" maxlength="1" size="2" value="1" readonly><input type="text" name="n22" id = "n22" maxlength="1" size="2" value="4" readonly><input type="text" name="n23" id = "n23" maxlength="1" size="2" value="6" readonly><br> 
-							<hr>
-							<input type="text" class="clear hard" name="res" id="res1" maxlength="2" size="2"> <input type="text" class="clear" name="res" id="res2" maxlength="1" size="2"><input type="text" class="clear" name="res" id="res3" maxlength="1" size="2"><br>
-							
-						</div>
-						<div style="padding-top: 20px;">
-							<button type="button" id="check" class="btn btn-primary btn-lg">Submit and check</button>
-							<p class = "myContent" id="msg" style="font-size: 20px;">  </p>
-						</div>
-					
-					</div>	
+                <tr>
+                  <th>Total</th>
+                  <th id="totalC">0</th>
+                  <th id="totalA">0</th>
+                </tr>
+              </tbody>
+            </table>
 
-				</div>
-				<div class="col-sm-4 asm panels" id="help" style="display: none;">
-					<h3 style="background-color: saddlebrown;">Need help in solving??</h3>
-					<button type="button" id="yes" class="btn btn-primary btn-md helpB">Yes</button>
-					<button type="button" id="no" class="btn btn-primary btn-md helpB">No</button>
-					<button type="button" id="stop" class="btn btn-primary btn-md" style="display: none;" > Stop animation. </button>
-					<p class = "myContent" id="helpContent" style="vertical-align: middle; text-align: left";> </p>
-				</div>
+            <div
+              style="
+                padding-bottom: 5px;
+                padding-top: 5px;
+                margin-bottom: 10px;
+              "
+            >
+              <button class="btn btn-primary btn-lg" id="next">
+                Get new problem
+              </button>
+            </div>
+            <div
+              style="
+                padding-bottom: 5px;
+                padding-top: 5px;
+                margin-bottom: 10px;
+              "
+            >
+              <button
+                class="btn btn-primary btn-lg"
+                id="toggle_button"
+                data-lv="hardP"
+                style="display: none;"
+              >
+                Get easier problems
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-4 asm" style="display: none;">
+            <div id="panel">
+              <h3 id="namePanel" style="background-color: saddlebrown;">
+                Addition Problems
+              </h3>
+              <p id="statement" style="font-size: 30px; display: inline-block;">
+                397+146
+              </p>
 
-				
-				<div class="col-sm-8 clockC "  style="display: block;" ">
-					<h3 style="background-color: saddlebrown;"> Clock Problems</h3>
-					<div class="row">
-						<div class="col-sm-6 " >
-							<div style="padding-bottom: 5px;">
-							<canvas id="myCanvas" width="300" height="300" style="border:1px solid #d3d3d3;">
-							Your browser does not support the canvas element.
-							</canvas>
-							</div>
-							<script type="text/javascript" src="clockproblem.js"></script>
-							<div  style="text-align:left; padding-left: 25px; display: block">
-							<p id="timeAns"></p>
-							</div>
-						</div>
+              <div id="add" class="prob">
+                <input
+                  type="text"
+                  class="clear hard carry"
+                  name="carry"
+                  id="carry1"
+                  maxlength="1"
+                  size="2"
+                  value=""
+                />
+                <input
+                  type="text"
+                  class="clear hard carry"
+                  name="carry"
+                  id="carry2"
+                  maxlength="2"
+                  size="2"
+                  value=""
+                /><input
+                  type="text"
+                  class="clear hard carry"
+                  name="carry"
+                  id="carry3"
+                  maxlength="2"
+                  size="2"
+                  value=""
+                /><br />
+                <input
+                  type="text"
+                  class="hard"
+                  name="n11"
+                  id="n11"
+                  maxlength="1"
+                  size="2"
+                  value="3"
+                  readonly
+                /><input
+                  type="text"
+                  name="n12"
+                  id="n12"
+                  maxlength="1"
+                  size="2"
+                  value="9"
+                  readonly
+                /><input
+                  type="text"
+                  name="n13"
+                  id="n13"
+                  maxlength="1"
+                  size="2"
+                  value="7"
+                  readonly
+                /><br />
+                <input
+                  type="text"
+                  class="hard"
+                  name="n21"
+                  id="n21"
+                  maxlength="1"
+                  size="2"
+                  value="1"
+                  readonly
+                /><input
+                  type="text"
+                  name="n22"
+                  id="n22"
+                  maxlength="1"
+                  size="2"
+                  value="4"
+                  readonly
+                /><input
+                  type="text"
+                  name="n23"
+                  id="n23"
+                  maxlength="1"
+                  size="2"
+                  value="6"
+                  readonly
+                /><br />
+                <hr />
+                <input
+                  type="text"
+                  class="clear hard"
+                  name="res"
+                  id="res1"
+                  maxlength="2"
+                  size="2"
+                />
+                <input
+                  type="text"
+                  class="clear"
+                  name="res"
+                  id="res2"
+                  maxlength="1"
+                  size="2"
+                /><input
+                  type="text"
+                  class="clear"
+                  name="res"
+                  id="res3"
+                  maxlength="1"
+                  size="2"
+                /><br />
+              </div>
+              <div style="padding-top: 20px;">
+                <button type="button" id="check" class="btn btn-primary btn-lg">
+                  Submit and check
+                </button>
+                <p class="myContent" id="msg" style="font-size: 20px;"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 asm panels" id="help" style="display: none;">
+            <h3 style="background-color: saddlebrown;">
+              Need help in solving??
+            </h3>
+            <button type="button" id="yes" class="btn btn-primary btn-md helpB">
+              Yes
+            </button>
+            <button type="button" id="no" class="btn btn-primary btn-md helpB">
+              No
+            </button>
+            <button
+              type="button"
+              id="stop"
+              class="btn btn-primary btn-md"
+              style="display: none;"
+            >
+              Stop animation.
+            </button>
+            <p
+              class="myContent"
+              id="helpContent"
+              style="vertical-align: middle; text-align: left;"
+              ;
+            ></p>
+          </div>
 
-						<div class="col-sm-6" style="text-align: left;font-size: 20px; ">
-							<p style="font-weight: bold;"> 1. What is the time on the clock? </p>
-							<p> <input type="text" name="time" id="timeHour" size = "3" maxlength="2" value="" >:
-								<input type="text" name="time" id="timeMin" size = "3" maxlength="2" value="" ></p>
-							<p style="font-weight: bold;"> 2. Time in words   </p>
-							<p style="font-size: 12px;"> (quarter past, half past, quarter to, o'clock)</p>
-							<p><input type="text" name="time" id="timeM" size = "15" value=""></p>
-							<p style="font-weight: bold;">3. What will be the time after </p>
-							<p style="font-weight: bold; padding-left: 25px;" id="futQues">1 hour and 15 minutes.</p>
-							<p> <input type="text" id = "futureTimeHour" size="3" maxlength="2" value="">:
-								<input type="text" id = "futureTimeMin" size="3" maxlength="2" value="">
-							</p>
-							<button type="submit" id="timeCheck" class="btn btn-primary btn-lg"> Submit and Check
-							</button>
-							<p class = "myContent" id="timeMsg">  </p>
-						
-						</div>
-					</div>
+          <div class="col-sm-8 clockC" style="display: block;">
+            <h3 style="background-color: saddlebrown;">Clock Problems</h3>
+            <div class="row">
+              <div class="col-sm-6">
+                <div style="padding-bottom: 5px;">
+                  <canvas
+                    id="myCanvas"
+                    width="300"
+                    height="300"
+                    style="border: 1px solid #d3d3d3;"
+                  >
+                    Your browser does not support the canvas element.
+                  </canvas>
+                </div>
+                <script type="text/javascript" src="clockproblem.js"></script>
+                <div
+                  style="text-align: left; padding-left: 25px; display: block;"
+                >
+                  <p id="timeAns"></p>
+                </div>
+              </div>
 
+              <div class="col-sm-6" style="text-align: left; font-size: 20px;">
+                <p style="font-weight: bold;">
+                  1. What is the time on the clock?
+                </p>
+                <p>
+                  <input
+                    type="text"
+                    name="time"
+                    id="timeHour"
+                    size="3"
+                    maxlength="2"
+                    value=""
+                  />:
+                  <input
+                    type="text"
+                    name="time"
+                    id="timeMin"
+                    size="3"
+                    maxlength="2"
+                    value=""
+                  />
+                </p>
 
-				</div>
+                <p style="font-weight: bold;">2. Time in words</p>
+                <p style="font-size: 12px;">
+                  (quarter past, half past, quarter to, o'clock)
+                </p>
+                <p>
+                  <input
+                    type="text"
+                    name="time"
+                    id="timeM"
+                    size="15"
+                    value=""
+                  />
+                </p>
+                <p style="font-weight: bold;">3. What will be the time after</p>
+                <p style="font-weight: bold; padding-left: 25px;" id="futQues">
+                  1 hour and 15 minutes.
+                </p>
+                <p>
+                  <input
+                    type="text"
+                    id="futureTimeHour"
+                    size="3"
+                    maxlength="2"
+                    value=""
+                  />:
+                  <input
+                    type="text"
+                    id="futureTimeMin"
+                    size="3"
+                    maxlength="2"
+                    value=""
+                  />
+                </p>
+                <button
+                  type="submit"
+                  id="timeCheck"
+                  class="btn btn-primary btn-lg"
+                >
+                  Submit and Check
+                </button>
+                <p class="myContent" id="timeMsg"></p>
+              </div>
+            </div>
+          </div>
 
-				<div class="col-sm-8 text-center patternP" style="display: none;">
-					<h3 style="background-color: saddlebrown;"> Pattern Problems</h3>
-					<div class="row">
-						<div class="col-sm-12 ">
-							<h4 style="font-size: 20px;"> Fill in the missing number. </h4>
-							<input type="text" name="0" id="0" size="3" maxlength="3" value="" readonly>
-							<input type="text" name="1" id="1" size="3" maxlength="3" value="" readonly>
-							<input type="text" name="2" id="2" size="3" maxlength="3" value="" readonly>
-							<input type="text" name="3" id="3" size="3" maxlength="3" value="" readonly>
-							<input type="text" name="4" id="4" size="3" maxlength="3" value="" readonly>
-							<br><p> </p>
-							<button  type="submit" id="patCheck" class="btn btn-primary btn-lg"> Submit </button>
-							<p id="patAns" style="font-size: 25px; font-weight: bolder;"></p>
-							
-						</div>
-					</div>
-				</div>
+          <div class="col-sm-8 text-center patternP" style="display: none;">
+            <h3 style="background-color: saddlebrown;">Pattern Problems</h3>
+            <div class="row">
+              <div class="col-sm-12">
+                <h4 style="font-size: 20px;">Fill in the missing number.</h4>
+                <input
+                  type="text"
+                  name="0"
+                  id="0"
+                  size="3"
+                  maxlength="3"
+                  value=""
+                  readonly
+                />
+                <input
+                  type="text"
+                  name="1"
+                  id="1"
+                  size="3"
+                  maxlength="3"
+                  value=""
+                  readonly
+                />
+                <input
+                  type="text"
+                  name="2"
+                  id="2"
+                  size="3"
+                  maxlength="3"
+                  value=""
+                  readonly
+                />
+                <input
+                  type="text"
+                  name="3"
+                  id="3"
+                  size="3"
+                  maxlength="3"
+                  value=""
+                  readonly
+                />
+                <input
+                  type="text"
+                  name="4"
+                  id="4"
+                  size="3"
+                  maxlength="3"
+                  value=""
+                  readonly
+                />
+                <br />
+                <p></p>
+                <button
+                  type="submit"
+                  id="patCheck"
+                  class="btn btn-primary btn-lg"
+                >
+                  Submit
+                </button>
+                <p
+                  id="patAns"
+                  style="font-size: 25px; font-weight: bolder;"
+                ></p>
+              </div>
+            </div>
+          </div>
 
-				<div class="col-sm-8  text-center coinP" style="display: none;">
-					<h3 style="background-color: saddlebrown;"> Coin Problems </h3>
-					<div class="row">
-						<div class="col-sm-12">
-							<h4 style="font-size: 20px;"> What is the total value of coins? </h4>
-							<p id="coinImages"></p>
-							<input type="text" id="cents" name="cents" size="4" maxlength="3" value="" > cents
-							<br><p>
-			
-							</p>
-							<button type="submit" id="coinCheck" class="btn btn-lg btn-primary"> Submit </button>
-							<p id="coinAns" style="font-size: 25px; font-weight: bolder;"></p>
-						</div>
-						
-					</div>
-					
+          <div class="col-sm-8 text-center variableP" style="display: none;">
+            <h3 style="background-color: saddlebrown;">Variable Problems</h3>
+            <div class="row">
+              <div class="col-sm-12">
+                <h4 style="font-size: 20px;">Solve for X.</h4>
+                <p id="missingProb" style="font-size: 30px;">
+                  Click on "Get new problem" button to get an equation.
+                </p>
+                <br />
+                <p style="font-size: 30px;">
+                  X =
+                  <input
+                    type="text"
+                    name="ansInput"
+                    id="ansInput"
+                    size="3"
+                    maxlength="3"
+                    value=""
+                  />
+                </p>
+                <button
+                  type="submit"
+                  id="varCheck"
+                  class="btn btn-primary btn-lg"
+                >
+                  Submit
+                </button>
+                <p
+                  id="varAns"
+                  style="font-size: 25px; font-weight: bolder;"
+                ></p>
+              </div>
+            </div>
+          </div>
 
-				</div>
-			</div>		
-		</div>
-	</div>
-	
-</body>
-
-
+          <div class="col-sm-8 text-center coinP" style="display: none;">
+            <h3 style="background-color: saddlebrown;">Coin Problems</h3>
+            <div class="row">
+              <div class="col-sm-12">
+                <h4 style="font-size: 20px;">
+                  What is the total value of coins?
+                </h4>
+                <p id="coinImages"></p>
+                <input
+                  type="text"
+                  id="cents"
+                  name="cents"
+                  size="4"
+                  maxlength="3"
+                  value=""
+                />
+                cents <br />
+                <p></p>
+                <button
+                  type="submit"
+                  id="coinCheck"
+                  class="btn btn-lg btn-primary"
+                >
+                  Submit
+                </button>
+                <p
+                  id="coinAns"
+                  style="font-size: 25px; font-weight: bolder;"
+                ></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
-
