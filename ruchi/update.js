@@ -1,17 +1,17 @@
 var cur_page_id = "";
 var cur_prime_id = "";
 
-$(document).ready(function() {
-  document.querySelector("#nav-toggle").addEventListener("click", function() {
+$(document).ready(function () {
+  document.querySelector("#nav-toggle").addEventListener("click", function () {
     this.classList.toggle("active");
   });
-  $("#nav-toggle").click(function() {
+  $("#nav-toggle").click(function () {
     $("nav ul").toggle();
   });
   $("#myModal").modal({ show: true, backdrop: "static" });
 
   // Hide the Modal
-  $("#agree").click(function() {
+  $("#agree").click(function () {
     $("#myModal").modal("hide");
   });
   /*
@@ -78,7 +78,7 @@ $(document).ready(function() {
   //   }
   // });
   // click functionality over navitem
-  $("nav ul li a.prime").click(function(e) {
+  $("nav ul li a.prime").click(function (e) {
     if (cur_prime_id != $(this).attr("id") || cur_prime_id == "home") {
       cur_prime_id = $(this).attr("id");
       $("a.prime.active").removeClass("active");
@@ -86,25 +86,21 @@ $(document).ready(function() {
       cur_page_id = "";
       toggleSection(cur_prime_id);
     }
-    $(this)
-      .siblings(".nav-dropdown")
-      .toggle();
-    $(".nav-dropdown")
-      .not($(this).siblings())
-      .hide();
+    $(this).siblings(".nav-dropdown").toggle();
+    $(".nav-dropdown").not($(this).siblings()).hide();
     e.stopPropagation();
   });
-  $("html").click(function() {
+  $("html").click(function () {
     $(".nav-dropdown").hide();
   });
 
-  $("a.subnav").click(function() {
+  $("a.subnav").click(function () {
     cur_page_id = $(this).attr("id");
     toggleSection(cur_page_id);
   });
 
   // accordion behaviour for FAQs
-  $(".panel-default").click(function() {
+  $(".panel-default").click(function () {
     var panelTitle = $(this).find(".panel-heading");
     var selected = $(this).find(".collapse");
     if ($(selected).hasClass("in")) {
@@ -146,14 +142,14 @@ function addBreadcrumb() {
 
 function showSlideshow(cur_id) {
   $("#" + cur_id + "_slideshow > div:gt(0)").hide();
-  setInterval(function() {
+  setInterval(function () {
     $("#" + cur_id + "_slideshow > div:first")
       .fadeOut()
       .next()
       .fadeIn()
       .end()
       .appendTo("#" + cur_id + "_slideshow");
-  }, 10000);
+  }, 7000);
 }
 /*
 function mapWidth(class1) {
