@@ -20,6 +20,7 @@ $(document).ready(function () {
     $(".container .row .clockC").css("display", "block");
     $(".container .row .patternP").css("display", "none");
     $(".container .row .variableP").css("display", "none");
+    $(".container .row .convertP").css("display", "none");
     $("#toggle_button").css("display", "block");
     $("#toggle_button").css("margin", "auto");
   });

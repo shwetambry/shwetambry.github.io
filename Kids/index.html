@@ -32,6 +32,7 @@
     <script type="text/javascript" src="patterns.js"></script>
     <script type="text/javascript" src="coins.js"></script>
     <script type="text/javascript" src="SolveUnknown.js"></script>
+    <script type="text/javascript" src="convert.js"></script>
   </head>
 
   <body>
@@ -101,6 +102,14 @@
         >
           Variables
         </button>
+        <button
+          type="button"
+          id="variable"
+          class="btn btn-primary btn-lg menu convertP"
+          data-panel="convertPanel"
+        >
+          Conversion
+        </button>
       </div>
 
       <div class="container text-center">
@@ -135,6 +144,11 @@
                   <td>Variables</td>
                   <td id="varC">0</td>
                   <td id="varA">0</td>
+                </tr>
+                <tr>
+                  <td>Conversion</td>
+                  <td id="conC">0</td>
+                  <td id="conA">0</td>
                 </tr>
                 <tr>
                   <td>Addition</td>
@@ -521,6 +535,82 @@
                 </button>
                 <p
                   id="varAns"
+                  style="font-size: 25px; font-weight: bolder;"
+                ></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-8 text-center convertP" style="display: none;">
+            <h3 style="background-color: saddlebrown;">Conversion Problems</h3>
+            <div class="row">
+              <div class="col-sm-12">
+                <h4 style="font-size: 20px;">
+                  Convert the following:
+                </h4>
+                <p>
+                  <span id="numToConvert"> </span>
+                  <input
+                    type="text"
+                    id="conInput"
+                    name="conversion"
+                    size="4"
+                    maxlength="2"
+                    value=""
+                  />
+                  <span id="unit1"></span>
+                  <input
+                    type="text"
+                    id="conInputSub"
+                    name="conversion"
+                    size="4"
+                    maxlength="4"
+                    value=""
+                  />
+                  <span id="unit2"></span> <br />
+                </p>
+                <h4 style="font-size: 20px;">Write it in fraction form</h4>
+                <input
+                  type="text"
+                  id="conInputfracwhole"
+                  name="conversion"
+                  size="4"
+                  maxlength="2"
+                  value=""
+                />
+                <div class="frac">
+                  <span
+                    ><input
+                      type="text"
+                      id="conInputfracTop"
+                      name="conversion"
+                      size="4"
+                      maxlength="2"
+                      value=""
+                  /></span>
+                  <span class="symbol">/</span>
+                  <span class="bottom"
+                    ><input
+                      type="text"
+                      id="conInputfracBottom"
+                      name="conversion"
+                      size="4"
+                      maxlength="2"
+                      value=""
+                  /></span>
+                </div>
+                <span id="unitFrac"> </span>
+                <br />
+
+                <button
+                  type="submit"
+                  id="conCheck"
+                  class="btn btn-lg btn-primary"
+                >
+                  Submit
+                </button>
+                <p
+                  id="conAns"
                   style="font-size: 25px; font-weight: bolder;"
                 ></p>
               </div>
