@@ -14,6 +14,18 @@ $(document).ready(function () {
   $("#agree").click(function () {
     $("#myModal").modal("hide");
   });
+
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > 40) {
+      $("#goToTop").css("display", "block");
+    } else {
+      $("#goToTop").css("display", "none");
+    }
+  });
+
+  $("#goToTop").click(function () {
+    $(window).scrollTop(0);
+  });
   /*
   $(".nav-dropdown").css({
     width: $("nav").width() + "px"

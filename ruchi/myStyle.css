@@ -25,6 +25,19 @@ hr {
 #breadcrumb {
   color: var(--main-color);
 }
+#goToTop {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  border: none;
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 99;
+}
 .navigation {
   height: 80px;
   background: #ffffff;
@@ -314,7 +327,12 @@ strong {
   background: #125688;
   color: white;
 }
-
+footer {
+  font-size: 10px;
+}
+footer strong {
+  font-size: 12px;
+}
 /*
 
 nav ul li a:not(:only-child):hover .subnav {
