@@ -20,7 +20,7 @@ hr {
   font-weight: bold;
 }
 .modal-body {
-  font-size: 10px;
+  font-size: 12px;
 }
 #breadcrumb {
   color: var(--main-color);
@@ -28,8 +28,8 @@ hr {
 #goToTop {
   display: none;
   position: fixed;
-  top: 20px;
-  left: 10px;
+  bottom: 50px;
+  right: 50px;
   border: none;
   background-color: red;
   border-radius: 5px;
@@ -43,20 +43,19 @@ hr {
   height: 80px;
   background: #ffffff;
 }
-.sticky {
-  position: fixed;
-  top: 0;
-}
+
 .brand {
   position: absolute;
   padding-left: 20px;
   float: left;
   width: 30%;
+  cursor: pointer;
 }
 nav {
   float: right;
   padding-right: 60px;
   margin-top: 20px;
+  background-color: var(--main-color);
 }
 nav ul {
   list-style: none;
@@ -72,19 +71,19 @@ nav ul li a {
   display: block;
   padding: 0 20px;
   line-height: 40px;
-  color: var(--main-color);
-  background-color: #ffffff;
+  color: white;
+  background-color: var(--main-color);
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
   font-family: "Cambria";
 }
 nav ul li a:active {
-  background-color: var(--main-color);
-  color: #ffffff;
+  background-color: white;
+  color: var(--main-color);
 }
 nav ul li ul {
-  background: white;
+  background: var(--main-color);
 }
 nav ul li ul li {
   min-width: auto;
@@ -132,8 +131,8 @@ nav ul li ul li a {
   background-color: #659ec7;
 }
 .prime.active {
-  background-color: var(--main-color);
-  color: #ffffff;
+  background-color: #659ec7;
+  color: var(--main-color);
 }
 .slideshow {
   width: var(--image-width);
@@ -329,10 +328,10 @@ strong {
   color: white;
 }
 footer {
-  font-size: 10px;
+  font-size: 12px;
 }
 footer strong {
-  font-size: 12px;
+  font-size: 14px;
 }
 /*
 
