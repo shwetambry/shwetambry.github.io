@@ -47,9 +47,14 @@ hr {
 .brand {
   position: absolute;
   padding-left: 20px;
+  margin-top: 10px;
   float: left;
-  width: 30%;
+  width: 500px;
   cursor: pointer;
+}
+#brand-image {
+  width: 500px;
+  height: auto;
 }
 nav {
   float: right;
@@ -197,14 +202,18 @@ nav ul li ul li a {
   transform: rotate(-45deg);
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1200px) {
   .nav-mobile {
     display: block;
   }
 
+  #brand-image {
+    width: 420px;
+  }
   nav {
     width: 100%;
     padding: 70px 0 15px;
+    background-color: white;
   }
   nav ul {
     display: none;
@@ -332,6 +341,10 @@ footer {
 }
 footer strong {
   font-size: 14px;
+}
+.map_view {
+  width: 100%;
+  height: 400px;
 }
 /*
 

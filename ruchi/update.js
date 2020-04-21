@@ -55,6 +55,20 @@ $(document).ready(function () {
     toggleSection(cur_page_id);
   });
 
+  // map view for contact details
+  // var path = require(["config.json"]);
+  // var pathToKey = path.resolve(__dirname, "config.json");
+  // var config = fs.readFile(pathToKey, "utf8", function (err, data) {
+  //   if (err) throw err;
+  //   config = JSON.parse(data);
+  // });
+
+  // var key = config["API_KEY"];
+  // var url = "http://maps.google.com/maps/api/js?key=" + key + "&sensor=true";
+  // $("#googleMapScript").attr(src, url);
+  mapView([17.4905716, 78.5569346], "map_registered");
+  mapView([17.4162819, 78.3678074], "map_corporate");
+
   // accordion behaviour for FAQs
   $(".panel-default").click(function () {
     var panelTitle = $(this).find(".panel-heading");
@@ -104,18 +118,15 @@ function showSlideshow(cur_id) {
     }, 10000);
   }
 }
-// function showSlideshow(cur_id) {
-//   allSlides = $("#" + cur_id + "_slideshow").find("img");
-//   time_interval = allSlides.length * 1000;
-//   if ($("#" + cur_id + "_slideshow").hasClass("active")) {
-//     $("#" + cur_id + "_slideshow > div:gt(0)").hide();
-//     setInterval(function () {
-//       $("#" + cur_id + "_slideshow > div:first")
-//         .fadeOut(1000)
-//         .next()
-//         .fadeIn(1000)
-//         .end()
-//         .appendTo("#" + cur_id + "_slideshow");
-//     }, time_interval);
-//   }
-// }
+// mapView takes argument of array of length 2 and id of the div where map needs to be embedded
+function mapView(coordinates, div_id) {
+  var myLatLong = new google.maps.LatLng(coordinates[0], coordinates[1]);
+  var myOptions = {
+    zoom: 12,
+    center: myLatLong,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+  };
+  var map = new google.maps.Map($("#" + div_id)[0], myOptions);
+  var marker = new google.maps.Marker({ position: myLatLong, map: map });
+  return map;
+}
