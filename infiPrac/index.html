@@ -1,106 +1,403 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-138592925-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "UA-138592925-1");
-    </script>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138592925-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    gtag("config", "UA-138592925-1");
+  </script>
 
-    <title>Some math problems for little kids.</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="myStyle.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <script type="text/javascript" src="addition.js"></script>
-    <script type="text/javascript" src="subtraction.js"></script>
-    <script type="text/javascript" src="multiplication.js"></script>
-    <script type="text/javascript" src="patterns.js"></script>
-    <script type="text/javascript" src="coins.js"></script>
-    <script type="text/javascript" src="solveUnknown.js"></script>
-    <script type="text/javascript" src="convert.js"></script>
-  </head>
+  <title>Inf!Prac</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="myStyle.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-  <body>
-    <div class="navigation">
-      <div class="nav-container">
-        <nav>
-          <div class="nav-mobile">
-            <a id="nav-toggle" href="#!"></a><span></span>
-          </div>
 
-          <ul class="nav-list">
-            <li>
-              <a class="navItem" id="lvl0"><span>Kindergarten</span></a>
-              <ul class="nav-dropdown">
-                <li>
-                  <a class="navItem subnav" id="lvlK-addition"></a
-                  ><span> Addition</span>
-                </li>
-                <li>
-                  <a class="navItem subnav" id="lvlK-subtraction"></a
-                  ><span> Subtraction</span>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a class="navItem" id="lvl1"><span>Level 1</span></a>
-              <ul class="nav-dropdown">
-                <li>
-                  <a class="navItem subnav" id="lvl1-addition"></a
-                  ><span> Addition</span>
-                </li>
-                <li>
-                  <a class="navItem subnav" id="lvl1-subtraction"></a
-                  ><span> Subtraction</span>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a class="navItem" id="lvl2"><span>Level 2</span></a>
-              <ul class="nav-dropdown">
-                <li>
-                  <a class="navItem subnav" id="lvl2-addition"></a
-                  ><span> Addition</span>
-                </li>
-                <li>
-                  <a class="navItem subnav" id="lvl2-subtraction"></a
-                  ><span> Subtraction</span>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a class="navItem" id="lvl3"><span>Level 3</span></a>
-              <ul class="nav-dropdown">
-                <li>
-                  <a class="navItem subnav" id="lvl3-addition"></a
-                  ><span> Addition</span>
-                </li>
-                <li>
-                  <a class="navItem subnav" id="lvl3-subtraction"></a
-                  ><span> Subtraction</span>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
+  <script type="text/javascript" src="addition.js"></script>
+  <script type="text/javascript" src="subtraction.js"></script>
+  <script type="text/javascript" src="multiplication.js"></script>
+  <script type="text/javascript" src="patterns.js"></script>
+  <script type="text/javascript" src="coins.js"></script>
+  <script type="text/javascript" src="solveUnknown.js"></script>
+  <script type="text/javascript" src="timeConvert.js"></script>
+  <script type="text/javascript" src="massConvert.js"></script>
+  <script type="text/javascript" src="clock.js"></script>
+  <script type="text/javascript" src="update.js"></script>
+</head>
+
+<body>
+  <div class="container title text-center">
+    <p class="main-title">Inf!Prac</p>
+    <p>Practice makes Perfect</p>
+  </div>
+  <div class="container row">
+    <div class="container col-sm-3">
+      <div class="navigation">
+        <div class="nav-container">
+          <nav>
+            <div class="nav-mobile">
+              <a id="nav-toggle" href="#!"></a><span></span>
+            </div>
+
+            <ul class="nav-list">
+              <li>
+                <a class="navItem prime active" id="home">
+                  <span>Home</span>
+                </a>
+              </li>
+              <li>
+                <a class="navItem prime" id="lvl0"><span>Kindergarten</span></a>
+                <ul class="nav-dropdown">
+                  <li>
+                    <a class="navItem subnav" id="lvlK-patterns">
+                      <span>Patterns</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="navItem subnav" id="lvlK-addition">
+                      <span> Addition</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="navItem subnav" id="lvlK-subtraction">
+                      <span> Subtraction</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a class="navItem prime" id="lvl1"><span>Level 1</span></a>
+                <ul class="nav-dropdown">
+                  <li>
+                    <a class="navItem subnav" id="lvl1-addition">
+                      <span> Addition</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="navItem subnav" id="lvl1-subtraction">
+                      <span> Subtraction</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a class="navItem prime" id="lvl2"><span>Level 2</span></a>
+                <ul class="nav-dropdown">
+                  <li>
+                    <a class="navItem subnav" id="lvl2-patterns">
+                      <span> Patterns</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="navItem subnav" id="lvl2-coins">
+                      <span> Coin Counting</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="navItem subnav" id="lvl2-clock">
+                      <span> Clock Problems</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a class="navItem prime" id="lvl3"><span>Level 3</span></a>
+                <ul class="nav-dropdown">
+                  <li>
+                    <a class="navItem subnav" id="lvl3-variable">
+                      <span> Solve for variable</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="navItem subnav" id="lvl3-timeConvert">
+                      <span> Time unit conversion</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="navItem subnav" id="lvl3-massConvert">
+                      <span> Mass units conversion</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a class="navItem prime" id="lvl4"><span>Level 4</span></a>
+                <ul class="nav-dropdown">
+                  <li>
+                    <a class="navItem subnav" id="lvl4-addition">
+                      <span> Addition</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="navItem subnav" id="lvl4-subtraction">
+                      <span> Subtraction</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="navItem subnav" id="lvl4-multiplication">
+                      <span> Mulitplication</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
-  </body>
+
+    <!-- The main content of the page -->
+    <div class="container col-sm-9">
+      <div class="container section required" id="breadcrumb">Home > </div>
+      <div class="container section active" id="home-section">
+        <p>
+          Inf!Prac is short for Infinite Practice.
+        </p>
+        <p>
+          Inf!Prac has been designed to give your kids infinitely many
+          problems to practice with.
+        </p>
+      </div>
+
+      <!-- Section patterns -->
+      <div class="container text-center section" id="patterns-section">
+        <div class="section-heading">
+          <h1>Pattern problems</h1>
+        </div>
+        <div class="container section-matter text-center">
+          <p>Fill in the missing number.</p>
+          <input type="text" id="0" size="3" maxlength="3" value="" readonly />
+          <input type="text" id="1" size="3" maxlength="3" value="" readonly />
+          <input type="text" id="2" size="3" maxlength="3" value="" readonly />
+          <input type="text" id="3" size="3" maxlength="3" value="" readonly />
+          <input type="text" id="4" size="3" maxlength="3" value="" readonly />
+          <br />
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Section coins-->
+      <div class="container text-center section" id="coins-section">
+        <div class="section-heading">
+          Coin problems
+        </div>
+        <div class="container section-matter text-center">
+          <p>What is the total value of coins? </p>
+          <p id="coinImages"> </p>
+          <input type="text" id="coins-input" name="coins-input" size="4" maxlength="3" value="" />
+          cents <br />
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Section Solving for variable -->
+      <div class="container text-center section" id="variable-section">
+        <div class="section-heading">
+          <h1>Variable problems</h1>
+        </div>
+        <div class="container section-matter text-center">
+          <p> What value of X makes the two sides of equation equal?</p>
+          <p id="missingProb"></p>
+          <p>
+            X =
+            <input type="text" name="variable-input" id="variable-input" size="3" maxlength="3" value="" />
+          </p>
+        </div>
+      </div>
+
+      <!-- Section conversion of time units -->
+      <div class="container text-center section" id="timeConvert-section">
+        <div class="section-heading">
+          <h1>Time Conversion problems</h1>
+        </div>
+        <div class="container section-matter text-center">
+          <p> Convert the following: </p>
+          <p>
+            <span id="timeToConvert"> </span>
+            <input type="text" id="conTimeInput" size="4" maxlength="4" value="" />
+            <span id="unit1Time"></span>
+            <br />
+
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Section conversion of mass units-->
+      <div class="container text-center section" id="massConvert-section">
+        <div class="section-heading">
+          <h1>Mass Conversion problems</h1>
+        </div>
+        <div class="container section-matter text-center">
+          <p>Convert the following: </p>
+          <p>
+            <span id="numToConvert"> </span>
+            <input type="text" id="conInput" size="4" maxlength="2" value="" />
+            <span id="unit1"></span>
+            <input type="text" id="conInputSub" size="4" maxlength="4" value="" />
+            <span id="unit2"></span> <br />
+          </p>
+          <h4 style="font-size: 20px;">Write it in fraction form</h4>
+          <input type="text" id="conInputfracwhole" name="conversion" size="4" maxlength="2" value="" />
+          <div class="frac">
+            <span><input type="text" id="conInputfracTop" name="conversion" size="4" maxlength="2" value="" /></span>
+            <span class="symbol">/</span>
+            <span class="bottom"><input type="text" id="conInputfracBottom" name="conversion" size="4" maxlength="2"
+                value="" /></span>
+          </div>
+          <span id="unitFrac"> </span>
+          <br />
+
+        </div>
+      </div>
+
+      <!-- Section reading clock problems-->
+      <div class="container text-center section" id="clock-section">
+        <div class="section-heading">
+          <h1>Clock problems </h1>
+        </div>
+        <div class="container section-matter text-center">
+          <div class="row">
+            <div class="col-sm-6">
+              <canvas id="myCanvas" width="300" height="300" style="border: 1px solid #d3d3d3;">
+                Your browser does not support the canvas element.
+              </canvas>
+            </div>
+            <div class="col-sm-6 ">
+              <p style="font-weight: bold;">
+                1. What is the time on the clock?
+              </p>
+              <p>
+                <input type="text" id="timeHour" size="3" maxlength="2" value="" />:
+                <input type="text" id="timeMin" size="3" maxlength="2" value="" />
+              </p>
+
+              <p style="font-weight: bold;">2. Time in words</p>
+              <p style="font-size: 12px;">
+                (quarter past, half past, quarter to, o'clock)
+              </p>
+              <p>
+                <input type="text" name="time" id="timeM" size="15" value="" />
+              </p>
+              <p style="font-weight: bold;">3. What will be the time after</p>
+              <p style="font-weight: bold; padding-left: 25px;" id="futQues">
+                1 hour and 15 minutes.
+              </p>
+              <p>
+                <input type="text" id="futureTimeHour" size="3" maxlength="2" value="" />:
+                <input type="text" id="futureTimeMin" size="3" maxlength="2" value="" />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section addition problems -->
+      <div class="container text-center section" id="addition-section">
+        <div class="section-heading">
+          <h1>Addition problems</h1>
+        </div>
+        <div class="container section-matter text-center">
+          <p id="addition-statement" style="font-size: 30px; display: inline-block;"></p>
+
+          <div class="prob">
+            <input type="text" class="clear hard carry" id="add-carry1" maxlength="1" size="2" value="" />
+            <input type="text" class="clear hard carry" id="add-carry2" maxlength="2" size="2" value="" />
+            <input type="text" class="clear hard carry" id="add-carry3" maxlength="2" size="2" value="" /><br />
+            <input type="text" class="hard" id="add-n11" maxlength="1" size="2" value="" readonly />
+            <input type="text" id="add-n12" maxlength="1" size="2" value="" readonly />
+            <input type="text" id="add-n13" maxlength="1" size="2" value="" readonly /><br />
+            <input type="text" class="hard" id="add-n21" maxlength="1" size="2" value="" readonly />
+            <input type="text" name="n22" id="add-n22" maxlength="1" size="2" value="" readonly />
+            <input type="text" id="add-n23" maxlength="1" size="2" value="" readonly /><br />
+            <hr />
+            <input type="text" class="clear hard answer" id="add-res1" maxlength="2" size="2" />
+            <input type="text" class="clear answer" id="add-res2" maxlength="1" size="2" />
+            <input type="text" class="clear answer" name="res" id="add-res3" maxlength="1" size="2" /><br />
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section subtraction problems -->
+      <div class="container text-center section" id="subtraction-section">
+        <div class="section-heading">
+          <h1>Subtraction problems</h1>
+        </div>
+        <div class="container section-matter text-center">
+          <p id="subtraction-statement" style="font-size: 30px; display: inline-block;"></p>
+
+          <div class="prob">
+            <input type="text" class="clear hard carry" id="sub-carry1" maxlength="1" size="2" value="" />
+            <input type="text" class="clear hard carry" id="sub-carry2" maxlength="2" size="2" value="" />
+            <input type="text" class="clear hard carry" id="sub-carry3" maxlength="2" size="2" value="" /><br />
+            <input type="text" class="hard" id="sub-n11" maxlength="1" size="2" value="3" readonly />
+            <input type="text" id="sub-n12" maxlength="1" size="2" value="9" readonly />
+            <input type="text" id="sub-n13" maxlength="1" size="2" value="7" readonly /><br />
+            <input type="text" class="hard" id="sub-n21" maxlength="1" size="2" value="1" readonly />
+            <input type="text" id="sub-n22" maxlength="1" size="2" value="4" readonly />
+            <input type="text" id="sub-n23" maxlength="1" size="2" value="6" readonly /><br />
+            <hr />
+            <input type="text" class="clear hard answer" id="sub-res1" maxlength="2" size="2" />
+            <input type="text" class="clear answer" id="sub-res2" maxlength="1" size="2" />
+            <input type="text" class="clear answer" id="sub-res3" maxlength="1" size="2" /><br />
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section subtraction problems -->
+      <div class="container text-center section" id="multiplication-section">
+        <div class="section-heading">
+          <h1>Multiplication problems</h1>
+        </div>
+        <div class="container section-matter text-center">
+          <p id="multiplication-statement" style="font-size: 30px; display: inline-block;"></p>
+
+          <div class="prob">
+            <input type="text" class="clear hard carry" id="mult-carry1" maxlength="1" size="2" value="" />
+            <input type="text" class="clear hard carry" id="mult-carry2" maxlength="2" size="2" value="" />
+            <input type="text" class="clear hard carry" id="mult-carry3" maxlength="2" size="2" value="" /><br />
+            <input type="text" class="hard" id="mult-n11" maxlength="1" size="2" value="3" readonly />
+            <input type="text" id="mult-n12" maxlength="1" size="2" value="9" readonly />
+            <input type="text" id="mult-n13" maxlength="1" size="2" value="7" readonly /><br />
+            <input type="text" class="hard" id="mult-n21" maxlength="1" size="2" value="1" readonly />
+            <input type="text" id="mult-n22" maxlength="1" size="2" value="4" readonly />
+            <input type="text" id="mult-n23" maxlength="1" size="2" value="6" readonly /><br />
+            <hr />
+            <input type="text" class="clear hard answer" id="mult-res1" maxlength="2" size="2" />
+            <input type="text" class="clear answer" id="mult-res2" maxlength="1" size="2" />
+            <input type="text" class="clear answer" id="mult-res3" maxlength="1" size="2" /><br />
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Submit button, new problem button and answer html section-->
+      <div class="container text-center section required " id="submission-buttons">
+        <button type="submit" id="submit" class="btn btn-primary btn-lg submit-state">
+          Submit
+        </button>
+        <button class="btn btn-primary btn-lg" id="next">Next</button>
+        <p class="feedback-text" id="feedback"></p>
+      </div>
+
+    </div>
+  </div>
+</body>
+
 </html>

@@ -60,7 +60,7 @@ function coinSetUp() {
   randCoins();
   for (var i = 0; i < coinVal.length; i++) {
     var tmp = numCoins[i];
-    var img = images[i];
+    //var img = images[i];
     var val = coinVal[i];
     var width = 50 + wide[i] * 10;
     for (var j = 0; j < tmp; j++) {
