@@ -30,6 +30,12 @@ var IDtoPrepend;
 var classObject;
 var triangle = "right";
 $(document).ready(function () {
+  document.querySelector("#nav-toggle").addEventListener("click", function () {
+    this.classList.toggle("active");
+  });
+  $("#nav-toggle").click(function () {
+    $("nav ul").toggle();
+  });
   if (cur_prime_id == "home") {
     $("#submission-buttons").css("display", "none");
   }
@@ -96,6 +102,12 @@ $(document).ready(function () {
     var totalCorrect = 0;
     var totalAttempt = 0;
     for (var key in correctAndAttempt) {
+      if (correctAndAttempt[key][1] == 0) {
+        $("#" + key + "-attempt").closest("tr").hide();
+      }
+      else {
+        $("#" + key + "-attempt").closest("tr").show();
+      }
       $("#" + key + "-correct").html(correctAndAttempt[key][0]);
       $("#" + key + "-attempt").html(correctAndAttempt[key][1]);
       totalCorrect += correctAndAttempt[key][0];
@@ -103,6 +115,7 @@ $(document).ready(function () {
     }
     $("#total-correct").html(totalCorrect);
     $("#total-attempt").html(totalAttempt);
+
   });
 });
 

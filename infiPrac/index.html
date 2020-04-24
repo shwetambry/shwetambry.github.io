@@ -120,13 +120,13 @@
     <p class="main-title">Inf!Prac</p>
     <p>Practice makes Perfect</p>
   </div>
-  <div class="container row">
-    <div class="container col-sm-3">
+  <div class="container wrapper">
+    <div class="container sidebar">
       <div class="navigation">
         <div class="nav-container">
           <nav>
             <div class="nav-mobile">
-              <a id="nav-toggle" href="#!"></a><span></span>
+              <a id="nav-toggle" href="#!"><span></span></a>
             </div>
 
             <ul class="nav-list">
@@ -230,16 +230,21 @@
             </ul>
           </nav>
         </div>
+
+      </div>
+      <div class="modal-button-class">
+        <button type="button" class="btn btn-primary btn-block" id="modal-button" data-toggle="modal"
+          data-target="#score-modal">
+          Scores
+        </button>
       </div>
     </div>
 
     <!-- The main content of the page -->
-    <div class="container col-sm-9">
+    <div class="container main-content">
       <div class="container section required">
         <div id="breadcrumb">Home > </div>
-        <button type="button" class="btn btn-primary btn-lg" id="modal-button" data-toggle="modal"
-          data-target="#score-modal">
-          Scores</button>
+
       </div>
 
       <div class="container section active" id="home-section">
@@ -481,5 +486,10 @@
     </div>
   </div>
 </body>
+<footer>
+  <div class="container text-center">
+    Hi there
+  </div>
+</footer>
 
 </html>
