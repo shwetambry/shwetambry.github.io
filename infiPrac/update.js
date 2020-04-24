@@ -10,10 +10,25 @@ const classesMapping = {
   'subtraction': Subtraction,
   'multiplication': Multiplication
 }
+// correctAndAttempt holds correct responses and attempted in a list for each class
+var correctAndAttempt = {
+  'patterns': [0, 0],
+  'coins': [0, 0],
+  'massConvert': [0, 0],
+  'timeConvert': [0, 0],
+  'clock': [0, 0],
+  'variable': [0, 0],
+  'addition': [0, 0],
+  'subtraction': [0, 0],
+  'multiplication': [0, 0]
+
+}
 
 var cur_prime_id = "home";
 var cur_page_id;
+var IDtoPrepend;
 var classObject;
+var triangle = "right";
 $(document).ready(function () {
   if (cur_prime_id == "home") {
     $("#submission-buttons").css("display", "none");
@@ -22,6 +37,11 @@ $(document).ready(function () {
     $(this).siblings(".nav-dropdown").toggle();
     $(".nav-dropdown").not($(this).siblings()).hide();
     e.stopPropagation();
+
+    // if ($(this).siblings().length > 0) {
+    //   var chevronID = $(this).attr("id") + "-chevron";
+    //   toggleChevron(chevronID);
+    // }
 
     if (cur_prime_id != $(this).attr("id") || cur_prime_id == "home") {
       cur_prime_id = $(this).attr("id");
@@ -39,10 +59,13 @@ $(document).ready(function () {
   });
 
   $("a.subnav").click(function () {
+
     reset();
     cur_page_id = $(this).attr("id");
     toggleSection(parseID(cur_page_id));
-    classToCall = classesMapping[parseID(cur_page_id)];
+    //toggleChevron(cur_prime_id + "-chevron");
+    IDtoPrepend = parseID(cur_page_id);
+    classToCall = classesMapping[IDtoPrepend];
     classObject = new classToCall();
     classObject.setUp();
   });
@@ -56,10 +79,31 @@ $(document).ready(function () {
     $(this).prop("disabled", true);
     $("input").prop("disabled", true);
     classObject.check();
-    feedback = classObject.getfeedbackText();
+    var feedback = classObject.getfeedbackText();
     $("#feedback").html(feedback);
-  })
+    var correctArray = classObject.getCorrect();
 
+    var tmp = 0;
+    for (var i = 0; i < correctArray.length; i++) {
+      if (correctArray[i]) {
+        tmp += 1;
+      }
+    }
+    correctAndAttempt[IDtoPrepend][0] += tmp;
+    correctAndAttempt[IDtoPrepend][1] += correctArray.length;
+  })
+  $("#modal-button").click(function () {
+    var totalCorrect = 0;
+    var totalAttempt = 0;
+    for (var key in correctAndAttempt) {
+      $("#" + key + "-correct").html(correctAndAttempt[key][0]);
+      $("#" + key + "-attempt").html(correctAndAttempt[key][1]);
+      totalCorrect += correctAndAttempt[key][0];
+      totalAttempt += correctAndAttempt[key][1];
+    }
+    $("#total-correct").html(totalCorrect);
+    $("#total-attempt").html(totalAttempt);
+  });
 });
 
 function parseID(cur_id) {
@@ -76,7 +120,7 @@ function toggleSection(cur_id) {
 }
 
 function addBreadCrumb() {
-  var mainNav = $("#" + cur_prime_id).html();
+  var mainNav = $("#" + cur_prime_id + "-label").html();
   var subNav = "";
   if (cur_page_id != "") {
     subNav = $("#" + cur_page_id).html();
@@ -92,3 +136,17 @@ function reset() {
   $("input").val("");
   $("input").prop("disabled", false);
 }
+/*
+function toggleChevron(cur_id) {
+
+  oldActiveChevronID = $(".chevron.active").attr("id");
+  $("#" + oldActiveChevronID).removeClass("active");
+  $("#" + cur_id).addClass("active");
+  $("#" + cur_id).html("&#9662;");
+  $("#" + oldActiveChevronID).html("&#9656;");
+
+}
+function toggleChevronSamePrime(cur_id) {
+
+}
+*/

@@ -37,6 +37,85 @@
 </head>
 
 <body>
+  <div class="modal fade" id="score-modal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>Scores</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table myContent">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Correct</th>
+                <th>Attempted</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Clock Problems</td>
+                <td id="clock-correct">0</td>
+                <td id="clock-attempt">0</td>
+              </tr>
+              <tr>
+                <td>Patterns</td>
+                <td id="patterns-correct">0</td>
+                <td id="patterns-attempt">0</td>
+              </tr>
+              <tr>
+                <td>Coins</td>
+                <td id="coins-correct">0</td>
+                <td id="coins-attempt">0</td>
+              </tr>
+              <tr>
+                <td>Variables</td>
+                <td id="variable-correct">0</td>
+                <td id="variable-attempt">0</td>
+              </tr>
+              <tr>
+                <td>Mass Unit Conversion</td>
+                <td id="massConvert-correct">0</td>
+                <td id="massConvert-attempt">0</td>
+              </tr>
+              <tr>
+                <td>Time Unit Conversion</td>
+                <td id="timeConvert-correct">0</td>
+                <td id="timeConvert-attempt">0</td>
+              </tr>
+              <tr>
+                <td>Addition</td>
+                <td id="addition-correct">0</td>
+                <td id="addition-attempt">0</td>
+              </tr>
+              <tr>
+                <td>Subtraction</td>
+                <td id="subtraction-correct">0</td>
+                <td id="subtraction-attempt">0</td>
+              </tr>
+              <tr>
+                <td>Multiplication</td>
+                <td id="multiplication-correct">0</td>
+                <td id="multiplication-attempt">0</td>
+              </tr>
+
+              <tr>
+                <th>Total</th>
+                <th id="total-correct">0</th>
+                <th id="total-attempt">0</th>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container title text-center">
     <p class="main-title">Inf!Prac</p>
     <p>Practice makes Perfect</p>
@@ -57,27 +136,21 @@
                 </a>
               </li>
               <li>
-                <a class="navItem prime" id="lvl0"><span>Kindergarten</span></a>
+                <a class="navItem prime" id="lvl0"><span id="lvl0-label">Kindergarten</span><span class="chevron"
+                    id="lvl0-chevron">&#9656;</span></a>
                 <ul class="nav-dropdown">
                   <li>
                     <a class="navItem subnav" id="lvlK-patterns">
                       <span>Patterns</span>
                     </a>
                   </li>
-                  <li>
-                    <a class="navItem subnav" id="lvlK-addition">
-                      <span> Addition</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="navItem subnav" id="lvlK-subtraction">
-                      <span> Subtraction</span>
-                    </a>
-                  </li>
+
                 </ul>
               </li>
               <li>
-                <a class="navItem prime" id="lvl1"><span>Level 1</span></a>
+                <a class="navItem prime" id="lvl1"><span id="lvl1-label">Level 1</span> <span class="chevron"
+                    id="lvl1-chevron">&#9656;</span></a>
+
                 <ul class="nav-dropdown">
                   <li>
                     <a class="navItem subnav" id="lvl1-addition">
@@ -92,7 +165,8 @@
                 </ul>
               </li>
               <li>
-                <a class="navItem prime" id="lvl2"><span>Level 2</span></a>
+                <a class="navItem prime" id="lvl2"><span id="lvl2-label">Level 2</span><span class="chevron"
+                    id="lvl2-chevron">&#9656;</span></a>
                 <ul class="nav-dropdown">
                   <li>
                     <a class="navItem subnav" id="lvl2-patterns">
@@ -112,7 +186,8 @@
                 </ul>
               </li>
               <li>
-                <a class="navItem prime" id="lvl3"><span>Level 3</span></a>
+                <a class="navItem prime" id="lvl3"><span id="lvl3-label">Level 3</span><span class="chevron"
+                    id="lvl3-chevron">&#9656;</span></a>
                 <ul class="nav-dropdown">
                   <li>
                     <a class="navItem subnav" id="lvl3-variable">
@@ -132,7 +207,8 @@
                 </ul>
               </li>
               <li>
-                <a class="navItem prime" id="lvl4"><span>Level 4</span></a>
+                <a class="navItem prime" id="lvl4"><span id="lvl4-label">Level 4</span><span class="chevron"
+                    id="lvl4-chevron">&#9656;</span></a>
                 <ul class="nav-dropdown">
                   <li>
                     <a class="navItem subnav" id="lvl4-addition">
@@ -159,7 +235,13 @@
 
     <!-- The main content of the page -->
     <div class="container col-sm-9">
-      <div class="container section required" id="breadcrumb">Home > </div>
+      <div class="container section required">
+        <div id="breadcrumb">Home > </div>
+        <button type="button" class="btn btn-info btn-lg" id="modal-button" data-toggle="modal"
+          data-target="#score-modal">
+          Scores</button>
+      </div>
+
       <div class="container section active" id="home-section">
         <p>
           Inf!Prac is short for Infinite Practice.

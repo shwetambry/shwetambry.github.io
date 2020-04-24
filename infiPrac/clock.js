@@ -1,13 +1,9 @@
 class Clock {
-    correct = 0;
-    attempt = 0;
+    correct = [false, false, false];
     feedback = "";
     h; m; fh; fm;
     getCorrect() {
         return this.correct;
-    }
-    getAttempt() {
-        return this.attempt;
     }
     getfeedbackText() {
         return this.feedback;
@@ -39,11 +35,10 @@ class Clock {
         $("#timeHour").focus();
     }
     check() {
-        this.attempt += 3;
         if (
             ($("#timeHour").val() == this.h && $("#timeMin").val() == this.m) ||
             $("#timeMin").val() == "0" + this.m) {
-            this.correct += 1;
+            this.correct[0] = true;
             $("#timeMin").css("background-color", "green");
             $("#timeHour").css("background-color", "green");
 
@@ -52,7 +47,7 @@ class Clock {
             $("#timeHour").css("background-color", "red");
         }
         if ($("#timeM").val().toLowerCase().trim() == timeInWords(this.h, this.m)) {
-            this.correct += 1;
+            this.correct[1] = true;
             $("#timeM").css("background-color", "green");
         } else {
             $("#timeM").css("background-color", "red");
@@ -62,7 +57,7 @@ class Clock {
             $("#futureTimeHour").val() == ft[0] &&
             $("#futureTimeMin").val() == ft[1]
         ) {
-            this.correct += 1;
+            this.correct[2] = true;
             $("#futureTimeMin").css("background-color", "green");
             $("#futureTimeHour").css("background-color", "green");
         } else {

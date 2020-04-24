@@ -1,6 +1,5 @@
 class MassConvert {
-    correct = 0;
-    attempt = 0;
+    correct = [false, false];
     feedback = "";
     whole; frac; num;
     lowerUnitArray = ["grams", "meters"];
@@ -8,9 +7,6 @@ class MassConvert {
 
     getCorrect() {
         return this.correct;
-    }
-    getAttempt() {
-        return this.attempt;
     }
     getfeedbackText() {
         return this.feedback;
@@ -33,6 +29,7 @@ class MassConvert {
         $("#unit1").html(this.upperUnitArray[rndIdx]);
         $("#unit2").html(this.lowerUnitArray[rndIdx]);
         $("#unitFrac").html(this.upperUnitArray[rndIdx]);
+        $("#conInput").focus();
     }
     check() {
         var inp = $("#conInput").val();
@@ -48,7 +45,7 @@ class MassConvert {
             $("#conInputSub").css("background-color", "red");
         }
         if (inp == this.whole && inpSub == this.frac) {
-            this.correct += 1;
+            this.correct[0] = true;
             this.feedback = "<p>Good job!!! Conversion is Correct!!!!</p>";
         } else {
             this.feedback = this.incorrectAnsText();
@@ -79,8 +76,7 @@ class MassConvert {
             fracEq[0] == fracinpTop &&
             fracEq[1] == fracinpBottom
         ) {
-            this.correct += 1;
-
+            this.correct[1] = true;
             this.feedback += "<p> Fraction conversion is Correct!!!!</p>";
         } else {
             this.feedback += this.incorrectAnsTextFrac();

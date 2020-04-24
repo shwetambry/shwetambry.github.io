@@ -3,15 +3,11 @@ var wide = [1, 2, 3, 5];
 var numCoins = [];
 
 class Coins {
-    correct = 0;
-    attempt = 0;
+    correct = [false];
     feedback = "";
 
     getCorrect() {
         return this.correct;
-    }
-    getAttempt() {
-        return this.attempt;
     }
     getfeedbackText() {
         return this.feedback;
@@ -40,12 +36,11 @@ class Coins {
         $("#coins-input").focus();
     }
     check() {
-        this.attempt += 1;
         var inp = $("#coins-input").val();
         var correctValue = TotalCoinVal();
         if (inp == correctValue) {
             this.feedback = "Good job!! Correct answer. ";
-            this.correct += 1;
+            this.correct[0] = true;
             $("#coins-input").css("background-color", "green");
         } else {
             $("#coins-input").css("background-color", "red");

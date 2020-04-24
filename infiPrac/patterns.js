@@ -1,6 +1,6 @@
 
 class Patterns {
-  correct = 0; attempt = 0;
+  correct = [false];
   num; inc; miss;
   incArray = [1, 2, 3, 4, 5, 10];
   fwd = true;
@@ -8,9 +8,6 @@ class Patterns {
 
   getCorrect() {
     return this.correct;
-  }
-  getAttempt() {
-    return this.attempt;
   }
   reset() {
     for (var i = 0; i < 5; i++) {
@@ -67,7 +64,7 @@ class Patterns {
     if (inp == correctAns) {
       $("#" + this.miss).css("background-color", "green");
       this.feedback = "Good job!!! Correct Answer!!!!";
-      this.correct += 1;
+      this.correct[0] = true;
     } else {
       $("#" + this.miss).css("background-color", "red");
       this.feedback = "<p>Incorrect Answer.</p><p> The correct answer is " + correctAns;

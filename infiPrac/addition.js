@@ -1,14 +1,11 @@
 class Addition {
-    correct = 0;
-    attempt = 0;
+    correct = [false];
     feedback = "";
     num1; num2;
     getCorrect() {
         return this.correct;
     }
-    getAttempt() {
-        return this.attempt;
-    }
+
     getfeedbackText() {
         return this.feedback;
     }
@@ -28,14 +25,14 @@ class Addition {
         $("#addition-statement").html(st1 + " + " + st2);
     }
     check() {
-        this.attempt += 1;
+
         var inpAns;
         var a1 = $("#add-res1").val();
         var a2 = $("#add-res2").val();
         var a3 = $("#add-res3").val();
         inpAns = a1 + a2 + a3;
         if (this.num1 + this.num2 == Number(inpAns)) {
-            this.correct += 1;
+            this.correct[0] = true;
             this.feedback = "Good job!! Correct answer. ";
             $("input.answer").css("background-color", "green");
         } else {

@@ -1,6 +1,5 @@
 class Variable {
-    correct = 0;
-    attempt = 0;
+    correct = [false];
     feedback = "";
     left; right; missIdx;
     numArr = [];
@@ -8,9 +7,6 @@ class Variable {
 
     getCorrect() {
         return this.correct;
-    }
-    getAttempt() {
-        return this.attempt;
     }
     getfeedbackText() {
         return this.feedback;
@@ -56,10 +52,9 @@ class Variable {
     }
 
     check() {
-        this.attempt += 1;
         var inp = $("#variable-input").val();
         if (inp == this.numArr[this.missIdx]) {
-            this.correct += 1;
+            this.correct[0] = true;
             $("#variable-input").css("background-color", "green");
             this.feedback = "Good job!!! Correct Answer!!!!";
         } else {

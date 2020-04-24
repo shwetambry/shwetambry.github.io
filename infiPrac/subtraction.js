@@ -1,13 +1,10 @@
 class Subtraction {
-    correct = 0;
+    correct = [false];
     attempt = 0;
     feedback = "";
     num1; num2;
     getCorrect() {
         return this.correct;
-    }
-    getAttempt() {
-        return this.attempt;
     }
     getfeedbackText() {
         return this.feedback;
@@ -29,14 +26,13 @@ class Subtraction {
         $("#subtraction-statement").html(st1 + " - " + st2);
     }
     check() {
-        this.attempt += 1;
         var inpAns;
         var a1 = $("#sub-res1").val();
         var a2 = $("#sub-res2").val();
         var a3 = $("#sub-res3").val();
         inpAns = a1 + a2 + a3;
         if (this.num1 - this.num2 == Number(inpAns)) {
-            this.correct += 1;
+            this.correct[0] = true;
             this.feedback = "Good job!! Correct answer. ";
             $("input.answer").css("background-color", "green");
         } else {

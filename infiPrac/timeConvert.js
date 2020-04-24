@@ -3,17 +3,13 @@ var smallUnitArray = ["months", "days", "hours", "minutes", "seconds"];
 var timesArray = [12, 7, 24, 60, 60];
 
 class TimeConvert {
-    correct = 0;
-    attempt = 0;
+    correct = [false];
     feedback = "";
     bigUnitNum; times
     bigUnit; smallUnit;
 
     getCorrect() {
         return this.correct;
-    }
-    getAttempt() {
-        return this.attempt;
     }
     getfeedbackText() {
         return this.feedback;
@@ -35,11 +31,10 @@ class TimeConvert {
 
     }
     check() {
-        this.attempt += 1;
         var inp = $("#conTimeInput").val();
         if (inp == this.bigUnitNum * this.times) {
             $("#conTimeInput").css("background-color", "green");
-            this.correct += 1;
+            this.correct[0] = true;
             this.feedback = "Good job!! Correct answer. ";
         } else {
             $("#conTimeInput").css("background-color", "red");

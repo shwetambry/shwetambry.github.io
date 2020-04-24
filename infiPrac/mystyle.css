@@ -10,7 +10,7 @@ body {
   background-color: var(--main-color-blue);
   height: 100px;
   color: var(--main-color-font);
-  
+  width: 100%;
   font-weight: bolder;
 }
 .main-title {
@@ -20,7 +20,10 @@ nav {
   float: left;
   background-color: white;
   padding-left: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
+  padding-right: 20px;
+  width: 100%;
+
 }
 nav ul {
   list-style: none;
@@ -29,7 +32,9 @@ nav ul {
 }
 nav ul li {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  padding-left: 10px;
 }
+
 nav ul li a {
   display: block;
   line-height: 30px;
@@ -39,6 +44,15 @@ nav ul li a {
   font-family: "Cambria";
   text-decoration: none;
   cursor: pointer;
+}
+
+nav ul li > a:not(:only-child)::after {
+  color:var(--main-color-blue);
+  content: ' ▾';
+  float: right;
+}
+nav ul li a span.chevron {
+  float: right;
 }
 nav ul li a:active {
   background-color: white;
@@ -56,6 +70,9 @@ nav ul li ul li a {
 }
 .nav-item {
   cursor: pointer;
+}
+.chevron {
+  display: none;
 }
 
 .section {
@@ -76,7 +93,12 @@ nav ul li ul li a {
   margin-bottom: 10px;
   text-align: left;
 }
-
+#modal-button {
+  position: fixed;
+  
+  top: 105px;
+  right: 100px;
+}
 .section-heading {
   background-color: var(--main-color-font);
   color: var(--main-color-blue);
