@@ -25,7 +25,7 @@ class Coins {
             var val = coinVal[i];
             var width = 50 + wide[i] * 10;
             for (var j = 0; j < tmp; j++) {
-                var source = val + "c.png";
+                var source = "images/" + val + "c.png";
                 var img = $("<img>");
                 img.attr("src", source);
                 img.addClass("image");

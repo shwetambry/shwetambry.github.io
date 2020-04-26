@@ -1,6 +1,7 @@
 
 const classesMapping = {
   'patterns': Patterns,
+  'placeValue': PlaceValue,
   'coins': Coins,
   'massConvert': MassConvert,
   'timeConvert': TimeConvert,
@@ -13,6 +14,7 @@ const classesMapping = {
 // correctAndAttempt holds correct responses and attempted in a list for each class
 var correctAndAttempt = {
   'patterns': [0, 0],
+  'placeValue': [0, 0],
   'coins': [0, 0],
   'massConvert': [0, 0],
   'timeConvert': [0, 0],

@@ -250,6 +250,12 @@ nav ul li ul li a {
 input {
   text-align: center;
 }
+.empty-box {
+  border: 1px solid black;
+  width: 100%;
+  height: 200px;
+  display: inline-block;
+}
 .frac {
   display: inline-block;
   position: relative;
@@ -274,4 +280,9 @@ footer {
   width: 100%;
   padding-right: 10px;
 }
-
+.correctAnsClass {
+  background-color: green;
+}
+.wrongAnsClass {
+  background-color: red;
+}

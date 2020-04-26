@@ -28,6 +28,7 @@
   <script type="text/javascript" src="subtraction.js"></script>
   <script type="text/javascript" src="multiplication.js"></script>
   <script type="text/javascript" src="patterns.js"></script>
+  <script type="text/javascript" src="placeValue.js"></script>
   <script type="text/javascript" src="coins.js"></script>
   <script type="text/javascript" src="solveUnknown.js"></script>
   <script type="text/javascript" src="timeConvert.js"></script>
@@ -63,6 +64,11 @@
                 <td>Patterns</td>
                 <td id="patterns-correct">0</td>
                 <td id="patterns-attempt">0</td>
+              </tr>
+              <tr>
+                <td>Place Value</td>
+                <td id="placeValue-correct">0</td>
+                <td id="placeValue-attempt">0</td>
               </tr>
               <tr>
                 <td>Coins</td>
@@ -153,8 +159,8 @@
 
                 <ul class="nav-dropdown">
                   <li>
-                    <a class="navItem subnav" id="lvl1-addition">
-                      <span> Addition</span>
+                    <a class="navItem subnav" id="lvl1-placeValue">
+                      <span> Place Value</span>
                     </a>
                   </li>
                   <li>
@@ -271,6 +277,66 @@
           <input type="text" id="4" size="3" maxlength="3" value="" readonly />
           <br />
           <p></p>
+        </div>
+      </div>
+
+      <!-- Section Solving for variable -->
+      <div class="container text-center section" id="placeValue-section">
+        <div class="section-heading">
+          <h1>Place Value problems</h1>
+        </div>
+        <div class="container section-matter text-center">
+          <p> Use place value to partition the number <span id="placeValue-number"></span>.</p>
+          <div class="row">
+            <div class="col-sm-3">
+              <span class="empty-box" id="thousands-block"></span>
+            </div>
+            <div class="col-sm-3">
+              <span class="empty-box" id="hundreds-block"></span>
+            </div>
+            <div class="col-sm-3">
+              <span class="empty-box" id="tens-block"></span>
+            </div>
+            <div class="col-sm-3">
+              <span class="empty-box" id="ones-block"></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <img src="" id="image-thousands" />
+            </div>
+            <div class="col-sm-3">
+              <img src="" id="image-hundreds" />
+            </div>
+            <div class="col-sm-3">
+              <img src="" id="image-tens" />
+
+            </div>
+            <div class="col-sm-3">
+              <img src="" id="image-ones" />
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <button type="button" class="btn btn-default btn-sm block add" id="add-thousands">Add</button>
+              <button type="button" class="btn btn-default btn-sm block remove" id="remove-thousands">Remove</button>
+            </div>
+            <div class="col-sm-3">
+              <button type="button" class="btn btn-default btn-sm block add" id="add-hundreds">Add</button>
+              <button type="button" class="btn btn-default btn-sm block remove" id="remove-hundreds">Remove</button>
+            </div>
+            <div class="col-sm-3">
+              <button type="button" class="btn btn-default btn-sm block add" id="add-tens">Add</button>
+              <button type="button" class="btn btn-default btn-sm block remove" id="remove-tens">Remove</button>
+            </div>
+            <div class="col-sm-3">
+              <button type="button" class="btn btn-default btn-sm block add" id="add-ones">Add</button>
+              <button type="button" class="btn btn-default btn-sm block remove" id="remove-ones">Remove</button>
+            </div>
+          </div>
+
+
         </div>
       </div>
 
