@@ -9,6 +9,7 @@ class Multiplication {
         return this.feedback;
     }
     reset() {
+        $(".hard").css("display", "block");
         $("input.answer").css("background-color", "white");
         $("#multiplication-statement").html("");
     }

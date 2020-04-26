@@ -28,6 +28,7 @@
   <script type="text/javascript" src="subtraction.js"></script>
   <script type="text/javascript" src="multiplication.js"></script>
   <script type="text/javascript" src="patterns.js"></script>
+  <script type="text/javascript" src="rounding.js"></script>
   <script type="text/javascript" src="placeValue.js"></script>
   <script type="text/javascript" src="coins.js"></script>
   <script type="text/javascript" src="solveUnknown.js"></script>
@@ -69,6 +70,11 @@
                 <td>Place Value</td>
                 <td id="placeValue-correct">0</td>
                 <td id="placeValue-attempt">0</td>
+              </tr>
+              <tr>
+                <td>Nearest Rounding</td>
+                <td id="rounding-correct">0</td>
+                <td id="rounding-attempt">0</td>
               </tr>
               <tr>
                 <td>Coins</td>
@@ -164,6 +170,11 @@
                     </a>
                   </li>
                   <li>
+                    <a class="navItem subnav" id="lvl1-addition">
+                      <span> Addition</span>
+                    </a>
+                  </li>
+                  <li>
                     <a class="navItem subnav" id="lvl1-subtraction">
                       <span> Subtraction</span>
                     </a>
@@ -195,6 +206,11 @@
                 <a class="navItem prime" id="lvl3"><span id="lvl3-label">Level 3</span><span class="chevron"
                     id="lvl3-chevron">&#9656;</span></a>
                 <ul class="nav-dropdown">
+                  <li>
+                    <a class="navItem subnav" id="lvl3-rounding">
+                      <span> Nearest rounding</span>
+                    </a>
+                  </li>
                   <li>
                     <a class="navItem subnav" id="lvl3-variable">
                       <span> Solve for variable</span>
@@ -280,7 +296,22 @@
         </div>
       </div>
 
-      <!-- Section Solving for variable -->
+      <!-- Section on nearest rounding -->
+      <div class="container text-center section" id="rounding-section">
+        <div class="section-heading">
+          <h1>Nearest rounding problems</h1>
+        </div>
+        <div class="container section-matter text-center">
+          <p>Round the number to the nearest <span id="rounding-place1"> </span>.</p>
+          <p> Nearest <strong><span id="rounding-place2"></span></strong> of <span id="numToRound"></span> is
+            <input type="text" id="rounded" size="6" maxlength="6" value="" />
+          </p>
+          <br />
+          <p></p>
+        </div>
+      </div>
+
+      <!-- Section for place value -->
       <div class="container text-center section" id="placeValue-section">
         <div class="section-heading">
           <h1>Place Value problems</h1>
