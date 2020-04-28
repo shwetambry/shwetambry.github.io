@@ -10,6 +10,8 @@ class NumComparison {
     }
     reset(){
         $("#numComparison-input").prop("disabled", false);
+        $("#numComparison-input").val("empty").change(); 
+        
     }
     setUp(){
         this.reset();
@@ -17,6 +19,7 @@ class NumComparison {
         this.num2 = Math.floor(Math.random()*100) + 1;
         $("#numComparison-num1").html(this.num1);
         $("#numComparison-num2").html(this.num2);
+        $("#numComparison-input").focus();
     }
     check(){
         var inputAns = $("#numComparison-input option:selected").val();
