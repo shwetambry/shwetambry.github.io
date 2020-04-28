@@ -1,592 +1,1105 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-138592925-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138592925-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+      gtag("config", "UA-138592925-1");
+    </script>
 
-    gtag("config", "UA-138592925-1");
-  </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inf!Prac</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="mystyle.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-  <title>Inf!Prac</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="mystyle.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="picAddition.js"></script>
+    <script type="text/javascript" src="addition.js"></script>
+    <script type="text/javascript" src="subtraction.js"></script>
+    <script type="text/javascript" src="multiplication.js"></script>
+    <script type="text/javascript" src="numComparison.js"></script>
+    <script type="text/javascript" src="patterns.js"></script>
+    <script type="text/javascript" src="rounding.js"></script>
+    <script type="text/javascript" src="placeValue.js"></script>
+    <script type="text/javascript" src="coins.js"></script>
+    <script type="text/javascript" src="solveUnknown.js"></script>
+    <script type="text/javascript" src="timeConvert.js"></script>
+    <script type="text/javascript" src="massConvert.js"></script>
+    <script type="text/javascript" src="clock.js"></script>
+    <script type="text/javascript" src="update.js"></script>
+  </head>
 
+  <body>
+    <div class="modal fade" id="score-modal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+            <h4>Scores</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table myContent">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Correct</th>
+                  <th>Attempted</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td>Clock Problems</td>
+                  <td id="clock-correct">0</td>
+                  <td id="clock-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Number Comparisons</td>
+                  <td id="numComparison-correct">0</td>
+                  <td id="numComparison-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Picture Addition</td>
+                  <td id="picAddition-correct">0</td>
+                  <td id="picAddition-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Patterns</td>
+                  <td id="patterns-correct">0</td>
+                  <td id="patterns-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Place Value</td>
+                  <td id="placeValue-correct">0</td>
+                  <td id="placeValue-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Nearest Rounding</td>
+                  <td id="rounding-correct">0</td>
+                  <td id="rounding-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Coins</td>
+                  <td id="coins-correct">0</td>
+                  <td id="coins-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Variables</td>
+                  <td id="variable-correct">0</td>
+                  <td id="variable-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Mass Unit Conversion</td>
+                  <td id="massConvert-correct">0</td>
+                  <td id="massConvert-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Time Unit Conversion</td>
+                  <td id="timeConvert-correct">0</td>
+                  <td id="timeConvert-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Addition</td>
+                  <td id="addition-correct">0</td>
+                  <td id="addition-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Subtraction</td>
+                  <td id="subtraction-correct">0</td>
+                  <td id="subtraction-attempt">0</td>
+                </tr>
+                <tr>
+                  <td>Multiplication</td>
+                  <td id="multiplication-correct">0</td>
+                  <td id="multiplication-attempt">0</td>
+                </tr>
 
-  <script type="text/javascript" src="addition.js"></script>
-  <script type="text/javascript" src="subtraction.js"></script>
-  <script type="text/javascript" src="multiplication.js"></script>
-  <script type="text/javascript" src="patterns.js"></script>
-  <script type="text/javascript" src="rounding.js"></script>
-  <script type="text/javascript" src="placeValue.js"></script>
-  <script type="text/javascript" src="coins.js"></script>
-  <script type="text/javascript" src="solveUnknown.js"></script>
-  <script type="text/javascript" src="timeConvert.js"></script>
-  <script type="text/javascript" src="massConvert.js"></script>
-  <script type="text/javascript" src="clock.js"></script>
-  <script type="text/javascript" src="update.js"></script>
-</head>
-
-<body>
-  <div class="modal fade" id="score-modal" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4>Scores</h4>
-        </div>
-        <div class="modal-body">
-          <table class="table myContent">
-            <thead>
-              <tr>
-                <th>Type</th>
-                <th>Correct</th>
-                <th>Attempted</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Clock Problems</td>
-                <td id="clock-correct">0</td>
-                <td id="clock-attempt">0</td>
-              </tr>
-              <tr>
-                <td>Patterns</td>
-                <td id="patterns-correct">0</td>
-                <td id="patterns-attempt">0</td>
-              </tr>
-              <tr>
-                <td>Place Value</td>
-                <td id="placeValue-correct">0</td>
-                <td id="placeValue-attempt">0</td>
-              </tr>
-              <tr>
-                <td>Nearest Rounding</td>
-                <td id="rounding-correct">0</td>
-                <td id="rounding-attempt">0</td>
-              </tr>
-              <tr>
-                <td>Coins</td>
-                <td id="coins-correct">0</td>
-                <td id="coins-attempt">0</td>
-              </tr>
-              <tr>
-                <td>Variables</td>
-                <td id="variable-correct">0</td>
-                <td id="variable-attempt">0</td>
-              </tr>
-              <tr>
-                <td>Mass Unit Conversion</td>
-                <td id="massConvert-correct">0</td>
-                <td id="massConvert-attempt">0</td>
-              </tr>
-              <tr>
-                <td>Time Unit Conversion</td>
-                <td id="timeConvert-correct">0</td>
-                <td id="timeConvert-attempt">0</td>
-              </tr>
-              <tr>
-                <td>Addition</td>
-                <td id="addition-correct">0</td>
-                <td id="addition-attempt">0</td>
-              </tr>
-              <tr>
-                <td>Subtraction</td>
-                <td id="subtraction-correct">0</td>
-                <td id="subtraction-attempt">0</td>
-              </tr>
-              <tr>
-                <td>Multiplication</td>
-                <td id="multiplication-correct">0</td>
-                <td id="multiplication-attempt">0</td>
-              </tr>
-
-              <tr>
-                <th>Total</th>
-                <th id="total-correct">0</th>
-                <th id="total-attempt">0</th>
-              </tr>
-            </tbody>
-          </table>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <tr>
+                  <th>Total</th>
+                  <th id="total-correct">0</th>
+                  <th id="total-attempt">0</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="container title text-center">
-    <p class="main-title">Inf!Prac</p>
-    <p>Practice makes Perfect</p>
-  </div>
-  <div class="container wrapper">
-    <div class="container sidebar">
-      <div class="navigation">
-        <div class="nav-container">
-          <nav>
-            <div class="nav-mobile">
-              <a id="nav-toggle" href="#!"><span></span></a>
-            </div>
-
-            <ul class="nav-list">
-              <li>
-                <a class="navItem prime active" id="home">
-                  <span id="home-label">Home</span>
-                </a>
-              </li>
-              <li>
-                <a class="navItem prime" id="lvl0"><span id="lvl0-label">Kindergarten</span><span class="chevron"
-                    id="lvl0-chevron">&#9656;</span></a>
-                <ul class="nav-dropdown">
-                  <li>
-                    <a class="navItem subnav" id="lvlK-patterns">
-                      <span>Patterns</span>
-                    </a>
-                  </li>
-
-                </ul>
-              </li>
-              <li>
-                <a class="navItem prime" id="lvl1"><span id="lvl1-label">Level 1</span> <span class="chevron"
-                    id="lvl1-chevron">&#9656;</span></a>
-
-                <ul class="nav-dropdown">
-                  <li>
-                    <a class="navItem subnav" id="lvl1-placeValue">
-                      <span> Place Value</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="navItem subnav" id="lvl1-addition">
-                      <span> Addition</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="navItem subnav" id="lvl1-subtraction">
-                      <span> Subtraction</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a class="navItem prime" id="lvl2"><span id="lvl2-label">Level 2</span><span class="chevron"
-                    id="lvl2-chevron">&#9656;</span></a>
-                <ul class="nav-dropdown">
-                  <li>
-                    <a class="navItem subnav" id="lvl2-patterns">
-                      <span> Patterns</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="navItem subnav" id="lvl2-coins">
-                      <span> Coin Counting</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="navItem subnav" id="lvl2-clock">
-                      <span> Clock Problems</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a class="navItem prime" id="lvl3"><span id="lvl3-label">Level 3</span><span class="chevron"
-                    id="lvl3-chevron">&#9656;</span></a>
-                <ul class="nav-dropdown">
-                  <li>
-                    <a class="navItem subnav" id="lvl3-rounding">
-                      <span> Nearest rounding</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="navItem subnav" id="lvl3-variable">
-                      <span> Solve for variable</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="navItem subnav" id="lvl3-timeConvert">
-                      <span> Time unit conversion</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="navItem subnav" id="lvl3-massConvert">
-                      <span> Mass units conversion</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a class="navItem prime" id="lvl4"><span id="lvl4-label">Level 4</span><span class="chevron"
-                    id="lvl4-chevron">&#9656;</span></a>
-                <ul class="nav-dropdown">
-                  <li>
-                    <a class="navItem subnav" id="lvl4-addition">
-                      <span> Addition</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="navItem subnav" id="lvl4-subtraction">
-                      <span> Subtraction</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="navItem subnav" id="lvl4-multiplication">
-                      <span> Mulitplication</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-      </div>
-      <div class="modal-button-class">
-        <button type="button" class="btn btn-primary btn-block" id="modal-button" data-toggle="modal"
-          data-target="#score-modal">
-          Scores
-        </button>
-      </div>
+    <div class="container title text-center">
+      <p class="main-title">Inf!Prac</p>
+      <p>Practice makes Perfect</p>
     </div>
+    <div class="container wrapper">
+      <div class="container sidebar">
+        <div class="navigation">
+          <div class="nav-container">
+            <nav>
+              <div class="nav-mobile">
+                <a id="nav-toggle" href="#!"><span></span></a>
+              </div>
 
-    <!-- The main content of the page -->
-    <div class="container main-content">
-      <div class="container section required">
-        <div id="breadcrumb">Home > </div>
+              <ul class="nav-list">
+                <li>
+                  <a class="navItem prime active" id="home">
+                    <span id="home-label">Home</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="navItem prime" id="lvl0"
+                    ><span id="lvl0-label">Kindergarten</span
+                    ><span class="chevron" id="lvl0-chevron">&#9656;</span></a
+                  >
+                  <ul class="nav-dropdown">
+                    <li>
+                      <a class="navItem subnav" id="lvl0-numComparison">
+                        <span>Number Comparisons</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl0-picAddition">
+                        <span>Picture Addition</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl0-patterns">
+                        <span>Patterns</span>
+                      </a>
+                    </li>
+                    
+                  </ul>
+                </li>
+                <li>
+                  <a class="navItem prime" id="lvl1"
+                    ><span id="lvl1-label">Level 1</span>
+                    <span class="chevron" id="lvl1-chevron">&#9656;</span></a
+                  >
 
-      </div>
-
-      <div class="container section active" id="home-section">
-        <p>
-          Inf!Prac is short for Infinite Practice.
-        </p>
-        <p>
-          Inf!Prac has been designed to give your kids infinitely many
-          problems to practice with.
-        </p>
-      </div>
-
-      <!-- Section patterns -->
-      <div class="container text-center section" id="patterns-section">
-        <div class="section-heading">
-          <h1>Pattern problems</h1>
-        </div>
-        <div class="container section-matter text-center">
-          <p>Fill in the missing number.</p>
-          <input type="text" id="0" size="3" maxlength="3" value="" readonly />
-          <input type="text" id="1" size="3" maxlength="3" value="" readonly />
-          <input type="text" id="2" size="3" maxlength="3" value="" readonly />
-          <input type="text" id="3" size="3" maxlength="3" value="" readonly />
-          <input type="text" id="4" size="3" maxlength="3" value="" readonly />
-          <br />
-          <p></p>
-        </div>
-      </div>
-
-      <!-- Section on nearest rounding -->
-      <div class="container text-center section" id="rounding-section">
-        <div class="section-heading">
-          <h1>Nearest rounding problems</h1>
-        </div>
-        <div class="container section-matter text-center">
-          <p>Round the number to the nearest <span id="rounding-place1"> </span>.</p>
-          <p> Nearest <strong><span id="rounding-place2"></span></strong> of <span id="numToRound"></span> is
-            <input type="text" id="rounded" size="6" maxlength="6" value="" />
-          </p>
-          <br />
-          <p></p>
-        </div>
-      </div>
-
-      <!-- Section for place value -->
-      <div class="container text-center section" id="placeValue-section">
-        <div class="section-heading">
-          <h1>Place Value problems</h1>
-        </div>
-        <div class="container section-matter text-center">
-          <p> Use place value to partition the number <span id="placeValue-number"></span>.</p>
-          <div class="row">
-            <div class="col-sm-3">
-              <span class="empty-box" id="thousands-block"></span>
-            </div>
-            <div class="col-sm-3">
-              <span class="empty-box" id="hundreds-block"></span>
-            </div>
-            <div class="col-sm-3">
-              <span class="empty-box" id="tens-block"></span>
-            </div>
-            <div class="col-sm-3">
-              <span class="empty-box" id="ones-block"></span>
-            </div>
+                  <ul class="nav-dropdown">
+                    <li>
+                      <a class="navItem subnav" id="lvl1-placeValue">
+                        <span> Place Value</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl1-addition">
+                        <span> Addition</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl1-subtraction">
+                        <span> Subtraction</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a class="navItem prime" id="lvl2"
+                    ><span id="lvl2-label">Level 2</span
+                    ><span class="chevron" id="lvl2-chevron">&#9656;</span></a
+                  >
+                  <ul class="nav-dropdown">
+                    <li>
+                      <a class="navItem subnav" id="lvl2-patterns">
+                        <span> Patterns</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl2-coins">
+                        <span> Coin Counting</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl2-clock">
+                        <span> Clock Problems</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a class="navItem prime" id="lvl3"
+                    ><span id="lvl3-label">Level 3</span
+                    ><span class="chevron" id="lvl3-chevron">&#9656;</span></a
+                  >
+                  <ul class="nav-dropdown">
+                    <li>
+                      <a class="navItem subnav" id="lvl3-rounding">
+                        <span> Nearest rounding</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl3-variable">
+                        <span> Solve for variable</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl3-timeConvert">
+                        <span> Time unit conversion</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl3-massConvert">
+                        <span> Mass units conversion</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a class="navItem prime" id="lvl4"
+                    ><span id="lvl4-label">Level 4</span
+                    ><span class="chevron" id="lvl4-chevron">&#9656;</span></a
+                  >
+                  <ul class="nav-dropdown">
+                    <li>
+                      <a class="navItem subnav" id="lvl4-addition">
+                        <span> Addition</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl4-subtraction">
+                        <span> Subtraction</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="navItem subnav" id="lvl4-multiplication">
+                        <span> Mulitplication</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <div class="row">
-            <div class="col-sm-3">
-              <img src="" id="image-thousands" />
-            </div>
-            <div class="col-sm-3">
-              <img src="" id="image-hundreds" />
-            </div>
-            <div class="col-sm-3">
-              <img src="" id="image-tens" />
-
-            </div>
-            <div class="col-sm-3">
-              <img src="" id="image-ones" />
-
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-3">
-              <button type="button" class="btn btn-default btn-sm block add" id="add-thousands">Add</button>
-              <button type="button" class="btn btn-default btn-sm block remove" id="remove-thousands">Remove</button>
-            </div>
-            <div class="col-sm-3">
-              <button type="button" class="btn btn-default btn-sm block add" id="add-hundreds">Add</button>
-              <button type="button" class="btn btn-default btn-sm block remove" id="remove-hundreds">Remove</button>
-            </div>
-            <div class="col-sm-3">
-              <button type="button" class="btn btn-default btn-sm block add" id="add-tens">Add</button>
-              <button type="button" class="btn btn-default btn-sm block remove" id="remove-tens">Remove</button>
-            </div>
-            <div class="col-sm-3">
-              <button type="button" class="btn btn-default btn-sm block add" id="add-ones">Add</button>
-              <button type="button" class="btn btn-default btn-sm block remove" id="remove-ones">Remove</button>
-            </div>
-          </div>
-
-
+        </div>
+        <div class="modal-button-class">
+          <button
+            type="button"
+            class="btn btn-primary btn-block"
+            id="modal-button"
+            data-toggle="modal"
+            data-target="#score-modal"
+          >
+            Scores
+          </button>
         </div>
       </div>
 
-      <!-- Section coins-->
-      <div class="container text-center section" id="coins-section">
-        <div class="section-heading">
-          Coin problems
+      <!-- The main content of the page -->
+      <div class="container main-content">
+        <div class="container section required">
+          <div id="breadcrumb">Home ></div>
         </div>
-        <div class="container section-matter text-center">
-          <p>What is the total value of coins? </p>
-          <p id="coinImages"> </p>
-          <input type="text" id="coins-input" name="coins-input" size="4" maxlength="3" value="" />
-          cents <br />
-          <p></p>
-        </div>
-      </div>
 
-      <!-- Section Solving for variable -->
-      <div class="container text-center section" id="variable-section">
-        <div class="section-heading">
-          <h1>Variable problems</h1>
-        </div>
-        <div class="container section-matter text-center">
-          <p> What value of X makes the two sides of equation equal?</p>
-          <p id="missingProb"></p>
+        <div class="container section active" id="home-section">
           <p>
-            X =
-            <input type="text" name="variable-input" id="variable-input" size="3" maxlength="3" value="" />
+            Inf!Prac is short for Infinite Practice.
+          </p>
+          <p>
+            Inf!Prac has been designed to give your kids infinitely many
+            problems to practice with.
           </p>
         </div>
-      </div>
 
-      <!-- Section conversion of time units -->
-      <div class="container text-center section" id="timeConvert-section">
-        <div class="section-heading">
-          <h1>Time Conversion problems</h1>
+        <!-- Section on number comparisons-->
+        <div class="container text-center section" id="numComparison-section">
+          <div class="section-heading">
+            <h1> Number comparison problems </h1>
+          </div>
+          <div class="container section-matter text-center">
+            <p>Choose the relation between the numbers from the dropdown. </p>
+            <p>
+              <span id="numComparison-num1"></span>
+              <select id="numComparison-input">
+                <option value="empty"> </option>
+                <option value="lessThan"> &lt;</option>
+                <option value="greaterThan"> &gt; </option>
+                <option value="equalTo"> = </option>
+              </select>
+              <span id="numComparison-num2"></span>
+            </p>
+          </div>
         </div>
-        <div class="container section-matter text-center">
-          <p> Convert the following: </p>
-          <p>
-            <span id="timeToConvert"> </span>
-            <input type="text" id="conTimeInput" size="4" maxlength="4" value="" />
-            <span id="unit1Time"></span>
+
+
+        <!-- Section on picture addition-->
+        <div class="container text-center section" id="picAddition-section">
+          <div class="section-heading">
+            <h1> Picture Addition problems </h1>
+          </div>
+          <div class="container section-matter text-center">
+            <p>How many <span id="whichItem"></span> altogether? </p>
+            <div class="row">
+              <div class="col-sm-3">
+                <span class="empty-box" id="picAdd-num1"></span>
+              </div> 
+              <div class="col-sm-1"> + </div>
+              <div class="col-sm-3">
+                <span class="empty-box" id="picAdd-num2"></span>
+              </div>
+              <div class="col-sm-1"> = </div>
+              <div class="col-sm-3">
+                <input type="text" id="picAdd-Ans" size="2" maxlength="2" value=""/>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Section patterns -->
+        <div class="container text-center section" id="patterns-section">
+          <div class="section-heading">
+            <h1>Pattern problems</h1>
+          </div>
+          <div class="container section-matter text-center">
+            <p>Fill in the missing number.</p>
+            <input type="text" id="0" size="3" maxlength="3" value="" readonly />
+            <input
+              type="text"
+              id="1"
+              size="3"
+              maxlength="3"
+              value=""
+              readonly
+            />
+            <input
+              type="text"
+              id="2"
+              size="3"
+              maxlength="3"
+              value=""
+              readonly
+            />
+            <input
+              type="text"
+              id="3"
+              size="3"
+              maxlength="3"
+              value=""
+              readonly
+            />
+            <input
+              type="text"
+              id="4"
+              size="3"
+              maxlength="3"
+              value=""
+              readonly
+            />
             <br />
-
-          </p>
-        </div>
-
-      </div>
-
-      <!-- Section conversion of mass units-->
-      <div class="container text-center section" id="massConvert-section">
-        <div class="section-heading">
-          <h1>Mass Conversion problems</h1>
-        </div>
-        <div class="container section-matter text-center">
-          <p>Convert the following: </p>
-          <p>
-            <span id="numToConvert"> </span>
-            <input type="text" id="conInput" size="4" maxlength="2" value="" />
-            <span id="unit1"></span>
-            <input type="text" id="conInputSub" size="4" maxlength="4" value="" />
-            <span id="unit2"></span> <br />
-          </p>
-          <h4 style="font-size: 20px;">Write it in fraction form</h4>
-          <input type="text" id="conInputfracwhole" name="conversion" size="4" maxlength="2" value="" />
-          <div class="frac">
-            <span><input type="text" id="conInputfracTop" name="conversion" size="4" maxlength="2" value="" /></span>
-            <span class="symbol">/</span>
-            <span class="bottom"><input type="text" id="conInputfracBottom" name="conversion" size="4" maxlength="2"
-                value="" /></span>
+            <p></p>
           </div>
-          <span id="unitFrac"> </span>
-          <br />
-
         </div>
-      </div>
 
-      <!-- Section reading clock problems-->
-      <div class="container text-center section" id="clock-section">
-        <div class="section-heading">
-          <h1>Clock problems </h1>
+        <!-- Section on nearest rounding -->
+        <div class="container text-center section" id="rounding-section">
+          <div class="section-heading">
+            <h1>Nearest rounding problems</h1>
+          </div>
+          <div class="container section-matter text-center">
+            <p>
+              Round the number to the nearest
+              <span id="rounding-place1"> </span>.
+            </p>
+            <p>
+              Nearest <strong><span id="rounding-place2"></span></strong> of
+              <span id="numToRound"></span> is
+              <input type="text" id="rounded" size="6" maxlength="6" value="" />
+            </p>
+            <br />
+            <p></p>
+          </div>
         </div>
-        <div class="container section-matter text-center">
-          <div class="row">
-            <div class="col-sm-6">
-              <canvas id="myCanvas" width="300" height="300" style="border: 1px solid #d3d3d3;">
-                Your browser does not support the canvas element.
-              </canvas>
+
+        <!-- Section for place value -->
+        <div class="container text-center section" id="placeValue-section">
+          <div class="section-heading">
+            <h1>Place Value problems</h1>
+          </div>
+          <div class="container section-matter text-center">
+            <p>
+              Use place value to partition the number
+              <span id="placeValue-number"></span>.
+            </p>
+            <div class="row">
+              <div class="col-sm-3">
+                <span class="empty-box" id="thousands-block"></span>
+              </div>
+              <div class="col-sm-3">
+                <span class="empty-box" id="hundreds-block"></span>
+              </div>
+              <div class="col-sm-3">
+                <span class="empty-box" id="tens-block"></span>
+              </div>
+              <div class="col-sm-3">
+                <span class="empty-box" id="ones-block"></span>
+              </div>
             </div>
-            <div class="col-sm-6 ">
-              <p style="font-weight: bold;">
-                1. What is the time on the clock?
-              </p>
-              <p>
-                <input type="text" id="timeHour" size="3" maxlength="2" value="" />:
-                <input type="text" id="timeMin" size="3" maxlength="2" value="" />
-              </p>
-
-              <p style="font-weight: bold;">2. Time in words</p>
-              <p style="font-size: 12px;">
-                (quarter past, half past, quarter to, o'clock)
-              </p>
-              <p>
-                <input type="text" name="time" id="timeM" size="15" value="" />
-              </p>
-              <p style="font-weight: bold;">3. What will be the time after</p>
-              <p style="font-weight: bold; padding-left: 25px;" id="futQues">
-                1 hour and 15 minutes.
-              </p>
-              <p>
-                <input type="text" id="futureTimeHour" size="3" maxlength="2" value="" />:
-                <input type="text" id="futureTimeMin" size="3" maxlength="2" value="" />
-              </p>
+            <div class="row">
+              <div class="col-sm-3">
+                <img src="" id="image-thousands" />
+              </div>
+              <div class="col-sm-3">
+                <img src="" id="image-hundreds" />
+              </div>
+              <div class="col-sm-3">
+                <img src="" id="image-tens" />
+              </div>
+              <div class="col-sm-3">
+                <img src="" id="image-ones" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <button
+                  type="button"
+                  class="btn btn-default btn-sm block add"
+                  id="add-thousands"
+                >
+                  Add
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-default btn-sm block remove"
+                  id="remove-thousands"
+                >
+                  Remove
+                </button>
+              </div>
+              <div class="col-sm-3">
+                <button
+                  type="button"
+                  class="btn btn-default btn-sm block add"
+                  id="add-hundreds"
+                >
+                  Add
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-default btn-sm block remove"
+                  id="remove-hundreds"
+                >
+                  Remove
+                </button>
+              </div>
+              <div class="col-sm-3">
+                <button
+                  type="button"
+                  class="btn btn-default btn-sm block add"
+                  id="add-tens"
+                >
+                  Add
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-default btn-sm block remove"
+                  id="remove-tens"
+                >
+                  Remove
+                </button>
+              </div>
+              <div class="col-sm-3">
+                <button
+                  type="button"
+                  class="btn btn-default btn-sm block add"
+                  id="add-ones"
+                >
+                  Add
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-default btn-sm block remove"
+                  id="remove-ones"
+                >
+                  Remove
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Section addition problems -->
-      <div class="container text-center section" id="addition-section">
-        <div class="section-heading">
-          <h1>Addition problems</h1>
-        </div>
-        <div class="container section-matter text-center">
-          <p id="addition-statement" style="font-size: 30px; display: inline-block;"></p>
-
-          <div class="prob">
-            <input type="text" class="clear hard carry" id="add-carry1" maxlength="1" size="2" value="" />
-            <input type="text" class="clear hard carry" id="add-carry2" maxlength="2" size="2" value="" />
-            <input type="text" class="clear hard carry" id="add-carry3" maxlength="2" size="2" value="" /><br />
-            <input type="text" class="hard" id="add-n11" maxlength="1" size="2" value="" readonly />
-            <input type="text" id="add-n12" maxlength="1" size="2" value="" readonly />
-            <input type="text" id="add-n13" maxlength="1" size="2" value="" readonly /><br />
-            <input type="text" class="hard" id="add-n21" maxlength="1" size="2" value="" readonly />
-            <input type="text" name="n22" id="add-n22" maxlength="1" size="2" value="" readonly />
-            <input type="text" id="add-n23" maxlength="1" size="2" value="" readonly /><br />
-            <hr />
-            <input type="text" class="clear hard answer" id="add-res1" maxlength="2" size="2" />
-            <input type="text" class="clear answer" id="add-res2" maxlength="1" size="2" />
-            <input type="text" class="clear answer" name="res" id="add-res3" maxlength="1" size="2" /><br />
-
+        <!-- Section coins-->
+        <div class="container text-center section" id="coins-section">
+          <div class="section-heading">
+            Coin problems
           </div>
-
-        </div>
-      </div>
-
-      <!-- Section subtraction problems -->
-      <div class="container text-center section" id="subtraction-section">
-        <div class="section-heading">
-          <h1>Subtraction problems</h1>
-        </div>
-        <div class="container section-matter text-center">
-          <p id="subtraction-statement" style="font-size: 30px; display: inline-block;"></p>
-
-          <div class="prob">
-            <input type="text" class="clear hard carry" id="sub-carry1" maxlength="1" size="2" value="" />
-            <input type="text" class="clear hard carry" id="sub-carry2" maxlength="2" size="2" value="" />
-            <input type="text" class="clear hard carry" id="sub-carry3" maxlength="2" size="2" value="" /><br />
-            <input type="text" class="hard" id="sub-n11" maxlength="1" size="2" value="3" readonly />
-            <input type="text" id="sub-n12" maxlength="1" size="2" value="9" readonly />
-            <input type="text" id="sub-n13" maxlength="1" size="2" value="7" readonly /><br />
-            <input type="text" class="hard" id="sub-n21" maxlength="1" size="2" value="1" readonly />
-            <input type="text" id="sub-n22" maxlength="1" size="2" value="4" readonly />
-            <input type="text" id="sub-n23" maxlength="1" size="2" value="6" readonly /><br />
-            <hr />
-            <input type="text" class="clear hard answer" id="sub-res1" maxlength="2" size="2" />
-            <input type="text" class="clear answer" id="sub-res2" maxlength="1" size="2" />
-            <input type="text" class="clear answer" id="sub-res3" maxlength="1" size="2" /><br />
-
+          <div class="container section-matter text-center">
+            <p>What is the total value of coins?</p>
+            <p id="coinImages"></p>
+            <input
+              type="text"
+              id="coins-input"
+              name="coins-input"
+              size="4"
+              maxlength="3"
+              value=""
+            />
+            cents <br />
+            <p></p>
           </div>
-
         </div>
-      </div>
 
-      <!-- Section subtraction problems -->
-      <div class="container text-center section" id="multiplication-section">
-        <div class="section-heading">
-          <h1>Multiplication problems</h1>
-        </div>
-        <div class="container section-matter text-center">
-          <p id="multiplication-statement" style="font-size: 30px; display: inline-block;"></p>
-
-          <div class="prob">
-            <input type="text" class="clear hard carry" id="mult-carry1" maxlength="1" size="2" value="" />
-            <input type="text" class="clear hard carry" id="mult-carry2" maxlength="2" size="2" value="" />
-            <input type="text" class="clear hard carry" id="mult-carry3" maxlength="2" size="2" value="" /><br />
-            <input type="text" class="hard" id="mult-n11" maxlength="1" size="2" value="3" readonly />
-            <input type="text" id="mult-n12" maxlength="1" size="2" value="9" readonly />
-            <input type="text" id="mult-n13" maxlength="1" size="2" value="7" readonly /><br />
-            <input type="text" class="hard" id="mult-n21" maxlength="1" size="2" value="1" readonly />
-            <input type="text" id="mult-n22" maxlength="1" size="2" value="4" readonly />
-            <input type="text" id="mult-n23" maxlength="1" size="2" value="6" readonly /><br />
-            <hr />
-            <input type="text" class="clear hard answer" id="mult-res1" maxlength="2" size="2" />
-            <input type="text" class="clear answer" id="mult-res2" maxlength="1" size="2" />
-            <input type="text" class="clear answer" id="mult-res3" maxlength="1" size="2" /><br />
-
+        <!-- Section Solving for variable -->
+        <div class="container text-center section" id="variable-section">
+          <div class="section-heading">
+            <h1>Variable problems</h1>
           </div>
+          <div class="container section-matter text-center">
+            <p>What value of X makes the two sides of equation equal?</p>
+            <p id="missingProb"></p>
+            <p>
+              X =
+              <input
+                type="text"
+                name="variable-input"
+                id="variable-input"
+                size="3"
+                maxlength="3"
+                value=""
+              />
+            </p>
+          </div>
+        </div>
 
+        <!-- Section conversion of time units -->
+        <div class="container text-center section" id="timeConvert-section">
+          <div class="section-heading">
+            <h1>Time Conversion problems</h1>
+          </div>
+          <div class="container section-matter text-center">
+            <p>Convert the following:</p>
+            <p>
+              <span id="timeToConvert"> </span>
+              <input
+                type="text"
+                id="conTimeInput"
+                size="4"
+                maxlength="4"
+                value=""
+              />
+              <span id="unit1Time"></span>
+              <br />
+            </p>
+          </div>
+        </div>
+
+        <!-- Section conversion of mass units-->
+        <div class="container text-center section" id="massConvert-section">
+          <div class="section-heading">
+            <h1>Mass Conversion problems</h1>
+          </div>
+          <div class="container section-matter text-center">
+            <p>Convert the following:</p>
+            <p>
+              <span id="numToConvert"> </span>
+              <input
+                type="text"
+                id="conInput"
+                size="4"
+                maxlength="2"
+                value=""
+              />
+              <span id="unit1"></span>
+              <input
+                type="text"
+                id="conInputSub"
+                size="4"
+                maxlength="4"
+                value=""
+              />
+              <span id="unit2"></span> <br />
+            </p>
+            <h4 style="font-size: 20px;">Write it in fraction form</h4>
+            <input
+              type="text"
+              id="conInputfracwhole"
+              name="conversion"
+              size="4"
+              maxlength="2"
+              value=""
+            />
+            <div class="frac">
+              <span
+                ><input
+                  type="text"
+                  id="conInputfracTop"
+                  name="conversion"
+                  size="4"
+                  maxlength="2"
+                  value=""
+              /></span>
+              <span class="symbol">/</span>
+              <span class="bottom"
+                ><input
+                  type="text"
+                  id="conInputfracBottom"
+                  name="conversion"
+                  size="4"
+                  maxlength="2"
+                  value=""
+              /></span>
+            </div>
+            <span id="unitFrac"> </span>
+            <br />
+          </div>
+        </div>
+
+        <!-- Section reading clock problems-->
+        <div class="container text-center section" id="clock-section">
+          <div class="section-heading">
+            <h1>Clock problems</h1>
+          </div>
+          <div class="container section-matter text-center">
+            <div class="row">
+              <div class="col-sm-6">
+                <canvas
+                  id="myCanvas"
+                  width="300"
+                  height="300"
+                  style="border: 1px solid #d3d3d3;"
+                >
+                  Your browser does not support the canvas element.
+                </canvas>
+              </div>
+              <div class="col-sm-6">
+                <p style="font-weight: bold;">
+                  1. What is the time on the clock?
+                </p>
+                <p>
+                  <input
+                    type="text"
+                    id="timeHour"
+                    size="3"
+                    maxlength="2"
+                    value=""
+                  />:
+                  <input
+                    type="text"
+                    id="timeMin"
+                    size="3"
+                    maxlength="2"
+                    value=""
+                  />
+                </p>
+
+                <p style="font-weight: bold;">2. Time in words</p>
+                <p style="font-size: 12px;">
+                  (quarter past, half past, quarter to, o'clock)
+                </p>
+                <p>
+                  <input
+                    type="text"
+                    name="time"
+                    id="timeM"
+                    size="15"
+                    value=""
+                  />
+                </p>
+                <p style="font-weight: bold;">3. What will be the time after</p>
+                <p style="font-weight: bold; padding-left: 25px;" id="futQues">
+                  1 hour and 15 minutes.
+                </p>
+                <p>
+                  <input
+                    type="text"
+                    id="futureTimeHour"
+                    size="3"
+                    maxlength="2"
+                    value=""
+                  />:
+                  <input
+                    type="text"
+                    id="futureTimeMin"
+                    size="3"
+                    maxlength="2"
+                    value=""
+                  />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section addition problems -->
+        <div class="container text-center section" id="addition-section">
+          <div class="section-heading">
+            <h1>Addition problems</h1>
+          </div>
+          <div class="container section-matter text-center">
+            <p
+              id="addition-statement"
+              style="font-size: 30px; display: inline-block;"
+            ></p>
+
+            <div class="prob">
+              <input
+                type="text"
+                class="clear hard carry"
+                id="add-carry1"
+                maxlength="1"
+                size="2"
+                value=""
+              />
+              <input
+                type="text"
+                class="clear hard carry"
+                id="add-carry2"
+                maxlength="2"
+                size="2"
+                value=""
+              />
+              <input
+                type="text"
+                class="clear hard carry"
+                id="add-carry3"
+                maxlength="2"
+                size="2"
+                value=""
+              /><br />
+              <input
+                type="text"
+                class="hard"
+                id="add-n11"
+                maxlength="1"
+                size="2"
+                value=""
+                readonly
+              />
+              <input
+                type="text"
+                id="add-n12"
+                maxlength="1"
+                size="2"
+                value=""
+                readonly
+              />
+              <input
+                type="text"
+                id="add-n13"
+                maxlength="1"
+                size="2"
+                value=""
+                readonly
+              /><br />
+              <input
+                type="text"
+                class="hard"
+                id="add-n21"
+                maxlength="1"
+                size="2"
+                value=""
+                readonly
+              />
+              <input
+                type="text"
+                name="n22"
+                id="add-n22"
+                maxlength="1"
+                size="2"
+                value=""
+                readonly
+              />
+              <input
+                type="text"
+                id="add-n23"
+                maxlength="1"
+                size="2"
+                value=""
+                readonly
+              /><br />
+              <hr />
+              <input
+                type="text"
+                class="clear hard answer"
+                id="add-res1"
+                maxlength="2"
+                size="2"
+              />
+              <input
+                type="text"
+                class="clear answer"
+                id="add-res2"
+                maxlength="1"
+                size="2"
+              />
+              <input
+                type="text"
+                class="clear answer"
+                name="res"
+                id="add-res3"
+                maxlength="1"
+                size="2"
+              /><br />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section subtraction problems -->
+        <div class="container text-center section" id="subtraction-section">
+          <div class="section-heading">
+            <h1>Subtraction problems</h1>
+          </div>
+          <div class="container section-matter text-center">
+            <p
+              id="subtraction-statement"
+              style="font-size: 30px; display: inline-block;"
+            ></p>
+
+            <div class="prob">
+              <input
+                type="text"
+                class="clear hard carry"
+                id="sub-carry1"
+                maxlength="1"
+                size="2"
+                value=""
+              />
+              <input
+                type="text"
+                class="clear hard carry"
+                id="sub-carry2"
+                maxlength="2"
+                size="2"
+                value=""
+              />
+              <input
+                type="text"
+                class="clear hard carry"
+                id="sub-carry3"
+                maxlength="2"
+                size="2"
+                value=""
+              /><br />
+              <input
+                type="text"
+                class="hard"
+                id="sub-n11"
+                maxlength="1"
+                size="2"
+                value="3"
+                readonly
+              />
+              <input
+                type="text"
+                id="sub-n12"
+                maxlength="1"
+                size="2"
+                value="9"
+                readonly
+              />
+              <input
+                type="text"
+                id="sub-n13"
+                maxlength="1"
+                size="2"
+                value="7"
+                readonly
+              /><br />
+              <input
+                type="text"
+                class="hard"
+                id="sub-n21"
+                maxlength="1"
+                size="2"
+                value="1"
+                readonly
+              />
+              <input
+                type="text"
+                id="sub-n22"
+                maxlength="1"
+                size="2"
+                value="4"
+                readonly
+              />
+              <input
+                type="text"
+                id="sub-n23"
+                maxlength="1"
+                size="2"
+                value="6"
+                readonly
+              /><br />
+              <hr />
+              <input
+                type="text"
+                class="clear hard answer"
+                id="sub-res1"
+                maxlength="2"
+                size="2"
+              />
+              <input
+                type="text"
+                class="clear answer"
+                id="sub-res2"
+                maxlength="1"
+                size="2"
+              />
+              <input
+                type="text"
+                class="clear answer"
+                id="sub-res3"
+                maxlength="1"
+                size="2"
+              /><br />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section subtraction problems -->
+        <div class="container text-center section" id="multiplication-section">
+          <div class="section-heading">
+            <h1>Multiplication problems</h1>
+          </div>
+          <div class="container section-matter text-center">
+            <p
+              id="multiplication-statement"
+              style="font-size: 30px; display: inline-block;"
+            ></p>
+
+            <div class="prob">
+              <input
+                type="text"
+                class="clear hard carry"
+                id="mult-carry1"
+                maxlength="1"
+                size="2"
+                value=""
+              />
+              <input
+                type="text"
+                class="clear hard carry"
+                id="mult-carry2"
+                maxlength="2"
+                size="2"
+                value=""
+              />
+              <input
+                type="text"
+                class="clear hard carry"
+                id="mult-carry3"
+                maxlength="2"
+                size="2"
+                value=""
+              /><br />
+              <input
+                type="text"
+                class="hard"
+                id="mult-n11"
+                maxlength="1"
+                size="2"
+                value="3"
+                readonly
+              />
+              <input
+                type="text"
+                id="mult-n12"
+                maxlength="1"
+                size="2"
+                value="9"
+                readonly
+              />
+              <input
+                type="text"
+                id="mult-n13"
+                maxlength="1"
+                size="2"
+                value="7"
+                readonly
+              /><br />
+              <input
+                type="text"
+                class="hard"
+                id="mult-n21"
+                maxlength="1"
+                size="2"
+                value="1"
+                readonly
+              />
+              <input
+                type="text"
+                id="mult-n22"
+                maxlength="1"
+                size="2"
+                value="4"
+                readonly
+              />
+              <input
+                type="text"
+                id="mult-n23"
+                maxlength="1"
+                size="2"
+                value="6"
+                readonly
+              /><br />
+              <hr />
+              <input
+                type="text"
+                class="clear hard answer"
+                id="mult-res1"
+                maxlength="2"
+                size="2"
+              />
+              <input
+                type="text"
+                class="clear answer"
+                id="mult-res2"
+                maxlength="1"
+                size="2"
+              />
+              <input
+                type="text"
+                class="clear answer"
+                id="mult-res3"
+                maxlength="1"
+                size="2"
+              /><br />
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit button, new problem button and answer html section-->
+        <div
+          class="container text-center section required"
+          id="submission-buttons"
+        >
+          <button
+            type="submit"
+            id="submit"
+            class="btn btn-primary btn-lg submit-state"
+          >
+            Submit
+          </button>
+          <button class="btn btn-success btn-lg" id="next">Next</button>
+          <p class="feedback-text" id="feedback"></p>
         </div>
       </div>
-
-      <!-- Submit button, new problem button and answer html section-->
-      <div class="container text-center section required " id="submission-buttons">
-        <button type="submit" id="submit" class="btn btn-primary btn-lg submit-state">
-          Submit
-        </button>
-        <button class="btn btn-success btn-lg" id="next">Next</button>
-        <p class="feedback-text" id="feedback"></p>
-      </div>
-
     </div>
-  </div>
-</body>
-<footer>
-  <div class="container text-center">
-    Hi there
-  </div>
-</footer>
-
+  </body>
+  <footer>
+    <div class="container text-center">
+      Hi there
+    </div>
+  </footer>
 </html>

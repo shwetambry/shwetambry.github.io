@@ -1,6 +1,7 @@
-
 const classesMapping = {
   'patterns': Patterns,
+  'numComparison': NumComparison,
+  'picAddition': PicAddition,
   'placeValue': PlaceValue,
   'coins': Coins,
   'massConvert': MassConvert,
@@ -15,6 +16,8 @@ const classesMapping = {
 // correctAndAttempt holds correct responses and attempted in a list for each class
 var correctAndAttempt = {
   'patterns': [0, 0],
+  'numComparison': [0, 0],
+  'picAddition': [0, 0],
   'placeValue': [0, 0],
   'coins': [0, 0],
   'massConvert': [0, 0],
@@ -155,15 +158,12 @@ function reset() {
 }
 /*
 function toggleChevron(cur_id) {
-
   oldActiveChevronID = $(".chevron.active").attr("id");
   $("#" + oldActiveChevronID).removeClass("active");
   $("#" + cur_id).addClass("active");
   $("#" + cur_id).html("&#9662;");
   $("#" + oldActiveChevronID).html("&#9656;");
-
 }
 function toggleChevronSamePrime(cur_id) {
-
 }
 */
